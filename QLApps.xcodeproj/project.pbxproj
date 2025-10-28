@@ -27,6 +27,7 @@
 		54D3A6F02EA3F49F001EF4F6 /* RoundedIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3A6EF2EA3F49F001EF4F6 /* RoundedIcon.swift */; };
 		54D3A6F72EA46154001EF4F6 /* CoreUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3A6F52EA4610B001EF4F6 /* CoreUI.framework */; };
 		54D3A6FE2EA465B4001EF4F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3A6FA2EA46588001EF4F6 /* CoreGraphics.framework */; };
+		54E0875A2EB15DD000979D91 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 54E087592EB15DD000979D91 /* style.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		54E087532EB148DB00979D91 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		54E087552EB148DF00979D91 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		54E087572EB148E700979D91 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		54E087592EB15DD000979D91 /* style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 			children = (
 				54D3A6F22EA4603B001EF4F6 /* defaultIcon.png */,
 				54D3A6F32EA4603B001EF4F6 /* template.html */,
+				54E087592EB15DD000979D91 /* style.css */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54E0875A2EB15DD000979D91 /* style.css in Resources */,
 				545459C42EA469E4002892E5 /* defaultIcon.png in Resources */,
 				545459C52EA469EA002892E5 /* template.html in Resources */,
 				54442C7B2E378BE0008A870E /* PreviewViewController.xib in Resources */,
@@ -506,7 +510,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 641;
+				CURRENT_PROJECT_VERSION = 648;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -537,7 +541,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 641;
+				CURRENT_PROJECT_VERSION = 648;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -564,7 +568,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = QLPreview/QLPreview.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 641;
+				CURRENT_PROJECT_VERSION = 648;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -593,7 +597,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = QLPreview/QLPreview.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 641;
+				CURRENT_PROJECT_VERSION = 648;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
 				ENABLE_HARDENED_RUNTIME = YES;

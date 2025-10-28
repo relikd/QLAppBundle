@@ -478,13 +478,7 @@ func procFileInfo(_ url: URL) -> HtmlDict {
 
 /// Process meta information about the plugin. Like version and debug flag.
 func procFooterInfo() -> HtmlDict {
-#if DEBUG
-	let debugString = "(debug)"
-#else
-	let debugString = ""
-#endif
 	return [
-		"DEBUG": debugString,
 		"BundleShortVersionString": Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "",
 		"BundleVersion": Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "",
 	]
@@ -550,6 +544,9 @@ func generateHtml(at url: URL) -> String {
 	// App Icon (last, because the image uses a lot of memory)
 	let icon = AppIcon(meta)
 	infoLayer["AppIcon"] = icon.extractImage(from: plistApp).withRoundCorners().asBase64()
+	// insert CSS styles
+	let cssURL = Bundle.main.url(forResource: "style", withExtension: "css")!
+	infoLayer["CSS"] = try! String(contentsOf: cssURL, encoding: .utf8)
 	// prepare html, replace values
 	return applyHtmlTemplate(infoLayer)
 }
