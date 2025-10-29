@@ -21,6 +21,18 @@
 		545459C52EA469EA002892E5 /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 54D3A6F32EA4603B001EF4F6 /* template.html */; };
 		545459C72EA4773A002892E5 /* AppIcon+Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545459C62EA4773A002892E5 /* AppIcon+Car.swift */; };
 		545459C92EA47C37002892E5 /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545459C82EA47C37002892E5 /* Plist.swift */; };
+		54581FD12EB29A0B0043A0B3 /* QuickLookThumbnailing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54581FD02EB29A0B0043A0B3 /* QuickLookThumbnailing.framework */; };
+		54581FD22EB29A0B0043A0B3 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54442C222E378BAF008A870E /* Quartz.framework */; };
+		54581FDA2EB29A0B0043A0B3 /* QLThumbnail.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54581FCF2EB29A0B0043A0B3 /* QLThumbnail.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		54581FE42EB29A2B0043A0B3 /* CoreUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3A6F52EA4610B001EF4F6 /* CoreUI.framework */; };
+		54581FEF2EB29A570043A0B3 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405CF5D2EA1199B00613856 /* Shared.swift */; };
+		54581FF02EB29A5E0043A0B3 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3A6ED2EA39CC6001EF4F6 /* AppIcon.swift */; };
+		54581FF12EB29A620043A0B3 /* AppIcon+Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545459C62EA4773A002892E5 /* AppIcon+Car.swift */; };
+		54581FF72EB29A820043A0B3 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405CF642EA1376B00613856 /* Zip.swift */; };
+		54581FFD2EB29AB70043A0B3 /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545459C82EA47C37002892E5 /* Plist.swift */; };
+		545820032EB29B0A0043A0B3 /* RoundedIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3A6EF2EA3F49F001EF4F6 /* RoundedIcon.swift */; };
+		545820222EB29B3D0043A0B3 /* ThumbnailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5458201F2EB29B3D0043A0B3 /* ThumbnailProvider.swift */; };
+		545820232EB29B4C0043A0B3 /* defaultIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 54D3A6F22EA4603B001EF4F6 /* defaultIcon.png */; };
 		5469E11D2EA5930C00D46CE7 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469E11C2EA5930C00D46CE7 /* Entitlements.swift */; };
 		54D3A6EC2EA31B52001EF4F6 /* AppCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3A6EB2EA31B52001EF4F6 /* AppCategories.swift */; };
 		54D3A6EE2EA39CC6001EF4F6 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3A6ED2EA39CC6001EF4F6 /* AppIcon.swift */; };
@@ -38,6 +50,13 @@
 			remoteGlobalIDString = 54442C1F2E378BAF008A870E;
 			remoteInfo = QLPreview;
 		};
+		54581FD82EB29A0B0043A0B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54442BEC2E378B71008A870E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 54581FCE2EB29A0B0043A0B3;
+			remoteInfo = QLThumbnail;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +66,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				54581FDA2EB29A0B0043A0B3 /* QLThumbnail.appex in Embed Foundation Extensions */,
 				54442C302E378BAF008A870E /* QLPreview.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -71,9 +91,13 @@
 		54442C772E378BE0008A870E /* QLPreview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QLPreview.entitlements; sourceTree = "<group>"; };
 		545459C62EA4773A002892E5 /* AppIcon+Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppIcon+Car.swift"; sourceTree = "<group>"; };
 		545459C82EA47C37002892E5 /* Plist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
+		54581FCF2EB29A0B0043A0B3 /* QLThumbnail.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QLThumbnail.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		54581FD02EB29A0B0043A0B3 /* QuickLookThumbnailing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLookThumbnailing.framework; path = System/Library/Frameworks/QuickLookThumbnailing.framework; sourceTree = SDKROOT; };
+		5458201D2EB29B3D0043A0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5458201E2EB29B3D0043A0B3 /* QLThumbnail.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QLThumbnail.entitlements; sourceTree = "<group>"; };
+		5458201F2EB29B3D0043A0B3 /* ThumbnailProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailProvider.swift; sourceTree = "<group>"; };
 		5469E11C2EA5930C00D46CE7 /* Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitlements.swift; sourceTree = "<group>"; };
 		5485EE362EB1460C009E3905 /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = System/Library/Frameworks/Network.framework; sourceTree = SDKROOT; };
-		54D3A6E52EA31B13001EF4F6 /* ThumbnailGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailGenerator.swift; sourceTree = "<group>"; };
 		54D3A6EB2EA31B52001EF4F6 /* AppCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCategories.swift; sourceTree = "<group>"; };
 		54D3A6ED2EA39CC6001EF4F6 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		54D3A6EF2EA3F49F001EF4F6 /* RoundedIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedIcon.swift; sourceTree = "<group>"; };
@@ -110,6 +134,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		54581FCC2EB29A0B0043A0B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54581FD12EB29A0B0043A0B3 /* QuickLookThumbnailing.framework in Frameworks */,
+				54581FD22EB29A0B0043A0B3 /* Quartz.framework in Frameworks */,
+				54581FE42EB29A2B0043A0B3 /* CoreUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -124,7 +158,6 @@
 				545459C82EA47C37002892E5 /* Plist.swift */,
 				5405CF642EA1376B00613856 /* Zip.swift */,
 				5469E11C2EA5930C00D46CE7 /* Entitlements.swift */,
-				54D3A6E52EA31B13001EF4F6 /* ThumbnailGenerator.swift */,
 				5405CF5B2EA1191A00613856 /* PreviewGenerator.swift */,
 			);
 			path = src;
@@ -138,6 +171,7 @@
 				541051562E37AFC10083670B /* src */,
 				54442C6F2E378BDD008A870E /* QLApps */,
 				54442C782E378BE0008A870E /* QLPreview */,
+				545820202EB29B3D0043A0B3 /* QLThumbnail */,
 				54442C212E378BAF008A870E /* Frameworks */,
 				54442BF52E378B71008A870E /* Products */,
 			);
@@ -148,6 +182,7 @@
 			children = (
 				54442BF42E378B71008A870E /* QLApps.app */,
 				54442C202E378BAF008A870E /* QLPreview.appex */,
+				54581FCF2EB29A0B0043A0B3 /* QLThumbnail.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,6 +201,7 @@
 				54D3A6FC2EA465A9001EF4F6 /* CoreServices.framework */,
 				54D3A6FA2EA46588001EF4F6 /* CoreGraphics.framework */,
 				54442C222E378BAF008A870E /* Quartz.framework */,
+				54581FD02EB29A0B0043A0B3 /* QuickLookThumbnailing.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -190,6 +226,16 @@
 				54442C772E378BE0008A870E /* QLPreview.entitlements */,
 			);
 			path = QLPreview;
+			sourceTree = "<group>";
+		};
+		545820202EB29B3D0043A0B3 /* QLThumbnail */ = {
+			isa = PBXGroup;
+			children = (
+				5458201D2EB29B3D0043A0B3 /* Info.plist */,
+				5458201E2EB29B3D0043A0B3 /* QLThumbnail.entitlements */,
+				5458201F2EB29B3D0043A0B3 /* ThumbnailProvider.swift */,
+			);
+			path = QLThumbnail;
 			sourceTree = "<group>";
 		};
 		54D3A6F42EA46069001EF4F6 /* resources */ = {
@@ -226,6 +272,7 @@
 			);
 			dependencies = (
 				54442C2F2E378BAF008A870E /* PBXTargetDependency */,
+				54581FD92EB29A0B0043A0B3 /* PBXTargetDependency */,
 			);
 			name = QLApps;
 			packageProductDependencies = (
@@ -253,6 +300,25 @@
 			productReference = 54442C202E378BAF008A870E /* QLPreview.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		54581FCE2EB29A0B0043A0B3 /* QLThumbnail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54581FDE2EB29A0B0043A0B3 /* Build configuration list for PBXNativeTarget "QLThumbnail" */;
+			buildPhases = (
+				54581FCB2EB29A0B0043A0B3 /* Sources */,
+				54581FCC2EB29A0B0043A0B3 /* Frameworks */,
+				54581FCD2EB29A0B0043A0B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QLThumbnail;
+			packageProductDependencies = (
+			);
+			productName = QLThumbnail;
+			productReference = 54581FCF2EB29A0B0043A0B3 /* QLThumbnail.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -267,6 +333,9 @@
 						CreatedOnToolsVersion = 16.4;
 					};
 					54442C1F2E378BAF008A870E = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					54581FCE2EB29A0B0043A0B3 = {
 						CreatedOnToolsVersion = 16.4;
 					};
 				};
@@ -287,6 +356,7 @@
 			targets = (
 				54442BF32E378B71008A870E /* QLApps */,
 				54442C1F2E378BAF008A870E /* QLPreview */,
+				54581FCE2EB29A0B0043A0B3 /* QLThumbnail */,
 			);
 		};
 /* End PBXProject section */
@@ -309,6 +379,14 @@
 				545459C42EA469E4002892E5 /* defaultIcon.png in Resources */,
 				545459C52EA469EA002892E5 /* template.html in Resources */,
 				54442C7B2E378BE0008A870E /* PreviewViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54581FCD2EB29A0B0043A0B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				545820232EB29B4C0043A0B3 /* defaultIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +418,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		54581FCB2EB29A0B0043A0B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54581FFD2EB29AB70043A0B3 /* Plist.swift in Sources */,
+				54581FEF2EB29A570043A0B3 /* Shared.swift in Sources */,
+				54581FF02EB29A5E0043A0B3 /* AppIcon.swift in Sources */,
+				54581FF72EB29A820043A0B3 /* Zip.swift in Sources */,
+				545820032EB29B0A0043A0B3 /* RoundedIcon.swift in Sources */,
+				545820222EB29B3D0043A0B3 /* ThumbnailProvider.swift in Sources */,
+				54581FF12EB29A620043A0B3 /* AppIcon+Car.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -347,6 +439,11 @@
 			isa = PBXTargetDependency;
 			target = 54442C1F2E378BAF008A870E /* QLPreview */;
 			targetProxy = 54442C2E2E378BAF008A870E /* PBXContainerItemProxy */;
+		};
+		54581FD92EB29A0B0043A0B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 54581FCE2EB29A0B0043A0B3 /* QLThumbnail */;
+			targetProxy = 54581FD82EB29A0B0043A0B3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -404,7 +501,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 773;
+				CURRENT_PROJECT_VERSION = 842;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = UY657LKNHJ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -475,7 +572,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 773;
+				CURRENT_PROJECT_VERSION = 842;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = UY657LKNHJ;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -617,6 +714,62 @@
 			};
 			name = Release;
 		};
+		54581FDB2EB29A0B0043A0B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = QLThumbnail/QLThumbnail.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QLThumbnail/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = QLThumbnail;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				PRODUCT_BUNDLE_IDENTIFIER = de.relikd.QLApps.QLThumbnail;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/PrivateFrameworks/CoreUI.framework $(inherited)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		54581FDC2EB29A0B0043A0B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = QLThumbnail/QLThumbnail.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QLThumbnail/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = QLThumbnail;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				PRODUCT_BUNDLE_IDENTIFIER = de.relikd.QLApps.QLThumbnail;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/PrivateFrameworks/CoreUI.framework $(inherited)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -643,6 +796,15 @@
 			buildConfigurations = (
 				54442C322E378BAF008A870E /* Debug */,
 				54442C332E378BAF008A870E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		54581FDE2EB29A0B0043A0B3 /* Build configuration list for PBXNativeTarget "QLThumbnail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54581FDB2EB29A0B0043A0B3 /* Debug */,
+				54581FDC2EB29A0B0043A0B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

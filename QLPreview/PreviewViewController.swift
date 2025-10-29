@@ -4,7 +4,7 @@ import WebKit // WebView
 import os // OSLog
 
 // show Console logs with subsystem:de.relikd.QLApps
-private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "main")
+private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "preview-plugin")
 
 class PreviewViewController: NSViewController, QLPreviewingController {
 	
