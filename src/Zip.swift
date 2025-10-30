@@ -175,7 +175,6 @@ func unzipFileEntry(_ path: String, _ entry: ZipEntry) -> Data? {
 	}
 	fp.seek(toFileOffset: UInt64(entry.offset))
 	let file_record = ZIP_LocalFile(fp.readData(ofLength: ZIP_LocalFile.LENGTH))
-	os_log(.debug, log: log, "header: %{public}@ vs  %{public}@", String(describing: file_record), String(describing: entry))
 	
 	// central directory size and local file size may differ! use local file for ground truth
 	let dataOffset = Int(entry.offset) + ZIP_LocalFile.LENGTH + Int(file_record.fileNameLength) + Int(file_record.extraFieldLength)

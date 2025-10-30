@@ -1,7 +1,7 @@
 import QuickLookThumbnailing
 import os // OSLog
 
-// show Console logs with subsystem:de.relikd.QLApps
+// show Console logs with subsystem:de.relikd.QLAppBundle
 private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "thumbnail-plugin")
 
 extension QLThumbnailReply {
@@ -39,3 +39,4 @@ class ThumbnailProvider: QLThumbnailProvider {
 		reply.setFlavor(meta.type == .Archive ? 12 : 0) // .archive looks like "in development"
 	}
 }
+

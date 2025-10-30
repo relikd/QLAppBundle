@@ -3,7 +3,7 @@ import Quartz // QLPreviewingController
 import WebKit // WebView
 import os // OSLog
 
-// show Console logs with subsystem:de.relikd.QLApps
+// show Console logs with subsystem:de.relikd.QLAppBundle
 private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "preview-plugin")
 
 class PreviewViewController: NSViewController, QLPreviewingController {
