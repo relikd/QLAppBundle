@@ -1,10 +1,10 @@
 ![macOS 10.15+](https://img.shields.io/badge/macOS-10.15+-888)
-[![Current release](https://img.shields.io/github/release/relikd/QLApps)](https://github.com/relikd/QLApps/releases)
-[![GitHub license](https://img.shields.io/github/license/relikd/QLApps)](LICENSE)
+[![Current release](https://img.shields.io/github/release/relikd/QLAppBundle)](https://github.com/relikd/QLAppBundle/releases)
+[![GitHub license](https://img.shields.io/github/license/relikd/QLAppBundle)](LICENSE)
 
 
-QLApps
-======
+QLAppBundle
+===========
 
 A QuickLook plugin for app bundles (`.ipa`, `.appex`, `.xcarchive`).
 
@@ -21,12 +21,34 @@ So here it goes, my own fork to maintain.
 
 This is not to devalue the original code, I highly respect the authors contribution for the general public.
 I merely want things to be done.
-Also, I've removed support for provisioning profiles (`.mobileprovision`, `.provisionprofile`) and focus on app bundles.
+Also, I've removed support for provisioning profiles (`.mobileprovision`, `.provisionprofile`) to focus on app bundles.
 
 
-## Future
+## ToDO
 
-If I find the time, I'll add support for `.apk` files too.
+- [ ] support for `.apk` files
+
+
+## Development notes
+
+If you encounter compile errors like:
+
+```
+Command SwiftEmitModule failed with a nonzero exit code
+```
+
+or
+
+```
+Could not build Objective-C module 'ExtensionFoundation'
+```
+
+remove the `SYSTEM_FRAMEWORK_SEARCH_PATHS` attribute from Project > Build Settings then try to compile again (it will fail).
+Afterwards, restore the value in the attribute.
+Now, the build index should be up-to-date and the app should compile fine.
+
+I havent figured out the exact issue, consider it a workaround.
+It should only be necessary once (or if you delete your `DerivedData` folder).
 
 
 [1]: https://github.com/ealeksandrov/ProvisionQL

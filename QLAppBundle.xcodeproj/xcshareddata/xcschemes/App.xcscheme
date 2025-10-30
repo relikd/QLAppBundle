@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "54442BF32E378B71008A870E"
-               BuildableName = "QLApps.app"
-               BlueprintName = "QLApps"
-               ReferencedContainer = "container:QLApps.xcodeproj">
+               BuildableName = "QLAppBundle.app"
+               BlueprintName = "QLAppBundle"
+               ReferencedContainer = "container:QLAppBundle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "54442BF32E378B71008A870E"
-            BuildableName = "QLApps.app"
-            BlueprintName = "QLApps"
-            ReferencedContainer = "container:QLApps.xcodeproj">
+            BuildableName = "QLAppBundle.app"
+            BlueprintName = "QLAppBundle"
+            ReferencedContainer = "container:QLAppBundle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "54442BF32E378B71008A870E"
-            BuildableName = "QLApps.app"
-            BlueprintName = "QLApps"
-            ReferencedContainer = "container:QLApps.xcodeproj">
+            BuildableName = "QLAppBundle.app"
+            BlueprintName = "QLAppBundle"
+            ReferencedContainer = "container:QLAppBundle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
