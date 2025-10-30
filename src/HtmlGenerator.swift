@@ -15,8 +15,6 @@ struct HtmlGenerator {
 		procAppInfo(plistApp)
 		procItunesMeta(plistItunes)
 		procProvision(plistProvision, isOSX: meta.isOSX)
-		
-		// Entitlements
 		procEntitlements(meta, plistApp, plistProvision)
 		procFileInfo(meta.url)
 		procFooterInfo()
