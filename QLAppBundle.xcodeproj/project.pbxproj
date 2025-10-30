@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		5405CF5E2EA1199B00613856 /* MetaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405CF5D2EA1199B00613856 /* MetaInfo.swift */; };
 		5405CF652EA1376B00613856 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405CF642EA1376B00613856 /* Zip.swift */; };
+		543FE5742EB3BB5E0059F98B /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 543FE5732EB3BB5E0059F98B /* AppIcon.icns */; };
 		54442C232E378BAF008A870E /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54442C222E378BAF008A870E /* Quartz.framework */; };
 		54442C302E378BAF008A870E /* QLPreview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54442C202E378BAF008A870E /* QLPreview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		54442C702E378BDD008A870E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54442C6A2E378BDD008A870E /* AppDelegate.swift */; };
-		54442C712E378BDD008A870E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54442C6B2E378BDD008A870E /* Assets.xcassets */; };
 		54442C722E378BDD008A870E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54442C6D2E378BDD008A870E /* MainMenu.xib */; };
 		54442C792E378BE0008A870E /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54442C742E378BE0008A870E /* PreviewViewController.swift */; };
 		54442C7B2E378BE0008A870E /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54442C762E378BE0008A870E /* PreviewViewController.xib */; };
@@ -83,11 +83,12 @@
 /* Begin PBXFileReference section */
 		5405CF5D2EA1199B00613856 /* MetaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaInfo.swift; sourceTree = "<group>"; };
 		5405CF642EA1376B00613856 /* Zip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zip.swift; sourceTree = "<group>"; };
+		543FE5732EB3BB5E0059F98B /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		543FE5752EB3BC740059F98B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54442BF42E378B71008A870E /* QLAppBundle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLAppBundle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54442C202E378BAF008A870E /* QLPreview.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QLPreview.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		54442C222E378BAF008A870E /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		54442C6A2E378BDD008A870E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		54442C6B2E378BDD008A870E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54442C6C2E378BDD008A870E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		54442C6E2E378BDD008A870E /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
 		54442C732E378BE0008A870E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -191,8 +192,8 @@
 				547F52FC2EB37F3A002B6D5F /* LICENSE */,
 				547F52FB2EB37F10002B6D5F /* README.md */,
 				54D3A6F62EA4610B001EF4F6 /* PrivateFrameworks */,
-				54D3A6F42EA46069001EF4F6 /* resources */,
 				541051562E37AFC10083670B /* src */,
+				54D3A6F42EA46069001EF4F6 /* resources */,
 				54442C6F2E378BDD008A870E /* App */,
 				54442C782E378BE0008A870E /* QLPreview */,
 				545820202EB29B3D0043A0B3 /* QLThumbnail */,
@@ -233,10 +234,10 @@
 		54442C6F2E378BDD008A870E /* App */ = {
 			isa = PBXGroup;
 			children = (
-				54442C6A2E378BDD008A870E /* AppDelegate.swift */,
-				54442C6B2E378BDD008A870E /* Assets.xcassets */,
-				54442C6D2E378BDD008A870E /* MainMenu.xib */,
+				543FE5752EB3BC740059F98B /* Info.plist */,
 				54442C6E2E378BDD008A870E /* App.entitlements */,
+				54442C6A2E378BDD008A870E /* AppDelegate.swift */,
+				54442C6D2E378BDD008A870E /* MainMenu.xib */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -245,9 +246,9 @@
 			isa = PBXGroup;
 			children = (
 				54442C732E378BE0008A870E /* Info.plist */,
+				54442C772E378BE0008A870E /* QLPreview.entitlements */,
 				54442C742E378BE0008A870E /* PreviewViewController.swift */,
 				54442C762E378BE0008A870E /* PreviewViewController.xib */,
-				54442C772E378BE0008A870E /* QLPreview.entitlements */,
 			);
 			path = QLPreview;
 			sourceTree = "<group>";
@@ -265,6 +266,7 @@
 		54D3A6F42EA46069001EF4F6 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				543FE5732EB3BB5E0059F98B /* AppIcon.icns */,
 				54D3A6F22EA4603B001EF4F6 /* defaultIcon.png */,
 				54D3A6F32EA4603B001EF4F6 /* template.html */,
 				54E087592EB15DD000979D91 /* style.css */,
@@ -390,8 +392,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54442C712E378BDD008A870E /* Assets.xcassets in Resources */,
 				54442C722E378BDD008A870E /* MainMenu.xib in Resources */,
+				543FE5742EB3BB5E0059F98B /* AppIcon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,7 +533,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1034;
+				CURRENT_PROJECT_VERSION = 1052;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = UY657LKNHJ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -601,7 +603,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1034;
+				CURRENT_PROJECT_VERSION = 1052;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = UY657LKNHJ;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -633,7 +635,6 @@
 		54442C022E378B71008A870E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -643,6 +644,7 @@
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -662,7 +664,6 @@
 		54442C032E378B71008A870E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -672,6 +673,7 @@
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;

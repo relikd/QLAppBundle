@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+	<defs>
+		<mask id="mask">
+			<circle id="lens" cx="454" cy="442" r="330" fill="#fff"/>
+		</mask>
+		<linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#16b7ef"/>
+			<stop offset="1" stop-color="#155ddc"/>
+		</linearGradient>
+	</defs>
+	<g transform="translate(100 100) scale(.8 .8)">
+		<g fill="#aaa" stroke="#666" stroke-width="44">
+			<rect x="22" y="22" width="956" height="956" rx="180" ry="180"/>
+		</g>
+		<g fill="#aaa" stroke="#666" stroke-width="16">
+			<circle id="r3" cx="500" cy="500" r="433"/>
+			<circle id="r2" cx="500" cy="500" r="263"/>
+			<circle id="r1" cx="500" cy="500" r="185"/>
+			<line id="diag2" x1="67" y1="67" x2="933" y2="933"/>
+			<line id="diag1" x1="67" y1="933" x2="933" y2="67"/>
+			<g id="horizontal">
+				<line x1="67" y1="933" x2="933" y2="933"/>
+				<line y1="685" x2="1000" y2="685"/>
+				<line y1="500" x2="1000" y2="500"/>
+				<line y1="315" x2="1000" y2="315"/>
+				<line x1="67" y1="67" x2="933" y2="67"/>
+			</g>
+			<g id="vertical">
+				<line x1="933" y1="67" x2="933" y2="933"/>
+				<line x1="685" y1="0" x2="685" y2="1000"/>
+				<line x1="500" y1="0" x2="500" y2="1000"/>
+				<line x1="315" y1="0" x2="315" y2="1000"/>
+				<line x1="67" y1="67" x2="67" y2="933"/>
+			</g>
+		</g>
+	</g>
+	<g id="loupe" fill="#000">
+		<path id="handle" d="M933,917l-66,58c-11,9-27,8-35-4l-179-241,65-57,217,208c10,10,10,26-1,35Z"/>
+		<circle cx="454" cy="442" r="370"/>
+	</g>
+	<g mask="url(#mask)">
+		<g transform="translate(100 100) scale(.8 .8)">
+			<rect fill="url(#gradient)" width="1000" height="1000"/>
+			<g fill="#fff">
+				<path d="M705,665h126c25,0,45-20,45-45h0c0-25-20-45-45-45h-162l36,90Z"/>
+				<path d="M604,665H182c-25,0-45-20-45-45h0c0-25,20-45,45-45h357c41,0,65,45,65,90Z"/>
+				<path d="M324,717l-45,78c-12,22-40,29-61,16h0c-22-12-29-40-16-61l36-62c38-9,67-0,86,29Z"/>
+				<path d="M397,592l208-359c12-22,5-49-16-61h0c-22-12-49-5-61,16l-231,400,102,4Z"/>
+				<path d="M539,478l183,317c12,22,40,29,61,16h0c22-12,29-40,16-61l-232-402c-32,33-51,83-28,130Z"/>
+				<path d="M459,340l-62-107c-12-22-5-49,16-61h0c22-12,49-5,61,16l38,65-54,87Z"/>
+			</g>
+		</g>
+	</g>
+</svg>
