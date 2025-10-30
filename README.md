@@ -6,7 +6,7 @@
 QLAppBundle
 ===========
 
-A QuickLook plugin for app bundles (`.ipa`, `.appex`, `.xcarchive`).
+A QuickLook plugin for app bundles (`.ipa`, `.tipa`, `.appex`, `.xcarchive`).
 
 ![screenshot](screenshot.png)
 

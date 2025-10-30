@@ -31,7 +31,7 @@ struct MetaInfo {
 		var zipFile: ZipFile? = nil
 		
 		switch self.UTI {
-		case "com.apple.itunes.ipa":
+		case "com.apple.itunes.ipa", "com.opa334.trollstore.tipa", "dyn.ah62d4rv4ge81k4puqe":
 			self.type = FileType.IPA;
 			zipFile = ZipFile(self.url.path);
 		case "com.apple.xcode.archive":
