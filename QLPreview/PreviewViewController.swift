@@ -13,7 +13,8 @@ class PreviewViewController: NSViewController, QLPreviewingController {
 	}
 	
 	func preparePreviewOfFile(at url: URL) async throws {
-		let html = generateHtml(at: url)
+		let meta = MetaInfo(url)
+		let html = HtmlGenerator(meta).applyHtmlTemplate()
 		// sure, we could use `WKWebView`, but that requires the `com.apple.security.network.client` entitlement
 		//let web = WKWebView(frame: self.view.bounds)
 		let web = WebView(frame: self.view.bounds)

@@ -22,10 +22,8 @@ class ThumbnailProvider: QLThumbnailProvider {
 	// Probably overwritten by Apple somehow
 	
 	override func provideThumbnail(for request: QLFileThumbnailRequest, _ handler: @escaping (QLThumbnailReply?, Error?) -> Void) {
-		let meta = QuickLookInfo(request.fileURL)
-		let icon = AppIcon(meta)
-		let plistApp = meta.readPlistApp()
-		let img = icon.extractImage(from: plistApp).withRoundCorners()
+		let meta = MetaInfo(request.fileURL)
+		let img = AppIcon(meta).extractImage(from: meta.readPlistApp()).withRoundCorners()
 		
 		// First way: Draw the thumbnail into the current context, set up with UIKit's coordinate system.
 		let reply = QLThumbnailReply(contextSize: request.maximumSize, currentContextDrawing: { () -> Bool in

@@ -1,7 +1,9 @@
 import Foundation
 import os // OSLog
 
-private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "Shared")
+private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "MetaInfo")
+
+typealias PlistDict = [String: Any] // basically an untyped Dict
 
 
 // Init QuickLook Type
@@ -11,14 +13,14 @@ enum FileType {
 	case Extension
 }
 
-struct QuickLookInfo {
+struct MetaInfo {
 	let UTI: String
 	let url: URL
 	let effectiveUrl: URL? // if set, will point to the app inside of an archive
 	
 	let type: FileType
 	let zipFile: ZipFile? // only set for zipped file types
-	let isOSX = false
+	let isOSX = false // relict of the past when ProvisionQL also processed provision profiles
 	
 	/// Use file url and UTI type to generate an info object to pass around.
 	init(_ url: URL) {
@@ -56,13 +58,40 @@ struct QuickLookInfo {
 			return try? Data(contentsOf: url.appendingPathComponent(filename))
 		}
 	}
+	
+	/// Read app default `Info.plist`. (used for both, Preview and Thumbnail)
+	func readPlistApp() -> PlistDict? {
+		switch self.type {
+		case .IPA, .Archive, .Extension:
+			return self.readPayloadFile("Info.plist")?.asPlistOrNil()
+		}
+	}
+}
+
+
+// MARK: - Plist
+
+extension Data {
+	/// Helper for optional chaining.
+	func asPlistOrNil() -> PlistDict? {
+		if self.isEmpty {
+			return nil
+		}
+		//	var format: PropertyListSerialization.PropertyListFormat = .xml
+		do {
+			return try PropertyListSerialization.propertyList(from: self, format: nil) as? PlistDict
+		} catch {
+			os_log(.error, log: log, "ERROR reading plist %{public}@", error.localizedDescription)
+			return nil
+		}
+	}
 }
 
 
 // MARK: - Meta data for QuickLook
 
 /// Search an archive for the .app or .ipa bundle.
-func appPathForArchive(_ url: URL) -> URL? {
+private func appPathForArchive(_ url: URL) -> URL? {
 	let appsDir = url.appendingPathComponent("Products/Applications/")
 	if FileManager.default.fileExists(atPath: appsDir.path) {
 		if let x = try? FileManager.default.contentsOfDirectory(at: appsDir, includingPropertiesForKeys: nil), !x.isEmpty {
@@ -70,22 +99,4 @@ func appPathForArchive(_ url: URL) -> URL? {
 		}
 	}
 	return nil;
-}
-
-
-// MARK: - Other helper
-
-enum ExpirationStatus {
-	case Expired
-	case Expiring
-	case Valid
-	
-	/// Check time between date and now. Set Expiring if less than 30 days until expiration
-	init(_ date: Date?) {
-		if date == nil || date!.timeIntervalSinceNow < 0 {
-			self = .Expired
-		}
-		let components = Calendar.current.dateComponents([.day], from: Date(), to: date!)
-		self = components.day! < 30 ? .Expiring : .Valid
-	}
 }

@@ -56,7 +56,7 @@ struct Entitlements {
 	}
 	
 	/// Print formatted plist in a @c \<pre> tag
-	func format(_ plist: [String: Any]?) -> String? {
+	private func format(_ plist: [String: Any]?) -> String? {
 		guard let plist else {
 			return codeSignError // may be nil
 		}
@@ -68,7 +68,7 @@ struct Entitlements {
 	// MARK: - SecCode in-memory reader
 	
 	/// use in-memory `SecCode` for entitlement extraction
-	func getSecCodeEntitlements() -> PlistDict? {
+	private func getSecCodeEntitlements() -> PlistDict? {
 		let url = URL(fileURLWithPath: self.binaryPath)
 		var codeRef: SecStaticCode?
 		SecStaticCodeCreateWithPath(url as CFURL, [], &codeRef)
@@ -114,7 +114,7 @@ struct Entitlements {
 	// MARK: - Plist formatter
 	
 	/// Print recursive tree of key-value mappings.
-	func recursiveKeyValue(_ value: Any, _ output: inout String, _ level: Int = -1, _ key: String? = nil) {
+	private func recursiveKeyValue(_ value: Any, _ output: inout String, _ level: Int = -1, _ key: String? = nil) {
 		let indent = level > 0 ? String(repeating: " ", count: level * 4) : ""
 		let prefix = indent + (key?.appending(" = ") ?? "")
 		
