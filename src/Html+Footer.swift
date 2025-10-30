@@ -10,5 +10,8 @@ extension HtmlGenerator {
 			"BundleShortVersionString": Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "",
 			"BundleVersion": Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "",
 		])
+#if DEBUG
+		self.data["SrcAppName"]! += " (debug)"
+#endif
 	}
 }

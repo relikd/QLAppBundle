@@ -85,7 +85,7 @@
 		5405CF642EA1376B00613856 /* Zip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zip.swift; sourceTree = "<group>"; };
 		543FE5732EB3BB5E0059F98B /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 		543FE5752EB3BC740059F98B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		54442BF42E378B71008A870E /* QLAppBundle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLAppBundle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		54442BF42E378B71008A870E /* QLAppBundle (debug).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QLAppBundle (debug).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54442C202E378BAF008A870E /* QLPreview.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QLPreview.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		54442C222E378BAF008A870E /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		54442C6A2E378BDD008A870E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 		54442BF52E378B71008A870E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54442BF42E378B71008A870E /* QLAppBundle.app */,
+				54442BF42E378B71008A870E /* QLAppBundle (debug).app */,
 				54442C202E378BAF008A870E /* QLPreview.appex */,
 				54581FCF2EB29A0B0043A0B3 /* QLThumbnail.appex */,
 			);
@@ -304,7 +304,7 @@
 			packageProductDependencies = (
 			);
 			productName = QLApps;
-			productReference = 54442BF42E378B71008A870E /* QLAppBundle.app */;
+			productReference = 54442BF42E378B71008A870E /* QLAppBundle (debug).app */;
 			productType = "com.apple.product-type.application";
 		};
 		54442C1F2E378BAF008A870E /* QLPreview */ = {
@@ -533,7 +533,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1065;
+				CURRENT_PROJECT_VERSION = 1086;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = UY657LKNHJ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -560,7 +560,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = de.relikd.QLAppBundle;
+				PRODUCT_BUNDLE_IDENTIFIER = de.relikd.QLAppBundle.debug;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/PrivateFrameworks/CoreUI.framework";
@@ -603,7 +603,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1065;
+				CURRENT_PROJECT_VERSION = 1086;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = UY657LKNHJ;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -635,7 +635,6 @@
 		54442C022E378B71008A870E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
@@ -653,7 +652,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME) (debug)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -664,7 +663,6 @@
 		54442C032E378B71008A870E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
