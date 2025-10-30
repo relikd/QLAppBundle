@@ -31,6 +31,14 @@ Also, I've removed support for provisioning profiles (`.mobileprovision`, `.prov
 
 ## Development notes
 
+
+### Debug
+
+You can show Console logs with `subsystem:de.relikd.QLAppBundle`
+
+
+### Compile errors
+
 If you encounter compile errors like:
 
 ```
@@ -42,6 +50,8 @@ or
 ```
 Could not build Objective-C module 'ExtensionFoundation'
 ```
+
+or `ThumbnailProvider` is throwing lots of errors for undefined classes:
 
 remove the `SYSTEM_FRAMEWORK_SEARCH_PATHS` attribute from Project > Build Settings then try to compile again (it will fail).
 Afterwards, restore the value in the attribute.

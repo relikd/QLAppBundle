@@ -1,7 +1,6 @@
 import QuickLookThumbnailing
 import os // OSLog
 
-// show Console logs with subsystem:de.relikd.QLAppBundle
 private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "thumbnail-plugin")
 
 extension QLThumbnailReply {
@@ -18,7 +17,7 @@ extension QLThumbnailReply {
 
 class ThumbnailProvider: QLThumbnailProvider {
 	
-	// TODO: sadly, this does not seem to work for .xarchive and .appex
+	// TODO: sadly, this does not seem to work for .xcarchive and .appex
 	// Probably overwritten by Apple somehow
 	
 	override func provideThumbnail(for request: QLFileThumbnailRequest, _ handler: @escaping (QLThumbnailReply?, Error?) -> Void) {
