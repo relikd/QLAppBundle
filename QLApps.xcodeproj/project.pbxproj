@@ -110,6 +110,8 @@
 		547F52F32EB2CA05002B6D5F /* Html+Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Html+Entitlements.swift"; sourceTree = "<group>"; };
 		547F52F62EB2CAC7002B6D5F /* Html+Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Html+Footer.swift"; sourceTree = "<group>"; };
 		547F52F82EB2CBAB002B6D5F /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
+		547F52FB2EB37F10002B6D5F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		547F52FC2EB37F3A002B6D5F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		5485EE362EB1460C009E3905 /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = System/Library/Frameworks/Network.framework; sourceTree = SDKROOT; };
 		54D3A6EB2EA31B52001EF4F6 /* AppCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCategories.swift; sourceTree = "<group>"; };
 		54D3A6ED2EA39CC6001EF4F6 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
@@ -186,6 +188,8 @@
 		54442BEB2E378B71008A870E = {
 			isa = PBXGroup;
 			children = (
+				547F52FC2EB37F3A002B6D5F /* LICENSE */,
+				547F52FB2EB37F10002B6D5F /* README.md */,
 				54D3A6F62EA4610B001EF4F6 /* PrivateFrameworks */,
 				54D3A6F42EA46069001EF4F6 /* resources */,
 				541051562E37AFC10083670B /* src */,
