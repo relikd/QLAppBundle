@@ -99,6 +99,7 @@
 		545459C62EA4773A002892E5 /* AppIcon+Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppIcon+Car.swift"; sourceTree = "<group>"; };
 		54581FCF2EB29A0B0043A0B3 /* QLThumbnail.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QLThumbnail.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		54581FD02EB29A0B0043A0B3 /* QuickLookThumbnailing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLookThumbnailing.framework; path = System/Library/Frameworks/QuickLookThumbnailing.framework; sourceTree = SDKROOT; };
+		545D9F3D2EB54C6200C38917 /* QLAppBundle.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QLAppBundle.xcconfig; sourceTree = "<group>"; };
 		5469E11C2EA5930C00D46CE7 /* Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitlements.swift; sourceTree = "<group>"; };
 		547F52DC2EB2C15D002B6D5F /* ExpirationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpirationStatus.swift; sourceTree = "<group>"; };
 		547F52E32EB2C3D8002B6D5F /* Html+iTunesPurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Html+iTunesPurchase.swift"; sourceTree = "<group>"; };
@@ -190,6 +191,7 @@
 		54442BEB2E378B71008A870E = {
 			isa = PBXGroup;
 			children = (
+				545D9F3D2EB54C6200C38917 /* QLAppBundle.xcconfig */,
 				547F52FC2EB37F3A002B6D5F /* LICENSE */,
 				547F52FB2EB37F10002B6D5F /* README.md */,
 				54D3A6F62EA4610B001EF4F6 /* PrivateFrameworks */,
@@ -503,6 +505,7 @@
 /* Begin XCBuildConfiguration section */
 		54442BFF2E378B71008A870E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 545D9F3D2EB54C6200C38917 /* QLAppBundle.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -535,13 +538,12 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1120;
+				CURRENT_PROJECT_VERSION = 1436;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = UY657LKNHJ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/PrivateFrameworks";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -557,22 +559,19 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = de.relikd.QLAppBundle.debug;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/PrivateFrameworks/CoreUI.framework";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks";
 			};
 			name = Debug;
 		};
 		54442C002E378B71008A870E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 545D9F3D2EB54C6200C38917 /* QLAppBundle.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -605,13 +604,12 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1120;
+				CURRENT_PROJECT_VERSION = 1436;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = UY657LKNHJ;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/PrivateFrameworks";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
@@ -622,15 +620,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = de.relikd.QLAppBundle;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/PrivateFrameworks/CoreUI.framework";
-				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks";
 			};
 			name = Release;
 		};
@@ -638,12 +632,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
-				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -666,12 +657,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
-				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -694,10 +682,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = QLPreview/QLPreview.entitlements;
-				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
-				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QLPreview/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QLPreview;
@@ -720,10 +706,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = QLPreview/QLPreview.entitlements;
-				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
-				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QLPreview/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QLPreview;
@@ -746,10 +730,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = QLThumbnail/QLThumbnail.entitlements;
-				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
-				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QLThumbnail/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QLThumbnail;
@@ -772,10 +754,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = QLThumbnail/QLThumbnail.entitlements;
-				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
-				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QLThumbnail/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QLThumbnail;

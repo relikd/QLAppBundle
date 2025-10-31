@@ -1,0 +1,15 @@
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+FRAMEWORK_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)/PrivateFrameworks
+SYSTEM_FRAMEWORK_SEARCH_PATHS = $(inherited) $(SYSTEM_LIBRARY_DIR)/PrivateFrameworks
+SWIFT_INCLUDE_PATHS = $(inherited) $(SRCROOT)/PrivateFrameworks/CoreUI.framework
+
+CODE_SIGN_STYLE = Manual
+CODE_SIGN_IDENTITY = Apple Development
+ENABLE_HARDENED_RUNTIME = YES
+
+SWIFT_VERSION = 5.0
+
+MACOSX_DEPLOYMENT_TARGET = 10.15
+MARKETING_VERSION = 1.1.0
