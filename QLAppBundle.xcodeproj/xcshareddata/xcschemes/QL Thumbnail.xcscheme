@@ -16,9 +16,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "54442C1F2E378BAF008A870E"
-               BuildableName = "QLPreview.appex"
-               BlueprintName = "QLPreview"
+               BlueprintIdentifier = "54581FCE2EB29A0B0043A0B3"
+               BuildableName = "QLAppBundle Thumbnail Extension.appex"
+               BlueprintName = "QL Thumbnail"
                ReferencedContainer = "container:QLAppBundle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,7 +32,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "54442BF32E378B71008A870E"
                BuildableName = "QLAppBundle.app"
-               BlueprintName = "QLAppBundle"
+               BlueprintName = "App"
                ReferencedContainer = "container:QLAppBundle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -63,7 +63,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "54442BF32E378B71008A870E"
             BuildableName = "QLAppBundle.app"
-            BlueprintName = "QLAppBundle"
+            BlueprintName = "App"
             ReferencedContainer = "container:QLAppBundle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -82,7 +82,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "54442BF32E378B71008A870E"
             BuildableName = "QLAppBundle.app"
-            BlueprintName = "QLAppBundle"
+            BlueprintName = "App"
             ReferencedContainer = "container:QLAppBundle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

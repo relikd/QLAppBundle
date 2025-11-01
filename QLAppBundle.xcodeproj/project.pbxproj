@@ -11,7 +11,7 @@
 		5405CF652EA1376B00613856 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405CF642EA1376B00613856 /* Zip.swift */; };
 		543FE5742EB3BB5E0059F98B /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 543FE5732EB3BB5E0059F98B /* AppIcon.icns */; };
 		54442C232E378BAF008A870E /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54442C222E378BAF008A870E /* Quartz.framework */; };
-		54442C302E378BAF008A870E /* QLPreview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54442C202E378BAF008A870E /* QLPreview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		54442C302E378BAF008A870E /* QLAppBundle (debug) Preview Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54442C202E378BAF008A870E /* QLAppBundle (debug) Preview Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		54442C702E378BDD008A870E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54442C6A2E378BDD008A870E /* AppDelegate.swift */; };
 		54442C722E378BDD008A870E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54442C6D2E378BDD008A870E /* MainMenu.xib */; };
 		54442C792E378BE0008A870E /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54442C742E378BE0008A870E /* PreviewViewController.swift */; };
@@ -21,7 +21,7 @@
 		545459C52EA469EA002892E5 /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 54D3A6F32EA4603B001EF4F6 /* template.html */; };
 		54581FD12EB29A0B0043A0B3 /* QuickLookThumbnailing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54581FD02EB29A0B0043A0B3 /* QuickLookThumbnailing.framework */; };
 		54581FD22EB29A0B0043A0B3 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54442C222E378BAF008A870E /* Quartz.framework */; };
-		54581FDA2EB29A0B0043A0B3 /* QLThumbnail.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54581FCF2EB29A0B0043A0B3 /* QLThumbnail.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		54581FDA2EB29A0B0043A0B3 /* QLAppBundle (debug) Thumbnail Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54581FCF2EB29A0B0043A0B3 /* QLAppBundle (debug) Thumbnail Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		545820232EB29B4C0043A0B3 /* defaultIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 54D3A6F22EA4603B001EF4F6 /* defaultIcon.png */; };
 		5469E11D2EA5930C00D46CE7 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469E11C2EA5930C00D46CE7 /* Entitlements.swift */; };
 		547899712EB38F3D00F96B80 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405CF642EA1376B00613856 /* Zip.swift */; };
@@ -89,8 +89,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				54581FDA2EB29A0B0043A0B3 /* QLThumbnail.appex in Embed Foundation Extensions */,
-				54442C302E378BAF008A870E /* QLPreview.appex in Embed Foundation Extensions */,
+				54581FDA2EB29A0B0043A0B3 /* QLAppBundle (debug) Thumbnail Extension.appex in Embed Foundation Extensions */,
+				54442C302E378BAF008A870E /* QLAppBundle (debug) Preview Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,7 +126,7 @@
 		543FE5732EB3BB5E0059F98B /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 		543FE5752EB3BC740059F98B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54442BF42E378B71008A870E /* QLAppBundle (debug).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QLAppBundle (debug).app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		54442C202E378BAF008A870E /* QLPreview.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QLPreview.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		54442C202E378BAF008A870E /* QLAppBundle (debug) Preview Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QLAppBundle (debug) Preview Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54442C222E378BAF008A870E /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		54442C6A2E378BDD008A870E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54442C6C2E378BDD008A870E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -136,9 +136,9 @@
 		54442C752E378BE0008A870E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreviewViewController.xib; sourceTree = "<group>"; };
 		54442C772E378BE0008A870E /* QLPreview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QLPreview.entitlements; sourceTree = "<group>"; };
 		544AF3682EB6AAC0006837F2 /* AssetCarReader.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AssetCarReader.xcconfig; sourceTree = "<group>"; };
-		54581FCF2EB29A0B0043A0B3 /* QLThumbnail.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QLThumbnail.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		54581FCF2EB29A0B0043A0B3 /* QLAppBundle (debug) Thumbnail Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QLAppBundle (debug) Thumbnail Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54581FD02EB29A0B0043A0B3 /* QuickLookThumbnailing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLookThumbnailing.framework; path = System/Library/Frameworks/QuickLookThumbnailing.framework; sourceTree = SDKROOT; };
-		545D9F3D2EB54C6200C38917 /* QLAppBundle.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QLAppBundle.xcconfig; sourceTree = "<group>"; };
+		545D9F3D2EB54C6200C38917 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		5469E11C2EA5930C00D46CE7 /* Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitlements.swift; sourceTree = "<group>"; };
 		547F52DC2EB2C15D002B6D5F /* ExpirationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpirationStatus.swift; sourceTree = "<group>"; };
 		547F52E32EB2C3D8002B6D5F /* Html+iTunesPurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Html+iTunesPurchase.swift"; sourceTree = "<group>"; };
@@ -163,6 +163,7 @@
 		54D3A6F52EA4610B001EF4F6 /* CoreUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreUI.framework; sourceTree = "<group>"; };
 		54D3A6FA2EA46588001EF4F6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		54E087592EB15DD000979D91 /* style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		54EA9EB22EB6CCA300AB6027 /* Config-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,7 +230,8 @@
 		54442BEB2E378B71008A870E = {
 			isa = PBXGroup;
 			children = (
-				545D9F3D2EB54C6200C38917 /* QLAppBundle.xcconfig */,
+				545D9F3D2EB54C6200C38917 /* Config.xcconfig */,
+				54EA9EB22EB6CCA300AB6027 /* Config-debug.xcconfig */,
 				547F52FC2EB37F3A002B6D5F /* LICENSE */,
 				547F52FB2EB37F10002B6D5F /* README.md */,
 				541051562E37AFC10083670B /* src */,
@@ -247,8 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				54442BF42E378B71008A870E /* QLAppBundle (debug).app */,
-				54442C202E378BAF008A870E /* QLPreview.appex */,
-				54581FCF2EB29A0B0043A0B3 /* QLThumbnail.appex */,
+				54442C202E378BAF008A870E /* QLAppBundle (debug) Preview Extension.appex */,
+				54581FCF2EB29A0B0043A0B3 /* QLAppBundle (debug) Thumbnail Extension.appex */,
 				54352E8A2EB6A79A0082F61D /* AssetCarReader.framework */,
 			);
 			name = Products;
@@ -358,9 +360,9 @@
 			productReference = 54352E8A2EB6A79A0082F61D /* AssetCarReader.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		54442BF32E378B71008A870E /* QLAppBundle */ = {
+		54442BF32E378B71008A870E /* App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 54442C012E378B71008A870E /* Build configuration list for PBXNativeTarget "QLAppBundle" */;
+			buildConfigurationList = 54442C012E378B71008A870E /* Build configuration list for PBXNativeTarget "App" */;
 			buildPhases = (
 				54442BF02E378B71008A870E /* Sources */,
 				54442BF12E378B71008A870E /* Frameworks */,
@@ -373,16 +375,16 @@
 				54442C2F2E378BAF008A870E /* PBXTargetDependency */,
 				54581FD92EB29A0B0043A0B3 /* PBXTargetDependency */,
 			);
-			name = QLAppBundle;
+			name = App;
 			packageProductDependencies = (
 			);
 			productName = QLApps;
 			productReference = 54442BF42E378B71008A870E /* QLAppBundle (debug).app */;
 			productType = "com.apple.product-type.application";
 		};
-		54442C1F2E378BAF008A870E /* QLPreview */ = {
+		54442C1F2E378BAF008A870E /* QL Preview */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 54442C352E378BAF008A870E /* Build configuration list for PBXNativeTarget "QLPreview" */;
+			buildConfigurationList = 54442C352E378BAF008A870E /* Build configuration list for PBXNativeTarget "QL Preview" */;
 			buildPhases = (
 				54442C1C2E378BAF008A870E /* Sources */,
 				54442C1D2E378BAF008A870E /* Frameworks */,
@@ -394,16 +396,16 @@
 			dependencies = (
 				54B6FFF32EB6AA0F007397C0 /* PBXTargetDependency */,
 			);
-			name = QLPreview;
+			name = "QL Preview";
 			packageProductDependencies = (
 			);
 			productName = QLPreview;
-			productReference = 54442C202E378BAF008A870E /* QLPreview.appex */;
+			productReference = 54442C202E378BAF008A870E /* QLAppBundle (debug) Preview Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		54581FCE2EB29A0B0043A0B3 /* QLThumbnail */ = {
+		54581FCE2EB29A0B0043A0B3 /* QL Thumbnail */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 54581FDE2EB29A0B0043A0B3 /* Build configuration list for PBXNativeTarget "QLThumbnail" */;
+			buildConfigurationList = 54581FDE2EB29A0B0043A0B3 /* Build configuration list for PBXNativeTarget "QL Thumbnail" */;
 			buildPhases = (
 				54581FCB2EB29A0B0043A0B3 /* Sources */,
 				54581FCC2EB29A0B0043A0B3 /* Frameworks */,
@@ -415,11 +417,11 @@
 			dependencies = (
 				54B6FFF82EB6AA14007397C0 /* PBXTargetDependency */,
 			);
-			name = QLThumbnail;
+			name = "QL Thumbnail";
 			packageProductDependencies = (
 			);
 			productName = QLThumbnail;
-			productReference = 54581FCF2EB29A0B0043A0B3 /* QLThumbnail.appex */;
+			productReference = 54581FCF2EB29A0B0043A0B3 /* QLAppBundle (debug) Thumbnail Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -457,9 +459,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				54442BF32E378B71008A870E /* QLAppBundle */,
-				54442C1F2E378BAF008A870E /* QLPreview */,
-				54581FCE2EB29A0B0043A0B3 /* QLThumbnail */,
+				54442BF32E378B71008A870E /* App */,
+				54442C1F2E378BAF008A870E /* QL Preview */,
+				54581FCE2EB29A0B0043A0B3 /* QL Thumbnail */,
 				54352E892EB6A79A0082F61D /* AssetCarReader */,
 			);
 		};
@@ -561,12 +563,12 @@
 /* Begin PBXTargetDependency section */
 		54442C2F2E378BAF008A870E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 54442C1F2E378BAF008A870E /* QLPreview */;
+			target = 54442C1F2E378BAF008A870E /* QL Preview */;
 			targetProxy = 54442C2E2E378BAF008A870E /* PBXContainerItemProxy */;
 		};
 		54581FD92EB29A0B0043A0B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 54581FCE2EB29A0B0043A0B3 /* QLThumbnail */;
+			target = 54581FCE2EB29A0B0043A0B3 /* QL Thumbnail */;
 			targetProxy = 54581FD82EB29A0B0043A0B3 /* PBXContainerItemProxy */;
 		};
 		54B6FFF32EB6AA0F007397C0 /* PBXTargetDependency */ = {
@@ -671,7 +673,7 @@
 		};
 		54442BFF2E378B71008A870E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 545D9F3D2EB54C6200C38917 /* QLAppBundle.xcconfig */;
+			baseConfigurationReference = 54EA9EB22EB6CCA300AB6027 /* Config-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -704,7 +706,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1600;
+				CURRENT_PROJECT_VERSION = 1624;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = UY657LKNHJ;
@@ -729,7 +731,6 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = de.relikd.QLAppBundle.debug;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -738,7 +739,7 @@
 		};
 		54442C002E378B71008A870E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 545D9F3D2EB54C6200C38917 /* QLAppBundle.xcconfig */;
+			baseConfigurationReference = 545D9F3D2EB54C6200C38917 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -771,7 +772,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1600;
+				CURRENT_PROJECT_VERSION = 1624;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = UY657LKNHJ;
@@ -790,7 +791,6 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = de.relikd.QLAppBundle;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
@@ -813,8 +813,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
-				PRODUCT_NAME = "$(TARGET_NAME) (debug)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -839,8 +837,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -857,15 +853,15 @@
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QLPreview/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = QLPreview;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).QLPreview";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).Preview";
+				PRODUCT_NAME = "$(inherited) Preview Extension";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -882,15 +878,15 @@
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QLPreview/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = QLPreview;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).QLPreview";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).Preview";
+				PRODUCT_NAME = "$(inherited) Preview Extension";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -907,15 +903,15 @@
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QLThumbnail/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = QLThumbnail;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).QLThumbnail";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).Thumbnail";
+				PRODUCT_NAME = "$(inherited) Thumbnail Extension";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -932,15 +928,15 @@
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QLThumbnail/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = QLThumbnail;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).QLThumbnail";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).Thumbnail";
+				PRODUCT_NAME = "$(inherited) Thumbnail Extension";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -969,7 +965,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54442C012E378B71008A870E /* Build configuration list for PBXNativeTarget "QLAppBundle" */ = {
+		54442C012E378B71008A870E /* Build configuration list for PBXNativeTarget "App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54442C022E378B71008A870E /* Debug */,
@@ -978,7 +974,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54442C352E378BAF008A870E /* Build configuration list for PBXNativeTarget "QLPreview" */ = {
+		54442C352E378BAF008A870E /* Build configuration list for PBXNativeTarget "QL Preview" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54442C322E378BAF008A870E /* Debug */,
@@ -987,7 +983,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54581FDE2EB29A0B0043A0B3 /* Build configuration list for PBXNativeTarget "QLThumbnail" */ = {
+		54581FDE2EB29A0B0043A0B3 /* Build configuration list for PBXNativeTarget "QL Thumbnail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54581FDB2EB29A0B0043A0B3 /* Debug */,
