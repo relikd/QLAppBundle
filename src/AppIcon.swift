@@ -1,5 +1,6 @@
 import Foundation
 import AppKit // NSImage
+import AssetCarReader // CarReader
 import os // OSLog
 
 private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "AppIcon")
@@ -49,6 +50,14 @@ struct AppIcon {
 		// Fallback to default icon
 		let iconURL = Bundle.main.url(forResource: "defaultIcon", withExtension: "png")!
 		return NSImage(contentsOf: iconURL)!
+	}
+	
+	/// Extract an image from `Assets.car`
+	func imageFromAssetsCar(_ imageName: String) -> NSImage? {
+		guard let data = meta.readPayloadFile("Assets.car") else {
+			return nil
+		}
+		return CarReader(data)?.imageFromAssetsCar(imageName)
 	}
 }
 

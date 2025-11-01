@@ -1,33 +1,27 @@
 import Foundation
 import AppKit // NSImage
-import CoreUI // CUICatalog
-import os // OSLog
+private import CoreUI // CUICatalog
+private import os // OSLog
 
-private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "AppIcon+Car")
+private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "AssetCarReader")
 
-// this has been written from scratch but general usage on
-// including the private framework has been taken from:
-// https://github.com/showxu/cartools
-// also see:
-// https://blog.timac.org/2018/1018-reverse-engineering-the-car-file-format/
-
-extension AppIcon {
-	/// Use `CUICatalog` to extract an image from `Assets.car`
-	func imageFromAssetsCar(_ imageName: String) -> NSImage? {
-		guard let data = meta.readPayloadFile("Assets.car") else {
-			return nil
-		}
-		let catalog: CUICatalog
+public class CarReader {
+	private let catalog: CUICatalog
+	
+	public init?(_ data: Data) {
 		do {
 			catalog = try data.withUnsafeBytes { try CUICatalog(bytes: $0.baseAddress!, length: UInt64(data.count)) }
 		} catch {
-			os_log(.error, log: log, "[icon-car] ERROR: could not open catalog: %{public}@", error.localizedDescription)
+			os_log(.error, log: log, "[asset-car] ERROR: could not open catalog: %{public}@", error.localizedDescription)
 			return nil
 		}
-		
-		if let validName = carVerifyNameExists(imageName, in: catalog) {
-			if let bestImage = carFindHighestResolutionIcon(catalog.images(withName: validName)) {
-				os_log(.debug, log: log, "[icon-car] using Assets.car with key %{public}@", validName)
+	}
+	
+	/// Use `CUICatalog` to extract an image from `Assets.car`
+	public func imageFromAssetsCar(_ imageName: String) -> NSImage? {
+		if let validName = verifyNameExists(imageName, in: catalog) {
+			if let bestImage = findHighestResolutionIcon(catalog.images(withName: validName)) {
+				os_log(.debug, log: log, "[asset-car] using Assets.car with key %{public}@", validName)
 				return NSImage(cgImage: bestImage.image, size: bestImage.size)
 			}
 		}
@@ -35,19 +29,19 @@ extension AppIcon {
 	}
 	
 	
-	// MARK: - Helper: Assets.car
+	// MARK: - Private methods
 	
 	/// Helper method to check available icon names. Will return a valid name or `nil` if no image with that key is found.
-	func carVerifyNameExists(_ imageName: String, in catalog: CUICatalog) -> String? {
+	private func verifyNameExists(_ imageName: String, in catalog: CUICatalog) -> String? {
 		if let availableNames = catalog.allImageNames(), !availableNames.contains(imageName) {
 			// Theoretically this should never happen. Assuming the image name is found in an image file.
-			os_log(.info, log: log, "[icon-car] WARN: key '%{public}@' does not match any available key", imageName)
+			os_log(.info, log: log, "[asset-car] WARN: key '%{public}@' does not match any available key", imageName)
 			
-			if let alternativeName = carSearchAlternativeName(imageName, inAvailable: availableNames) {
-				os_log(.info, log: log, "[icon-car] falling back to '%{public}@'", alternativeName)
+			if let alternativeName = searchAlternativeName(imageName, inAvailable: availableNames) {
+				os_log(.info, log: log, "[asset-car] falling back to '%{public}@'", alternativeName)
 				return alternativeName
 			}
-			os_log(.debug, log: log, "[icon-car] available keys: %{public}@", catalog.allImageNames() ?? [])
+			os_log(.debug, log: log, "[asset-car] available keys: %{public}@", catalog.allImageNames() ?? [])
 			return nil
 		}
 		return imageName;
@@ -55,7 +49,7 @@ extension AppIcon {
 	
 	/// If exact name does not exist in catalog, search for a name that shares the same prefix.
 	/// E.g., "AppIcon60x60" may match "AppIcon" or "AppIcon60x60_small"
-	func carSearchAlternativeName(_ originalName: String, inAvailable availableNames: [String]) -> String? {
+	private func searchAlternativeName(_ originalName: String, inAvailable availableNames: [String]) -> String? {
 		var bestOption: String? = nil
 		var bestDiff: Int = 999
 		
@@ -72,7 +66,7 @@ extension AppIcon {
 	}
 	
 	/// Given a list of `CUINamedImage`, return the one with the highest resolution. Vector graphics are ignored.
-	func carFindHighestResolutionIcon(_ availableImages: [CUINamedImage]) -> CUINamedImage? {
+	private func findHighestResolutionIcon(_ availableImages: [CUINamedImage]) -> CUINamedImage? {
 		var largestWidth: CGFloat = 0
 		var largestImage: CUINamedImage? = nil
 		// cast to NSArray is necessary as otherwise this will crash

@@ -1,0 +1,9 @@
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+FRAMEWORK_SEARCH_PATHS = $(PROJECT_DIR)/AssetCarReader/PrivateFrameworks
+SYSTEM_FRAMEWORK_SEARCH_PATHS = $(SYSTEM_LIBRARY_DIR)/PrivateFrameworks
+SWIFT_INCLUDE_PATHS = $(SRCROOT)/AssetCarReader/PrivateFrameworks/CoreUI.framework
+
+DYLIB_COMPATIBILITY_VERSION = 1
+DYLIB_CURRENT_VERSION = 42
