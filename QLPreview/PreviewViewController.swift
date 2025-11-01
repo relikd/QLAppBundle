@@ -11,9 +11,26 @@ class PreviewViewController: NSViewController, QLPreviewingController {
 		return NSNib.Name("PreviewViewController")
 	}
 	
+	/// Load resource file either from user documents dir (if exists) or app bundle (default).
+	func bundleFile(filename: String, ext: String) throws -> String {
+		if let appSupport = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+			let override = appSupport.appendingPathComponent(filename + "." + ext)
+			if FileManager.default.fileExists(atPath: override.path) {
+				return try String(contentsOfFile: override.path, encoding: .utf8)
+			}
+			// else: do NOT copy! Breaks on future updates
+		}
+		// else, load bundle file
+		let path = Bundle.main.url(forResource: filename, withExtension: ext)
+		return try String(contentsOf: path!, encoding: .utf8)
+	}
+	
 	func preparePreviewOfFile(at url: URL) async throws {
 		let meta = MetaInfo(url)
-		let html = HtmlGenerator(meta).applyHtmlTemplate()
+		let html = HtmlGenerator(meta).generate(
+			template: try bundleFile(filename: "template", ext: "html"),
+			css: try bundleFile(filename: "style", ext: "css"),
+		)
 		// sure, we could use `WKWebView`, but that requires the `com.apple.security.network.client` entitlement
 		//let web = WKWebView(frame: self.view.bounds)
 		let web = WebView(frame: self.view.bounds)

@@ -24,41 +24,30 @@ I merely want things to be done.
 Also, I've removed support for provisioning profiles (`.mobileprovision`, `.provisionprofile`) to focus on app bundles.
 
 
-## ToDO
+
+## ToDo
 
 - [ ] support for `.apk` files
 
 
-## Development notes
 
+## Features
+
+### Customize HTML / CSS
+
+1. Right click on the app and select "Show Package Contents"
+2. Copy `Contents/Resources/template.html` (or `style.css`)
+3. Open `~/Library/Containers/de.relikd.QLAppBundle.Preview/Data/Documents/`
+4. Paste the previous file and modify it to your liking
+5. `QLAppBundle` will use the new file from now on
+
+
+
+## Development notes
 
 ### Debug
 
 You can show Console logs with `subsystem:de.relikd.QLAppBundle`
-
-
-### Compile errors
-
-If you encounter compile errors like:
-
-```
-Command SwiftEmitModule failed with a nonzero exit code
-```
-
-or
-
-```
-Could not build Objective-C module 'ExtensionFoundation'
-```
-
-or `ThumbnailProvider` is throwing lots of errors for undefined classes:
-
-remove the `SYSTEM_FRAMEWORK_SEARCH_PATHS` attribute from Project > Build Settings then try to compile again (it will fail).
-Afterwards, restore the value in the attribute.
-Now, the build index should be up-to-date and the app should compile fine.
-
-I havent figured out the exact issue, consider it a workaround.
-It should only be necessary once (or if you delete your `DerivedData` folder).
 
 
 [1]: https://github.com/ealeksandrov/ProvisionQL

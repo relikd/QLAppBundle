@@ -20,9 +20,6 @@ struct HtmlGenerator {
 		procFooterInfo()
 		// App Icon (last, because the image uses a lot of memory)
 		data["AppIcon"] = AppIcon(meta).extractImage(from: plistApp).withRoundCorners().asBase64()
-		// insert CSS styles
-		let cssURL = Bundle.main.url(forResource: "style", withExtension: "css")!
-		data["CSS"] = try! String(contentsOf: cssURL, encoding: .utf8)
 	}
 	
 	mutating func apply(_ values: [String: String]) {
@@ -39,9 +36,8 @@ struct HtmlGenerator {
 	}
 	
 	/// prepare html, replace values
-	func applyHtmlTemplate() -> String {
-		let templateURL = Bundle.main.url(forResource: "template", withExtension: "html")!
-		let html = try! String(contentsOf: templateURL, encoding: .utf8)
+	func generate(template html: String, css: String) -> String {
+		let templateValues = data.merging(["CSS": css]) { (_, new) in new }
 		
 		// this is less efficient
 		//	for (key, value) in templateValues {
@@ -58,7 +54,7 @@ struct HtmlGenerator {
 			rv.append(contentsOf: html[prevLoc ..< start])
 			prevLoc = html.index(start, offsetBy: match!.range.length)
 			// append key if exists (else remove template-key)
-			if let value = data[key] {
+			if let value = templateValues[key] {
 				rv.append(value)
 			} else {
 				// os_log(.debug, log: log, "unknown template key: %{public}@", key)
