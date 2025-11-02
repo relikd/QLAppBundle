@@ -14,7 +14,7 @@ extension MetaInfo {
 }
 
 
-extension HtmlGenerator {
+extension PreviewGenerator {
 	/// Concatenate all (sub)genres into a comma separated list.
 	private func formattedGenres(_ itunesPlist: PlistDict) -> String {
 		var genres: [String] = []

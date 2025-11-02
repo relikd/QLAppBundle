@@ -22,7 +22,7 @@ private func recursiveDict(_ dictionary: [String: Any], withReplacements replace
 	return output
 }
 
-extension HtmlGenerator {
+extension PreviewGenerator {
 	/// @return List of ATS flags.
 	private func formattedAppTransportSecurity(_ appPlist: PlistDict) -> String {
 		if let value = appPlist["NSAppTransportSecurity"] as? PlistDict {

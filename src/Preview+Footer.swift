@@ -1,6 +1,6 @@
 import Foundation
 
-extension HtmlGenerator {
+extension PreviewGenerator {
 	/// Process meta information about the plugin. Like version and debug flag.
 	mutating func procFooterInfo() {
 		self.apply([

@@ -1,6 +1,6 @@
 import Foundation
 
-extension HtmlGenerator {
+extension PreviewGenerator {
 	/// Search for app binary and run `codesign` on it.
 	private func readEntitlements(_ meta: MetaInfo, _ bundleExecutable: String?) -> Entitlements {
 		guard let bundleExecutable else {

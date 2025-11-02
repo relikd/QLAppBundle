@@ -27,7 +27,7 @@ class PreviewViewController: NSViewController, QLPreviewingController {
 	
 	func preparePreviewOfFile(at url: URL) async throws {
 		let meta = MetaInfo(url)
-		let html = HtmlGenerator(meta).generate(
+		let html = PreviewGenerator(meta).generate(
 			template: try bundleFile(filename: "template", ext: "html"),
 			css: try bundleFile(filename: "style", ext: "css"),
 		)

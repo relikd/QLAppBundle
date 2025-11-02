@@ -1,6 +1,6 @@
 import Foundation
 
-struct HtmlGenerator {
+struct PreviewGenerator {
 	var data: [String: String] = [:] // used for TAG replacements
 	let meta: MetaInfo
 	

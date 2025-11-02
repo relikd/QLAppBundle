@@ -29,13 +29,13 @@
 		547899732EB38F3D00F96B80 /* NSBezierPath+RoundedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3A6EF2EA3F49F001EF4F6 /* NSBezierPath+RoundedRect.swift */; };
 		547899752EB38F3D00F96B80 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3A6ED2EA39CC6001EF4F6 /* AppIcon.swift */; };
 		547F52DE2EB2C15D002B6D5F /* ExpirationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52DC2EB2C15D002B6D5F /* ExpirationStatus.swift */; };
-		547F52E42EB2C3D8002B6D5F /* Html+iTunesPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52E32EB2C3D8002B6D5F /* Html+iTunesPurchase.swift */; };
-		547F52E82EB2C41C002B6D5F /* HtmlGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52E62EB2C41C002B6D5F /* HtmlGenerator.swift */; };
-		547F52EB2EB2C672002B6D5F /* Html+FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52E92EB2C672002B6D5F /* Html+FileInfo.swift */; };
-		547F52ED2EB2C822002B6D5F /* Html+AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52EC2EB2C822002B6D5F /* Html+AppInfo.swift */; };
-		547F52EF2EB2C8E8002B6D5F /* Html+Provisioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52EE2EB2C8E8002B6D5F /* Html+Provisioning.swift */; };
-		547F52F42EB2CA05002B6D5F /* Html+Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52F32EB2CA05002B6D5F /* Html+Entitlements.swift */; };
-		547F52F72EB2CAC7002B6D5F /* Html+Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52F62EB2CAC7002B6D5F /* Html+Footer.swift */; };
+		547F52E42EB2C3D8002B6D5F /* Preview+iTunesPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52E32EB2C3D8002B6D5F /* Preview+iTunesPurchase.swift */; };
+		547F52E82EB2C41C002B6D5F /* PreviewGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52E62EB2C41C002B6D5F /* PreviewGenerator.swift */; };
+		547F52EB2EB2C672002B6D5F /* Preview+FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52E92EB2C672002B6D5F /* Preview+FileInfo.swift */; };
+		547F52ED2EB2C822002B6D5F /* Preview+AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52EC2EB2C822002B6D5F /* Preview+AppInfo.swift */; };
+		547F52EF2EB2C8E8002B6D5F /* Preview+Provisioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52EE2EB2C8E8002B6D5F /* Preview+Provisioning.swift */; };
+		547F52F42EB2CA05002B6D5F /* Preview+Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52F32EB2CA05002B6D5F /* Preview+Entitlements.swift */; };
+		547F52F72EB2CAC7002B6D5F /* Preview+Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52F62EB2CAC7002B6D5F /* Preview+Footer.swift */; };
 		547F52F92EB2CBAB002B6D5F /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52F82EB2CBAB002B6D5F /* Date+Format.swift */; };
 		54AE5BFF2EB3DB1000B4CFC7 /* ThumbnailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AE5BFD2EB3DB1000B4CFC7 /* ThumbnailProvider.swift */; };
 		54B6FFEE2EB6A847007397C0 /* AssetCarReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B6FFEC2EB6A847007397C0 /* AssetCarReader.swift */; };
@@ -141,13 +141,13 @@
 		545D9F3D2EB54C6200C38917 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		5469E11C2EA5930C00D46CE7 /* Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitlements.swift; sourceTree = "<group>"; };
 		547F52DC2EB2C15D002B6D5F /* ExpirationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpirationStatus.swift; sourceTree = "<group>"; };
-		547F52E32EB2C3D8002B6D5F /* Html+iTunesPurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Html+iTunesPurchase.swift"; sourceTree = "<group>"; };
-		547F52E62EB2C41C002B6D5F /* HtmlGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlGenerator.swift; sourceTree = "<group>"; };
-		547F52E92EB2C672002B6D5F /* Html+FileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Html+FileInfo.swift"; sourceTree = "<group>"; };
-		547F52EC2EB2C822002B6D5F /* Html+AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Html+AppInfo.swift"; sourceTree = "<group>"; };
-		547F52EE2EB2C8E8002B6D5F /* Html+Provisioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Html+Provisioning.swift"; sourceTree = "<group>"; };
-		547F52F32EB2CA05002B6D5F /* Html+Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Html+Entitlements.swift"; sourceTree = "<group>"; };
-		547F52F62EB2CAC7002B6D5F /* Html+Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Html+Footer.swift"; sourceTree = "<group>"; };
+		547F52E32EB2C3D8002B6D5F /* Preview+iTunesPurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+iTunesPurchase.swift"; sourceTree = "<group>"; };
+		547F52E62EB2C41C002B6D5F /* PreviewGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewGenerator.swift; sourceTree = "<group>"; };
+		547F52E92EB2C672002B6D5F /* Preview+FileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+FileInfo.swift"; sourceTree = "<group>"; };
+		547F52EC2EB2C822002B6D5F /* Preview+AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+AppInfo.swift"; sourceTree = "<group>"; };
+		547F52EE2EB2C8E8002B6D5F /* Preview+Provisioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+Provisioning.swift"; sourceTree = "<group>"; };
+		547F52F32EB2CA05002B6D5F /* Preview+Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+Entitlements.swift"; sourceTree = "<group>"; };
+		547F52F62EB2CAC7002B6D5F /* Preview+Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+Footer.swift"; sourceTree = "<group>"; };
 		547F52F82EB2CBAB002B6D5F /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
 		547F52FB2EB37F10002B6D5F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		547F52FC2EB37F3A002B6D5F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -213,13 +213,13 @@
 				54D3A6ED2EA39CC6001EF4F6 /* AppIcon.swift */,
 				5469E11C2EA5930C00D46CE7 /* Entitlements.swift */,
 				547F52DC2EB2C15D002B6D5F /* ExpirationStatus.swift */,
-				547F52E62EB2C41C002B6D5F /* HtmlGenerator.swift */,
-				547F52EC2EB2C822002B6D5F /* Html+AppInfo.swift */,
-				547F52EE2EB2C8E8002B6D5F /* Html+Provisioning.swift */,
-				547F52F32EB2CA05002B6D5F /* Html+Entitlements.swift */,
-				547F52E32EB2C3D8002B6D5F /* Html+iTunesPurchase.swift */,
-				547F52E92EB2C672002B6D5F /* Html+FileInfo.swift */,
-				547F52F62EB2CAC7002B6D5F /* Html+Footer.swift */,
+				547F52E62EB2C41C002B6D5F /* PreviewGenerator.swift */,
+				547F52EC2EB2C822002B6D5F /* Preview+AppInfo.swift */,
+				547F52EE2EB2C8E8002B6D5F /* Preview+Provisioning.swift */,
+				547F52F32EB2CA05002B6D5F /* Preview+Entitlements.swift */,
+				547F52E32EB2C3D8002B6D5F /* Preview+iTunesPurchase.swift */,
+				547F52E92EB2C672002B6D5F /* Preview+FileInfo.swift */,
+				547F52F62EB2CAC7002B6D5F /* Preview+Footer.swift */,
 				5405CF642EA1376B00613856 /* Zip.swift */,
 				54D3A6EF2EA3F49F001EF4F6 /* NSBezierPath+RoundedRect.swift */,
 				547F52F82EB2CBAB002B6D5F /* Date+Format.swift */,
@@ -528,17 +528,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				54D3A6F02EA3F49F001EF4F6 /* NSBezierPath+RoundedRect.swift in Sources */,
-				547F52E42EB2C3D8002B6D5F /* Html+iTunesPurchase.swift in Sources */,
-				547F52F72EB2CAC7002B6D5F /* Html+Footer.swift in Sources */,
+				547F52E42EB2C3D8002B6D5F /* Preview+iTunesPurchase.swift in Sources */,
+				547F52F72EB2CAC7002B6D5F /* Preview+Footer.swift in Sources */,
 				5469E11D2EA5930C00D46CE7 /* Entitlements.swift in Sources */,
 				54442C792E378BE0008A870E /* PreviewViewController.swift in Sources */,
-				547F52EF2EB2C8E8002B6D5F /* Html+Provisioning.swift in Sources */,
+				547F52EF2EB2C8E8002B6D5F /* Preview+Provisioning.swift in Sources */,
 				547F52DE2EB2C15D002B6D5F /* ExpirationStatus.swift in Sources */,
 				54D3A6EE2EA39CC6001EF4F6 /* AppIcon.swift in Sources */,
-				547F52E82EB2C41C002B6D5F /* HtmlGenerator.swift in Sources */,
-				547F52EB2EB2C672002B6D5F /* Html+FileInfo.swift in Sources */,
-				547F52ED2EB2C822002B6D5F /* Html+AppInfo.swift in Sources */,
-				547F52F42EB2CA05002B6D5F /* Html+Entitlements.swift in Sources */,
+				547F52E82EB2C41C002B6D5F /* PreviewGenerator.swift in Sources */,
+				547F52EB2EB2C672002B6D5F /* Preview+FileInfo.swift in Sources */,
+				547F52ED2EB2C822002B6D5F /* Preview+AppInfo.swift in Sources */,
+				547F52F42EB2CA05002B6D5F /* Preview+Entitlements.swift in Sources */,
 				5405CF5E2EA1199B00613856 /* MetaInfo.swift in Sources */,
 				547F52F92EB2CBAB002B6D5F /* Date+Format.swift in Sources */,
 				54D3A6EC2EA31B52001EF4F6 /* AppCategories.swift in Sources */,

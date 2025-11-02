@@ -26,7 +26,7 @@ extension MetaInfo {
 }
 
 
-extension HtmlGenerator {
+extension PreviewGenerator {
 	
 	// MARK: - Certificates
 	

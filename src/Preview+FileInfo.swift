@@ -1,6 +1,6 @@
 import Foundation
 
-extension HtmlGenerator {
+extension PreviewGenerator {
 	/// Calculate file / folder size.
 	private func getFileSize(_ path: String) -> Int64 {
 		var isDir: ObjCBool = false
