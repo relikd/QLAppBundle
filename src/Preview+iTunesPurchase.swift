@@ -35,7 +35,7 @@ extension PreviewGenerator {
 	/// Process info stored in `iTunesMetadata.plist`
 	mutating func procItunesMeta(_ itunesPlist: PlistDict?) {
 		guard let itunesPlist else {
-			self.apply(["iTunesHidden": "hiddenDiv"])
+			self.apply(["iTunesHidden": CLASS_HIDDEN])
 			return
 		}
 		
@@ -57,7 +57,7 @@ extension PreviewGenerator {
 		}
 		self.apply([
 			"iTunesHidden": "",
-			"iTunesId": (itunesPlist["itemId"] as? Int)?.description ?? "", // description]
+			"iTunesId": (itunesPlist["itemId"] as? Int)?.description ?? "",
 			"iTunesName": itunesPlist["itemName"] as? String ?? "",
 			"iTunesGenres": formattedGenres(itunesPlist),
 			"iTunesReleaseDate": releaseDate?.mediumFormat() ?? "",

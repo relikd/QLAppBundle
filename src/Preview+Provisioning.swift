@@ -114,7 +114,7 @@ extension PreviewGenerator {
 	/// Process info stored in `embedded.mobileprovision`
 	mutating func procProvision(_ provisionPlist: PlistDict?, isOSX: Bool) {
 		guard let provisionPlist else {
-			self.apply(["ProvisionHidden": "hiddenDiv"])
+			self.apply(["ProvisionHidden": CLASS_HIDDEN])
 			return
 		}
 		
@@ -125,21 +125,21 @@ extension PreviewGenerator {
 		
 		self.apply([
 			"ProvisionHidden": "",
-			"ProfileName": provisionPlist["Name"] as? String ?? "",
-			"ProfileUUID": provisionPlist["UUID"] as? String ?? "",
-			"TeamName": provisionPlist["TeamName"] as? String ?? "<em>Team name not available</em>",
-			"TeamIds": (provisionPlist["TeamIdentifier"] as? [String])?.joined(separator: ", ") ?? "<em>Team ID not available</em>",
-			"CreationDateFormatted": creationDate?.formattedCreationDate() ?? "",
-			"ExpirationDateFormatted": expireDate?.formattedExpirationDate() ?? "",
-			"ExpStatus": ExpirationStatus(expireDate).cssClass(),
+			"ProvisionProfileName": provisionPlist["Name"] as? String ?? "",
+			"ProvisionProfileId": provisionPlist["UUID"] as? String ?? "",
+			"ProvisionTeamName": provisionPlist["TeamName"] as? String ?? "<em>Team name not available</em>",
+			"ProvisionTeamIds": (provisionPlist["TeamIdentifier"] as? [String])?.joined(separator: ", ") ?? "<em>Team ID not available</em>",
+			"ProvisionCreateDate": creationDate?.formattedCreationDate() ?? "",
+			"ProvisionExpireDate": expireDate?.formattedExpirationDate() ?? "",
+			"ProvisionExpireStatus": ExpirationStatus(expireDate).cssClass(),
 			
-			"ProfilePlatform": isOSX ? "Mac" : "iOS",
-			"ProfileType": stringForProfileType(provisionPlist, isOSX: isOSX),
+			"ProvisionProfilePlatform": isOSX ? "Mac" : "iOS",
+			"ProvisionProfileType": stringForProfileType(provisionPlist, isOSX: isOSX),
 			
-			"ProvisionedDevicesCount": devices.isEmpty ? "No Devices" : "\(devices.count) Device\(devices.count == 1 ? "" : "s")",
-			"ProvisionedDevicesFormatted": devices.isEmpty ? "Distribution Profile" : formatAsTable(devices, header: ["", "UDID"]),
+			"ProvisionDeviceCount": devices.isEmpty ? "No Devices" : "\(devices.count) Device\(devices.count == 1 ? "" : "s")",
+			"ProvisionDeviceIds": devices.isEmpty ? "Distribution Profile" : formatAsTable(devices, header: ["", "UDID"]),
 			
-			"DeveloperCertificatesFormatted": certs.isEmpty ? "No Developer Certificates" : formatAsTable(certs),
+			"ProvisionDevelopCertificates": certs.isEmpty ? "No Developer Certificates" : formatAsTable(certs),
 		])
 	}
 }

@@ -1,5 +1,7 @@
 import Foundation
 
+let CLASS_HIDDEN = "hiddenDiv"
+
 struct PreviewGenerator {
 	var data: [String: String] = [:] // used for TAG replacements
 	let meta: MetaInfo

@@ -60,7 +60,7 @@ extension PreviewGenerator {
 	mutating func procAppInfo(_ appPlist: PlistDict?) {
 		guard let appPlist else {
 			self.apply([
-				"AppInfoHidden": "hiddenDiv",
+				"AppInfoHidden": CLASS_HIDDEN,
 				"ProvisionTitleHidden": "",
 			])
 			return
@@ -84,20 +84,20 @@ extension PreviewGenerator {
 		let extensionType = (appPlist["NSExtension"] as? PlistDict)?["NSExtensionPointIdentifier"] as? String
 		self.apply([
 			"AppInfoHidden": "",
-			"ProvisionTitleHidden": "hiddenDiv",
+			"ProvisionTitleHidden": CLASS_HIDDEN,
 			
-			"CFBundleName": appPlist["CFBundleDisplayName"] as? String ?? appPlist["CFBundleName"] as? String ?? "",
-			"CFBundleShortVersionString": appPlist["CFBundleShortVersionString"] as? String ?? "",
-			"CFBundleVersion": appPlist["CFBundleVersion"] as? String ?? "",
-			"CFBundleIdentifier": appPlist["CFBundleIdentifier"] as? String ?? "",
+			"AppName": appPlist["CFBundleDisplayName"] as? String ?? appPlist["CFBundleName"] as? String ?? "",
+			"AppVersion": appPlist["CFBundleShortVersionString"] as? String ?? "",
+			"AppBuildVer": appPlist["CFBundleVersion"] as? String ?? "",
+			"AppId": appPlist["CFBundleIdentifier"] as? String ?? "",
 			
-			"ExtensionTypeHidden": extensionType != nil ? "" : "hiddenDiv",
-			"ExtensionType": extensionType ?? "",
+			"AppExtensionTypeHidden": extensionType != nil ? "" : CLASS_HIDDEN,
+			"AppExtensionType": extensionType ?? "",
 			
-			"UIDeviceFamily": platforms ?? "",
-			"DTSDKName": appPlist["DTSDKName"] as? String ?? "",
-			"MinimumOSVersion": minVersion,
-			"AppTransportSecurityFormatted": formattedAppTransportSecurity(appPlist),
+			"AppDeviceFamily": platforms ?? "",
+			"AppSDK": appPlist["DTSDKName"] as? String ?? "",
+			"AppMinOS": minVersion,
+			"AppTransportSecurity": formattedAppTransportSecurity(appPlist),
 		])
 	}
 }

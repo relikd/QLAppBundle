@@ -17,16 +17,11 @@ extension PreviewGenerator {
 	
 	/// Process meta information about the file itself. Like file size and last modification.
 	mutating func procFileInfo(_ url: URL) {
-		let formattedValue : String
-		if let attrs = try? FileManager.default.attributesOfItem(atPath: url.path) {
-			let size = ByteCountFormatter.string(fromByteCount: getFileSize(url.path), countStyle: .file)
-			formattedValue = "\(size), Modified \((attrs[.modificationDate] as! Date).mediumFormat())"
-		} else {
-			formattedValue = ""
-		}
+		let attrs = try? FileManager.default.attributesOfItem(atPath: url.path)
 		self.apply([
 			"FileName": escapeXML(url.lastPathComponent),
-			"FileInfo": formattedValue,
+			"FileSize": ByteCountFormatter.string(fromByteCount: getFileSize(url.path), countStyle: .file),
+			"FileModified": (attrs?[.modificationDate] as? Date)?.mediumFormat() ?? "",
 		])
 	}
 }

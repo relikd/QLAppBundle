@@ -7,8 +7,8 @@ extension PreviewGenerator {
 			"SrcAppName": "QLAppBundle",
 			"SrcLinkUrl": "https://github.com/relikd/QLAppBundle",
 			"SrcLinkName": "relikd/QLAppBundle",
-			"BundleShortVersionString": Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "",
-			"BundleVersion": Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "",
+			"SrcVersion": Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "",
+			"SrcBuildVer": Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "",
 		])
 #if DEBUG
 		self.data["SrcAppName"]! += " (debug)"
