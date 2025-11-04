@@ -57,15 +57,7 @@ extension PreviewGenerator {
 	}
 	
 	/// Process info stored in `Info.plist`
-	mutating func procAppInfo(_ appPlist: PlistDict?) {
-		guard let appPlist else {
-			self.apply([
-				"AppInfoHidden": CLASS_HIDDEN,
-				"ProvisionTitleHidden": "",
-			])
-			return
-		}
-		
+	mutating func procAppInfo(_ appPlist: PlistDict) {
 		var platforms = (appPlist["UIDeviceFamily"] as? [Int])?.compactMap({
 			switch $0 {
 			case 1: return "iPhone"
@@ -83,9 +75,6 @@ extension PreviewGenerator {
 		
 		let extensionType = (appPlist["NSExtension"] as? PlistDict)?["NSExtensionPointIdentifier"] as? String
 		self.apply([
-			"AppInfoHidden": "",
-			"ProvisionTitleHidden": CLASS_HIDDEN,
-			
 			"AppName": appPlist["CFBundleDisplayName"] as? String ?? appPlist["CFBundleName"] as? String ?? "",
 			"AppVersion": appPlist["CFBundleShortVersionString"] as? String ?? "",
 			"AppBuildVer": appPlist["CFBundleVersion"] as? String ?? "",
