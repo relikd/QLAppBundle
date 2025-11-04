@@ -11,7 +11,6 @@
 		5405CF652EA1376B00613856 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405CF642EA1376B00613856 /* Zip.swift */; };
 		543FE5742EB3BB5E0059F98B /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 543FE5732EB3BB5E0059F98B /* AppIcon.icns */; };
 		54442C232E378BAF008A870E /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54442C222E378BAF008A870E /* Quartz.framework */; };
-		54442C302E378BAF008A870E /* QLAppBundle (debug) Preview Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54442C202E378BAF008A870E /* QLAppBundle (debug) Preview Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		54442C702E378BDD008A870E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54442C6A2E378BDD008A870E /* AppDelegate.swift */; };
 		54442C722E378BDD008A870E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54442C6D2E378BDD008A870E /* MainMenu.xib */; };
 		54442C792E378BE0008A870E /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54442C742E378BE0008A870E /* PreviewViewController.swift */; };
@@ -21,7 +20,7 @@
 		545459C52EA469EA002892E5 /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 54D3A6F32EA4603B001EF4F6 /* template.html */; };
 		54581FD12EB29A0B0043A0B3 /* QuickLookThumbnailing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54581FD02EB29A0B0043A0B3 /* QuickLookThumbnailing.framework */; };
 		54581FD22EB29A0B0043A0B3 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54442C222E378BAF008A870E /* Quartz.framework */; };
-		54581FDA2EB29A0B0043A0B3 /* QLAppBundle (debug) Thumbnail Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54581FCF2EB29A0B0043A0B3 /* QLAppBundle (debug) Thumbnail Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		54581FDA2EB29A0B0043A0B3 /* QLAppBundle Thumbnail Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54581FCF2EB29A0B0043A0B3 /* QLAppBundle Thumbnail Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		545820232EB29B4C0043A0B3 /* defaultIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 54D3A6F22EA4603B001EF4F6 /* defaultIcon.png */; };
 		5469E11D2EA5930C00D46CE7 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469E11C2EA5930C00D46CE7 /* Entitlements.swift */; };
 		547899712EB38F3D00F96B80 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405CF642EA1376B00613856 /* Zip.swift */; };
@@ -37,13 +36,14 @@
 		547F52F42EB2CA05002B6D5F /* Preview+Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52F32EB2CA05002B6D5F /* Preview+Entitlements.swift */; };
 		547F52F72EB2CAC7002B6D5F /* Preview+Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52F62EB2CAC7002B6D5F /* Preview+Footer.swift */; };
 		547F52F92EB2CBAB002B6D5F /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52F82EB2CBAB002B6D5F /* Date+Format.swift */; };
+		549E3B9F2EBA9D2500ADFF56 /* QLAppBundle Preview Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54442C202E378BAF008A870E /* QLAppBundle Preview Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		54AE5BFF2EB3DB1000B4CFC7 /* ThumbnailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AE5BFD2EB3DB1000B4CFC7 /* ThumbnailProvider.swift */; };
 		54B6FFEE2EB6A847007397C0 /* AssetCarReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B6FFEC2EB6A847007397C0 /* AssetCarReader.swift */; };
 		54B6FFEF2EB6A8E0007397C0 /* CoreUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3A6F52EA4610B001EF4F6 /* CoreUI.framework */; };
 		54B6FFF02EB6AA0F007397C0 /* AssetCarReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54352E8A2EB6A79A0082F61D /* AssetCarReader.framework */; };
-		54B6FFF12EB6AA0F007397C0 /* AssetCarReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54352E8A2EB6A79A0082F61D /* AssetCarReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		54B6FFF12EB6AA0F007397C0 /* AssetCarReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54352E8A2EB6A79A0082F61D /* AssetCarReader.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		54B6FFF52EB6AA14007397C0 /* AssetCarReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54352E8A2EB6A79A0082F61D /* AssetCarReader.framework */; };
-		54B6FFF62EB6AA14007397C0 /* AssetCarReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54352E8A2EB6A79A0082F61D /* AssetCarReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		54B6FFF62EB6AA14007397C0 /* AssetCarReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54352E8A2EB6A79A0082F61D /* AssetCarReader.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		54D3A6EC2EA31B52001EF4F6 /* AppCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3A6EB2EA31B52001EF4F6 /* AppCategories.swift */; };
 		54D3A6EE2EA39CC6001EF4F6 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3A6ED2EA39CC6001EF4F6 /* AppIcon.swift */; };
 		54D3A6F02EA3F49F001EF4F6 /* NSBezierPath+RoundedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3A6EF2EA3F49F001EF4F6 /* NSBezierPath+RoundedRect.swift */; };
@@ -89,8 +89,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				54581FDA2EB29A0B0043A0B3 /* QLAppBundle (debug) Thumbnail Extension.appex in Embed Foundation Extensions */,
-				54442C302E378BAF008A870E /* QLAppBundle (debug) Preview Extension.appex in Embed Foundation Extensions */,
+				549E3B9F2EBA9D2500ADFF56 /* QLAppBundle Preview Extension.appex in Embed Foundation Extensions */,
+				54581FDA2EB29A0B0043A0B3 /* QLAppBundle Thumbnail Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,7 +126,7 @@
 		543FE5732EB3BB5E0059F98B /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 		543FE5752EB3BC740059F98B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54442BF42E378B71008A870E /* QLAppBundle (debug).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QLAppBundle (debug).app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		54442C202E378BAF008A870E /* QLAppBundle (debug) Preview Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QLAppBundle (debug) Preview Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54442C202E378BAF008A870E /* QLAppBundle Preview Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QLAppBundle Preview Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54442C222E378BAF008A870E /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		54442C6A2E378BDD008A870E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54442C6C2E378BDD008A870E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		54442C752E378BE0008A870E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreviewViewController.xib; sourceTree = "<group>"; };
 		54442C772E378BE0008A870E /* QLPreview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QLPreview.entitlements; sourceTree = "<group>"; };
 		544AF3682EB6AAC0006837F2 /* AssetCarReader.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AssetCarReader.xcconfig; sourceTree = "<group>"; };
-		54581FCF2EB29A0B0043A0B3 /* QLAppBundle (debug) Thumbnail Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QLAppBundle (debug) Thumbnail Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54581FCF2EB29A0B0043A0B3 /* QLAppBundle Thumbnail Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QLAppBundle Thumbnail Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54581FD02EB29A0B0043A0B3 /* QuickLookThumbnailing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLookThumbnailing.framework; path = System/Library/Frameworks/QuickLookThumbnailing.framework; sourceTree = SDKROOT; };
 		545D9F3D2EB54C6200C38917 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		5469E11C2EA5930C00D46CE7 /* Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitlements.swift; sourceTree = "<group>"; };
@@ -251,8 +251,8 @@
 			isa = PBXGroup;
 			children = (
 				54442BF42E378B71008A870E /* QLAppBundle (debug).app */,
-				54442C202E378BAF008A870E /* QLAppBundle (debug) Preview Extension.appex */,
-				54581FCF2EB29A0B0043A0B3 /* QLAppBundle (debug) Thumbnail Extension.appex */,
+				54442C202E378BAF008A870E /* QLAppBundle Preview Extension.appex */,
+				54581FCF2EB29A0B0043A0B3 /* QLAppBundle Thumbnail Extension.appex */,
 				54352E8A2EB6A79A0082F61D /* AssetCarReader.framework */,
 			);
 			name = Products;
@@ -402,7 +402,7 @@
 			packageProductDependencies = (
 			);
 			productName = QLPreview;
-			productReference = 54442C202E378BAF008A870E /* QLAppBundle (debug) Preview Extension.appex */;
+			productReference = 54442C202E378BAF008A870E /* QLAppBundle Preview Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		54581FCE2EB29A0B0043A0B3 /* QL Thumbnail */ = {
@@ -423,7 +423,7 @@
 			packageProductDependencies = (
 			);
 			productName = QLThumbnail;
-			productReference = 54581FCF2EB29A0B0043A0B3 /* QLAppBundle (debug) Thumbnail Extension.appex */;
+			productReference = 54581FCF2EB29A0B0043A0B3 /* QLAppBundle Thumbnail Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -708,7 +708,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1640;
+				CURRENT_PROJECT_VERSION = 1655;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = UY657LKNHJ;
@@ -774,7 +774,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1640;
+				CURRENT_PROJECT_VERSION = 1655;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = UY657LKNHJ;
@@ -815,6 +815,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				PRODUCT_NAME = "$(inherited) (debug)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -855,7 +856,7 @@
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QLPreview/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME) (debug)";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -905,7 +906,7 @@
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = UY657LKNHJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QLThumbnail/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME) (debug)";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
