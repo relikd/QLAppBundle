@@ -14,7 +14,7 @@ struct PreviewGenerator {
 		let plistItunes = meta.readPlistItunes()
 		let plistProvision = meta.readPlistProvision()
 		
-		data["AppInfoTitle"] = stringForFileType(meta)
+		data["QuickLookTitle"] = stringForFileType(meta)
 		
 		procAppInfo(plistApp)
 		procItunesMeta(plistItunes)

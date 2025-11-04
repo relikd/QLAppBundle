@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div class="app">
-		<h1>__AppInfoTitle__</h1>
+		<h1>__QuickLookTitle__</h1>
 		<div class="floatLeft icon"><img alt="App icon" src="data:image/png;base64,__AppIcon__"/></div>
 		<div class="floatLeft info">
 			Name: <strong>__AppName__</strong><br />
@@ -20,36 +20,6 @@
 			Minimum OS Version: __AppMinOS__<br />
 		</div>
 		<br class="clear" />
-		<h2>App Transport Security</h2>
-		__AppTransportSecurity__
-	</div>
-	
-	<div class="__ProvisionHidden__">
-		<h2>Provisioning</h2>
-		Profile name: <strong>__ProvisionProfileName__</strong><br />
-		Profile UUID: __ProvisionProfileId__<br />
-		Profile Type: __ProvisionProfilePlatform__ __ProvisionProfileType__<br />
-		Team: __ProvisionTeamName__ (__ProvisionTeamIds__)<br />
-		Creation date: __ProvisionCreateDate__<br />
-		Expiration Date: <strong><span class="__ProvisionExpireStatus__">__ProvisionExpireDate__</span></strong><br />
-	</div>
-	
-	<div>
-		<h2>Entitlements</h2>
-		<div class="warning __EntitlementsWarningHidden__">
-			<strong>Entitlements extraction failed.</strong>
-		</div>
-		__EntitlementsDict__
-	</div>
-	
-	<div class="__ProvisionHidden__">
-		<h2>Developer Certificates</h2>
-		__ProvisionDevelopCertificates__
-	</div>
-	
-	<div class="__ProvisionHidden__">
-		<h2>Devices (__ProvisionDeviceCount__)</h2>
-		__ProvisionDeviceIds__
 	</div>
 	
 	<div class="__iTunesHidden__">
@@ -62,6 +32,39 @@
 		AppleId: __iTunesAppleId__<br />
 		Purchased: __iTunesPurchaseDate__<br />
 		Price: __iTunesPrice__<br />
+	</div>
+	
+	<div>
+		<h2>App Transport Security</h2>
+		__AppTransportSecurity__
+	</div>
+	
+	<div>
+		<h2>Entitlements</h2>
+		<div class="warning __EntitlementsWarningHidden__">
+			<strong>Entitlements extraction failed.</strong>
+		</div>
+		__EntitlementsDict__
+	</div>
+	
+	<div class="__ProvisionHidden__">
+		<h2>Provisioning</h2>
+		Profile name: <strong>__ProvisionProfileName__</strong><br />
+		Profile UUID: __ProvisionProfileId__<br />
+		Profile Type: __ProvisionProfilePlatform__ __ProvisionProfileType__<br />
+		Team: __ProvisionTeamName__ (__ProvisionTeamIds__)<br />
+		Creation date: __ProvisionCreateDate__<br />
+		Expiration Date: <strong><span class="__ProvisionExpireStatus__">__ProvisionExpireDate__</span></strong><br />
+	</div>
+	
+	<div class="__ProvisionHidden__">
+		<h2>Developer Certificates</h2>
+		__ProvisionDevelopCertificates__
+	</div>
+	
+	<div class="__ProvisionHidden__">
+		<h2>Devices (__ProvisionDeviceCount__)</h2>
+		__ProvisionDeviceIds__
 	</div>
 	
 	<div>
