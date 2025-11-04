@@ -38,30 +38,32 @@ struct PreviewGenerator {
 	/// prepare html, replace values
 	func generate(template html: String, css: String) -> String {
 		let templateValues = data.merging(["CSS": css]) { (_, new) in new }
-		
-		// this is less efficient
-		//	for (key, value) in templateValues {
-		//		html = html.replacingOccurrences(of: "__\(key)__", with: value)
-		//	}
-		
+		return html.regexReplace("__([^ _]{1,40}?)__") { templateValues[$0] }
+	}
+}
+
+extension String {
+	/// Replace regex-pattern with custom replacement.
+	/// @param pattern must include a regex group. (e.g. "a(b)c")
+	func regexReplace(_ pattern: String, with fn: (_ match: String) -> String?) -> String {
 		var rv = ""
-		var prevLoc = html.startIndex
-		let regex = try! NSRegularExpression(pattern: "__[^ _]{1,40}?__")
-		regex.enumerateMatches(in: html, range: NSRange(location: 0, length: html.count), using: { match, flags, stop  in
-			let start = html.index(html.startIndex, offsetBy: match!.range.lowerBound)
-			let key = String(html[html.index(start, offsetBy: 2) ..< html.index(start, offsetBy: match!.range.length - 2)])
+		var prevLoc = self.startIndex
+		let regex = try! NSRegularExpression(pattern: pattern)
+		regex.enumerateMatches(in: self, range: NSRange(location: 0, length: self.count), using: { match, flags, stop  in
+			let start = self.index(self.startIndex, offsetBy: match!.range.lowerBound)
 			// append unrelated text up to this key
-			rv.append(contentsOf: html[prevLoc ..< start])
-			prevLoc = html.index(start, offsetBy: match!.range.length)
+			rv.append(contentsOf: self[prevLoc ..< start])
+			prevLoc = self.index(start, offsetBy: match!.range.length)
 			// append key if exists (else remove template-key)
-			if let value = templateValues[key] {
+			let key = String(self[Range(match!.range(at: 1), in: self)!])
+			if let value = fn(key) {
 				rv.append(value)
 			} else {
 				// os_log(.debug, log: log, "unknown template key: %{public}@", key)
 			}
 		})
 		// append remaining text
-		rv.append(contentsOf: html[prevLoc ..< html.endIndex])
+		rv.append(contentsOf: self[prevLoc ..< self.endIndex])
 		return rv
 	}
 }
