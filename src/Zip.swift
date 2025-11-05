@@ -224,9 +224,9 @@ private func listZip(_ path: String) -> [ZipEntry] {
 	}
 	
 	guard let endRecord = findCentralDirectory(fp), endRecord.sizeOfCentralDirectory > 0 else {
-		return [];
+		return []
 	}
-	return listDirectoryEntries(fp, endRecord);
+	return listDirectoryEntries(fp, endRecord)
 }
 
 /// Find signature for central directory.

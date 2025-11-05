@@ -32,13 +32,13 @@ struct MetaInfo {
 		
 		switch self.UTI {
 		case "com.apple.itunes.ipa", "com.opa334.trollstore.tipa", "dyn.ah62d4rv4ge81k4puqe":
-			self.type = FileType.IPA;
-			zipFile = ZipFile(self.url.path);
+			self.type = FileType.IPA
+			zipFile = ZipFile(self.url.path)
 		case "com.apple.xcode.archive":
-			self.type = FileType.Archive;
-			effective = appPathForArchive(self.url);
+			self.type = FileType.Archive
+			effective = appPathForArchive(self.url)
 		case "com.apple.application-and-system-extension":
-			self.type = FileType.Extension;
+			self.type = FileType.Extension
 		default:
 			os_log(.error, log: log, "Unsupported file type: %{public}@", self.UTI)
 			fatalError()
@@ -98,5 +98,5 @@ private func appPathForArchive(_ url: URL) -> URL? {
 			return x.first
 		}
 	}
-	return nil;
+	return nil
 }

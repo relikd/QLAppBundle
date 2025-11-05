@@ -48,7 +48,7 @@ extension PreviewGenerator {
 			os_log(.error, log: log, "No invalidity date in '%{public}@' certificate, dictionary = %{public}@", subject, innerDict)
 			return nil
 		}
-		return Date.parseAny(dateString);
+		return Date.parseAny(dateString)
 	}
 	
 	/// Process list of all certificates. Return a two column table with subject and expiration date.

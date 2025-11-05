@@ -89,7 +89,7 @@ extension AppIcon {
 		if let icon = appPlist["CFBundleIconFile"] as? String { // may be nil
 			return [icon]
 		}
-		return [] // [self sortedByResolution:icons];
+		return []
 	}
 	
 	/// Given a filename, search Bundle or Filesystem for files that match. Select the filename with the highest resolution.
@@ -218,7 +218,6 @@ extension NSImage {
 		
 	/// Convert image to PNG and encode with base64 to be embeded in html output.
 	func asBase64() -> String {
-		//	appIcon = [self roundCorners:appIcon];
 		let imageData = tiffRepresentation!
 		let imageRep = NSBitmapImageRep(data: imageData)!
 		let imageDataPNG = imageRep.representation(using: .png, properties: [:])!

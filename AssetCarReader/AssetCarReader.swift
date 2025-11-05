@@ -25,7 +25,7 @@ public class CarReader {
 				return NSImage(cgImage: bestImage.image, size: bestImage.size)
 			}
 		}
-		return nil;
+		return nil
 	}
 	
 	
@@ -44,7 +44,7 @@ public class CarReader {
 			os_log(.debug, log: log, "[asset-car] available keys: %{public}@", catalog.allImageNames() ?? [])
 			return nil
 		}
-		return imageName;
+		return imageName
 	}
 	
 	/// If exact name does not exist in catalog, search for a name that shares the same prefix.
