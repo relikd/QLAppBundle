@@ -1,6 +1,6 @@
 import Foundation
 
-let TransportSecurityLocalizedKeys = [
+private let TransportSecurityLocalizedKeys = [
 	"NSAllowsArbitraryLoads": "Allows Arbitrary Loads",
 	"NSAllowsArbitraryLoadsForMedia": "Allows Arbitrary Loads for Media",
 	"NSAllowsArbitraryLoadsInWebContent": "Allows Arbitrary Loads in Web Content",
@@ -20,7 +20,7 @@ let TransportSecurityLocalizedKeys = [
 ]
 
 /// Print recursive tree of key-value mappings.
-private func recursiveTransportSecurity(_ dictionary: [String: Any], _ level: Int = 0) -> String {
+private func recursiveTransportSecurity(_ dictionary: PlistDict, _ level: Int = 0) -> String {
 	var output = ""
 	for (key, value) in dictionary {
 		let localizedKey = TransportSecurityLocalizedKeys[key] ?? key
@@ -42,29 +42,16 @@ private func recursiveTransportSecurity(_ dictionary: [String: Any], _ level: In
 }
 
 extension PreviewGenerator {
-	/// @return List of ATS flags.
-	private func formattedAppTransportSecurity(_ appPlist: PlistDict) -> String {
-		if let value = appPlist["NSAppTransportSecurity"] as? PlistDict {
-			return "<div class=\"list\">\(recursiveTransportSecurity(value))</div>"
-		}
-		
-		let sdkName = appPlist["DTSDKName"] as? String ?? "0"
-		let sdkNumber = Double(sdkName.trimmingCharacters(in: .letters)) ?? 0
-		if sdkNumber < 9.0 {
-			return "Not applicable before iOS 9.0"
-		}
-		return "No exceptions"
-	}
-	
 	/// Process ATS info in `Info.plist`
 	mutating func procTransportSecurity(_ appPlist: PlistDict?) {
-		guard let appPlist else {
+		guard let value = appPlist?["NSAppTransportSecurity"] as? PlistDict else {
 			self.apply(["TransportSecurityHidden": CLASS_HIDDEN])
 			return
 		}
+		
 		self.apply([
 			"TransportSecurityHidden": CLASS_VISIBLE,
-			"TransportSecurityDict": formattedAppTransportSecurity(appPlist),
+			"TransportSecurityDict": "<div class=\"list\">\(recursiveTransportSecurity(value))</div>",
 		])
 	}
 }
