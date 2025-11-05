@@ -17,8 +17,9 @@ struct PreviewGenerator {
 		
 		procAppInfo(plistApp, isOSX: meta.isOSX)
 		procItunesMeta(plistItunes)
-		procProvision(plistProvision, isOSX: meta.isOSX)
+		procTransportSecurity(plistApp)
 		procEntitlements(meta, plistApp, plistProvision)
+		procProvision(plistProvision, isOSX: meta.isOSX)
 		procFileInfo(meta.url)
 		procFooterInfo()
 		// App Icon (last, because the image uses a lot of memory)
