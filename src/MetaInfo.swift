@@ -16,17 +16,18 @@ enum FileType {
 struct MetaInfo {
 	let UTI: String
 	let url: URL
-	let effectiveUrl: URL? // if set, will point to the app inside of an archive
+	private let effectiveUrl: URL // if set, will point to the app inside of an archive
 	
 	let type: FileType
 	let zipFile: ZipFile? // only set for zipped file types
-	let isOSX = false // relict of the past when ProvisionQL also processed provision profiles
+	let isOSX: Bool
 	
 	/// Use file url and UTI type to generate an info object to pass around.
 	init(_ url: URL) {
 		self.url = url
 		self.UTI = try! url.resourceValues(forKeys:  [.typeIdentifierKey]).typeIdentifier ?? "Unknown"
 		
+		var isOSX = false
 		var effective: URL? = nil
 		var zipFile: ZipFile? = nil
 		
@@ -36,26 +37,46 @@ struct MetaInfo {
 			zipFile = ZipFile(self.url.path)
 		case "com.apple.xcode.archive":
 			self.type = FileType.Archive
-			effective = appPathForArchive(self.url)
+			let productsDir = url.appendingPathComponent("Products", isDirectory: true)
+			if productsDir.exists() {
+				if let bundleDir = recursiveSearchInfoPlist(productsDir) {
+					isOSX = bundleDir.appendingPathComponent("MacOS").exists() && bundleDir.lastPathComponent == "Contents"
+					effective = bundleDir
+				}
+			}
 		case "com.apple.application-and-system-extension":
 			self.type = FileType.Extension
 		default:
 			os_log(.error, log: log, "Unsupported file type: %{public}@", self.UTI)
 			fatalError()
 		}
+		self.isOSX = isOSX
 		self.zipFile = zipFile
-		self.effectiveUrl = effective
+		self.effectiveUrl = effective ?? url
+	}
+	
+	/// Evaluate path with `osxSubdir` and `filename`
+	func effectiveUrl(_ osxSubdir: String?, _ filename: String) -> URL {
+		switch self.type {
+		case .IPA:
+			return effectiveUrl
+		case .Archive, .Extension:
+			if isOSX, let osxSubdir {
+				return effectiveUrl
+					.appendingPathComponent(osxSubdir, isDirectory: true)
+					.appendingPathComponent(filename, isDirectory: false)
+			}
+			return effectiveUrl.appendingPathComponent(filename, isDirectory: false)
+		}
 	}
 	
 	/// Load a file from bundle into memory. Either by file path or via unzip.
-	func readPayloadFile(_ filename: String) -> Data? {
-		switch (self.type) {
+	func readPayloadFile(_ filename: String, osxSubdir: String?) -> Data? {
+		switch self.type {
 		case .IPA:
 			return zipFile!.unzipFile("Payload/*.app/".appending(filename))
-		case .Archive:
-			return try? Data(contentsOf: effectiveUrl!.appendingPathComponent(filename))
-		case .Extension:
-			return try? Data(contentsOf: url.appendingPathComponent(filename))
+		case .Archive, .Extension:
+			return try? Data(contentsOf: self.effectiveUrl(osxSubdir, filename))
 		}
 	}
 	
@@ -63,7 +84,7 @@ struct MetaInfo {
 	func readPlistApp() -> PlistDict? {
 		switch self.type {
 		case .IPA, .Archive, .Extension:
-			return self.readPayloadFile("Info.plist")?.asPlistOrNil()
+			return self.readPayloadFile("Info.plist", osxSubdir: nil)?.asPlistOrNil()
 		}
 	}
 }
@@ -88,14 +109,20 @@ extension Data {
 }
 
 
-// MARK: - Meta data for QuickLook
+// MARK: - helper methods
 
-/// Search an archive for the .app or .ipa bundle.
-private func appPathForArchive(_ url: URL) -> URL? {
-	let appsDir = url.appendingPathComponent("Products/Applications/")
-	if FileManager.default.fileExists(atPath: appsDir.path) {
-		if let x = try? FileManager.default.contentsOfDirectory(at: appsDir, includingPropertiesForKeys: nil), !x.isEmpty {
-			return x.first
+/// breadth-first search for `Info.plist`
+private func recursiveSearchInfoPlist(_ url: URL) -> URL? {
+	var queue: [URL] = [url]
+	while !queue.isEmpty {
+		let current = queue.removeLast()
+		if let subfiles = try? FileManager.default.contentsOfDirectory(at: current, includingPropertiesForKeys: []) {
+			for fname in subfiles {
+				if fname.lastPathComponent == "Info.plist" {
+					return fname.deletingLastPathComponent()
+				}
+			}
+			queue.append(contentsOf: subfiles)
 		}
 	}
 	return nil

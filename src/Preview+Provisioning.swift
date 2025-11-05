@@ -7,7 +7,7 @@ private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "Htm
 extension MetaInfo {
 	/// Read `embedded.mobileprovision` file and decode with CMS decoder.
 	func readPlistProvision() -> PlistDict? {
-		guard let provisionData = self.readPayloadFile("embedded.mobileprovision") else {
+		guard let provisionData = self.readPayloadFile("embedded.mobileprovision", osxSubdir: nil) else {
 			os_log(.info, log: log, "No embedded.mobileprovision file for %{public}@", self.url.path)
 			return nil
 		}

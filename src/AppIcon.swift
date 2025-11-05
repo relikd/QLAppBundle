@@ -54,7 +54,7 @@ struct AppIcon {
 	
 	/// Extract an image from `Assets.car`
 	func imageFromAssetsCar(_ imageName: String) -> NSImage? {
-		guard let data = meta.readPayloadFile("Assets.car") else {
+		guard let data = meta.readPayloadFile("Assets.car", osxSubdir: "Resources") else {
 			return nil
 		}
 		return CarReader(data)?.imageFromAssetsCar(imageName)
@@ -114,10 +114,9 @@ extension AppIcon {
 			}
 			
 		case .Archive, .Extension:
-			let basePath = meta.effectiveUrl ?? meta.url
 			for iconPath in iconList {
 				let fileName = iconPath.components(separatedBy: "/").last!
-				let parentDir = basePath.appendingPathComponent(iconPath, isDirectory: false).deletingLastPathComponent().path
+				let parentDir = meta.effectiveUrl("Resources", iconPath).deletingLastPathComponent().path
 				guard let files = try? FileManager.default.contentsOfDirectory(atPath: parentDir) else {
 					continue
 				}

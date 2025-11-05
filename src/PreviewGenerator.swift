@@ -16,7 +16,7 @@ struct PreviewGenerator {
 		
 		data["QuickLookTitle"] = stringForFileType(meta)
 		
-		procAppInfo(plistApp)
+		procAppInfo(plistApp, isOSX: meta.isOSX)
 		procItunesMeta(plistItunes)
 		procProvision(plistProvision, isOSX: meta.isOSX)
 		procEntitlements(meta, plistApp, plistProvision)

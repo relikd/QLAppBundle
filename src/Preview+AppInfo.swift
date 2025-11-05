@@ -56,9 +56,11 @@ extension PreviewGenerator {
 		return "No exceptions"
 	}
 	
-	/// Process info stored in `Info.plist`
-	mutating func procAppInfo(_ appPlist: PlistDict) {
-		var platforms = (appPlist["UIDeviceFamily"] as? [Int])?.compactMap({
+	private func deviceFamilyList(_ appPlist: PlistDict, isOSX: Bool) -> String {
+		if isOSX {
+			return (appPlist["CFBundleSupportedPlatforms"] as? [String])?.joined(separator: ", ") ?? "macOS"
+		}
+		let platforms = (appPlist["UIDeviceFamily"] as? [Int])?.compactMap({
 			switch $0 {
 			case 1: return "iPhone"
 			case 2: return "iPad"
@@ -70,8 +72,14 @@ extension PreviewGenerator {
 		
 		let minVersion = appPlist["MinimumOSVersion"] as? String ?? ""
 		if platforms?.isEmpty ?? true, minVersion.hasPrefix("1.") || minVersion.hasPrefix("2.") || minVersion.hasPrefix("3.") {
-			platforms = "iPhone"
+			return "iPhone"
 		}
+		return platforms ?? ""
+	}
+	
+	/// Process info stored in `Info.plist`
+	mutating func procAppInfo(_ appPlist: PlistDict, isOSX: Bool) {
+		let minVersion = appPlist[isOSX ? "LSMinimumSystemVersion" : "MinimumOSVersion"] as? String ?? ""
 		
 		let extensionType = (appPlist["NSExtension"] as? PlistDict)?["NSExtensionPointIdentifier"] as? String
 		self.apply([
@@ -83,7 +91,7 @@ extension PreviewGenerator {
 			"AppExtensionTypeHidden": extensionType != nil ? "" : CLASS_HIDDEN,
 			"AppExtensionType": extensionType ?? "",
 			
-			"AppDeviceFamily": platforms ?? "",
+			"AppDeviceFamily": deviceFamilyList(appPlist, isOSX: isOSX),
 			"AppSDK": appPlist["DTSDKName"] as? String ?? "",
 			"AppMinOS": minVersion,
 			"AppTransportSecurity": formattedAppTransportSecurity(appPlist),

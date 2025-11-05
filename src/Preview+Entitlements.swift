@@ -16,10 +16,8 @@ extension PreviewGenerator {
 			}
 			try! meta.zipFile!.unzipFile("Payload/*.app/\(bundleExecutable)", toDir: tmpPath)
 			return Entitlements(forBinary: tmpPath + "/" + bundleExecutable)
-		case .Archive:
-			return Entitlements(forBinary: meta.effectiveUrl!.path + "/" + bundleExecutable)
-		case .Extension:
-			return Entitlements(forBinary: meta.url.path + "/" + bundleExecutable)
+		case .Archive, .Extension:
+			return Entitlements(forBinary: meta.effectiveUrl("MacOS", bundleExecutable).path)
 		}
 	}
 	
