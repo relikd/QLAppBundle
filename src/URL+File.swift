@@ -9,4 +9,9 @@ extension URL {
 	@inlinable func exists() -> Bool {
 		FileManager.default.fileExists(atPath: self.path)
 	}
+	
+	/// Returns URL by deleting last path component
+	@inlinable func parentDir() -> URL {
+		self.deletingLastPathComponent()
+	}
 }

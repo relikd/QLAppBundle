@@ -117,7 +117,7 @@ extension AppIcon {
 		case .Archive, .Extension:
 			for iconPath in iconList {
 				let fileName = iconPath.components(separatedBy: "/").last!
-				let parentDir = meta.effectiveUrl("Resources", iconPath).deletingLastPathComponent().path
+				let parentDir = meta.effectiveUrl("Resources", iconPath).parentDir().path
 				guard let files = try? FileManager.default.contentsOfDirectory(atPath: parentDir) else {
 					continue
 				}

@@ -122,7 +122,7 @@ private func recursiveSearchInfoPlist(_ url: URL) -> URL? {
 		if let subfiles = try? FileManager.default.contentsOfDirectory(at: current, includingPropertiesForKeys: []) {
 			for fname in subfiles {
 				if fname.lastPathComponent == "Info.plist" {
-					return fname.deletingLastPathComponent()
+					return fname.parentDir()
 				}
 			}
 			queue.append(contentsOf: subfiles)
