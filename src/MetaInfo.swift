@@ -38,11 +38,11 @@ struct MetaInfo {
 		case "com.apple.xcode.archive":
 			self.type = FileType.Archive
 			let productsDir = url.appendingPathComponent("Products", isDirectory: true)
-			if productsDir.exists() {
-				if let bundleDir = recursiveSearchInfoPlist(productsDir) {
-					isOSX = bundleDir.appendingPathComponent("MacOS").exists() && bundleDir.lastPathComponent == "Contents"
-					effective = bundleDir
-				}
+			if productsDir.exists(), let bundleDir = recursiveSearchInfoPlist(productsDir) {
+				isOSX = bundleDir.appendingPathComponent("MacOS").exists() && bundleDir.lastPathComponent == "Contents"
+				effective = bundleDir
+			} else {
+				effective = productsDir // this is wrong but dont use `url` either because that will find the `Info.plist` of the archive itself
 			}
 		case "com.apple.application-and-system-extension":
 			self.type = FileType.Extension
@@ -116,6 +116,9 @@ private func recursiveSearchInfoPlist(_ url: URL) -> URL? {
 	var queue: [URL] = [url]
 	while !queue.isEmpty {
 		let current = queue.removeLast()
+		if current.pathExtension == "framework" {
+			continue // do not evaluate bundled frameworks
+		}
 		if let subfiles = try? FileManager.default.contentsOfDirectory(at: current, includingPropertiesForKeys: []) {
 			for fname in subfiles {
 				if fname.lastPathComponent == "Info.plist" {
