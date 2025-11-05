@@ -67,6 +67,8 @@ struct Entitlements {
 	
 	// MARK: - SecCode in-memory reader
 	
+	// Same as system call:
+	// `codesign -d ./binary --entitlements - --xml` or: `codesign -d ./binary --entitlements :-`
 	/// use in-memory `SecCode` for entitlement extraction
 	private func getSecCodeEntitlements() -> PlistDict? {
 		let url = URL(fileURLWithPath: self.binaryPath)
@@ -84,13 +86,13 @@ struct Entitlements {
 		
 		// if 'entitlements-dict' key exists, use that one
 		os_log(.debug, log: log, "[entitlements] read SecCode 'entitlements-dict' key")
-		if let plist = requirementInfo[kSecCodeInfoEntitlementsDict as String] as? PlistDict {
+		if let plist = requirementInfo[kSecCodeInfoEntitlementsDict as String] as? PlistDict, !plist.isEmpty {
 			return plist
 		}
 		
 		// else, fallback to parse data from 'entitlements' key
 		os_log(.debug, log: log, "[entitlements] read SecCode 'entitlements' key")
-		guard let data = requirementInfo[kSecCodeInfoEntitlements as String] as? Data else {
+		guard let data = requirementInfo[kSecCodeInfoEntitlements as String] as? Data, !data.isEmpty else {
 			return nil
 		}
 		
@@ -107,7 +109,10 @@ struct Entitlements {
 			os_log(.error, log: log, "[entitlements] unpack error for FADE7171 size %lu != %lu", data.count, size)
 			// but try anyway
 		}
-		return data.subdata(in: 8..<data.count).asPlistOrNil()
+		guard let rv = data.subdata(in: 8..<data.count).asPlistOrNil(), !rv.isEmpty else {
+			return nil
+		}
+		return rv
 	}
 	
 	
