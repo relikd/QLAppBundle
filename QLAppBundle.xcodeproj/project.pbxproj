@@ -37,6 +37,8 @@
 		547F52F72EB2CAC7002B6D5F /* Preview+Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52F62EB2CAC7002B6D5F /* Preview+Footer.swift */; };
 		547F52F92EB2CBAB002B6D5F /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52F82EB2CBAB002B6D5F /* Date+Format.swift */; };
 		549E3B9F2EBA9D2500ADFF56 /* QLAppBundle Preview Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54442C202E378BAF008A870E /* QLAppBundle Preview Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		549E3BA12EBAE7D300ADFF56 /* URL+File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549E3BA02EBAE7D300ADFF56 /* URL+File.swift */; };
+		549E3BA22EBAECD400ADFF56 /* URL+File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549E3BA02EBAE7D300ADFF56 /* URL+File.swift */; };
 		54AE5BFF2EB3DB1000B4CFC7 /* ThumbnailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AE5BFD2EB3DB1000B4CFC7 /* ThumbnailProvider.swift */; };
 		54B6FFEE2EB6A847007397C0 /* AssetCarReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B6FFEC2EB6A847007397C0 /* AssetCarReader.swift */; };
 		54B6FFEF2EB6A8E0007397C0 /* CoreUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3A6F52EA4610B001EF4F6 /* CoreUI.framework */; };
@@ -152,6 +154,7 @@
 		547F52FB2EB37F10002B6D5F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		547F52FC2EB37F3A002B6D5F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		549E3B9E2EBA8FDA00ADFF56 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		549E3BA02EBAE7D300ADFF56 /* URL+File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+File.swift"; sourceTree = "<group>"; };
 		54AE5BFB2EB3DB1000B4CFC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54AE5BFC2EB3DB1000B4CFC7 /* QLThumbnail.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QLThumbnail.entitlements; sourceTree = "<group>"; };
 		54AE5BFD2EB3DB1000B4CFC7 /* ThumbnailProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailProvider.swift; sourceTree = "<group>"; };
@@ -222,6 +225,7 @@
 				547F52E92EB2C672002B6D5F /* Preview+FileInfo.swift */,
 				547F52F62EB2CAC7002B6D5F /* Preview+Footer.swift */,
 				5405CF642EA1376B00613856 /* Zip.swift */,
+				549E3BA02EBAE7D300ADFF56 /* URL+File.swift */,
 				54D3A6EF2EA3F49F001EF4F6 /* NSBezierPath+RoundedRect.swift */,
 				547F52F82EB2CBAB002B6D5F /* Date+Format.swift */,
 			);
@@ -540,6 +544,7 @@
 				547F52E82EB2C41C002B6D5F /* PreviewGenerator.swift in Sources */,
 				547F52EB2EB2C672002B6D5F /* Preview+FileInfo.swift in Sources */,
 				547F52ED2EB2C822002B6D5F /* Preview+AppInfo.swift in Sources */,
+				549E3BA12EBAE7D300ADFF56 /* URL+File.swift in Sources */,
 				547F52F42EB2CA05002B6D5F /* Preview+Entitlements.swift in Sources */,
 				5405CF5E2EA1199B00613856 /* MetaInfo.swift in Sources */,
 				547F52F92EB2CBAB002B6D5F /* Date+Format.swift in Sources */,
@@ -556,6 +561,7 @@
 				547899722EB38F3D00F96B80 /* MetaInfo.swift in Sources */,
 				547899732EB38F3D00F96B80 /* NSBezierPath+RoundedRect.swift in Sources */,
 				54AE5BFF2EB3DB1000B4CFC7 /* ThumbnailProvider.swift in Sources */,
+				549E3BA22EBAECD400ADFF56 /* URL+File.swift in Sources */,
 				547899752EB38F3D00F96B80 /* AppIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,12 +13,9 @@ class PreviewViewController: NSViewController, QLPreviewingController {
 	
 	/// Load resource file either from user documents dir (if exists) or app bundle (default).
 	func bundleFile(filename: String, ext: String) throws -> String {
-		if let appSupport = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-			let override = appSupport.appendingPathComponent(filename + "." + ext)
-			if FileManager.default.fileExists(atPath: override.path) {
-				return try String(contentsOfFile: override.path, encoding: .utf8)
-			}
-			// else: do NOT copy! Breaks on future updates
+		if let userFile = URL.UserModDir?.appendingPathComponent(filename + "." + ext, isDirectory: false), userFile.exists() {
+			return try String(contentsOf: userFile, encoding: .utf8)
+		// else: do NOT copy! Breaks on future updates
 		}
 		// else, load bundle file
 		let path = Bundle.main.url(forResource: filename, withExtension: ext)
