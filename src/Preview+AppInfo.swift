@@ -1,17 +1,36 @@
 import Foundation
 
+let TransportSecurityLocalizedKeys = [
+	"NSAllowsArbitraryLoads": "Allows Arbitrary Loads",
+	"NSAllowsArbitraryLoadsForMedia": "Allows Arbitrary Loads for Media",
+	"NSAllowsArbitraryLoadsInWebContent": "Allows Arbitrary Loads in Web Content",
+	"NSAllowsLocalNetworking": "Allows Local Networking",
+	"NSExceptionDomains": "Exception Domains",
+	
+	"NSIncludesSubdomains": "Includes Subdomains",
+	"NSRequiresCertificateTransparency": "Requires Certificate Transparency",
+	
+	"NSExceptionAllowsInsecureHTTPLoads": "Allows Insecure HTTP Loads",
+	"NSExceptionMinimumTLSVersion": "Minimum TLS Version",
+	"NSExceptionRequiresForwardSecrecy": "Requires Forward Secrecy",
+	
+	"NSThirdPartyExceptionAllowsInsecureHTTPLoads": "Allows Insecure HTTP Loads",
+	"NSThirdPartyExceptionMinimumTLSVersion": "Minimum TLS Version",
+	"NSThirdPartyExceptionRequiresForwardSecrecy": "Requires Forward Secrecy",
+]
+
 /// Print recursive tree of key-value mappings.
-private func recursiveDict(_ dictionary: [String: Any], withReplacements replacements: [String: String] = [:], _ level: Int = 0) -> String {
+private func recursiveTransportSecurity(_ dictionary: [String: Any], _ level: Int = 0) -> String {
 	var output = ""
 	for (key, value) in dictionary {
-		let localizedKey = replacements[key] ?? key
+		let localizedKey = TransportSecurityLocalizedKeys[key] ?? key
 		for _ in 0..<level {
 			output += (level == 1) ? "- " : "&nbsp;&nbsp;"
 		}
 		
 		if let subDict = value as? [String: Any] {
 			output += "\(localizedKey):<div class=\"list\">\n"
-			output += recursiveDict(subDict, withReplacements: replacements, level + 1)
+			output += recursiveTransportSecurity(subDict, level + 1)
 			output += "</div>\n"
 		} else if let number = value as? NSNumber {
 			output += "\(localizedKey): \(number.boolValue ? "YES" : "NO")<br />"
@@ -26,26 +45,7 @@ extension PreviewGenerator {
 	/// @return List of ATS flags.
 	private func formattedAppTransportSecurity(_ appPlist: PlistDict) -> String {
 		if let value = appPlist["NSAppTransportSecurity"] as? PlistDict {
-			let localizedKeys = [
-				"NSAllowsArbitraryLoads": "Allows Arbitrary Loads",
-				"NSAllowsArbitraryLoadsForMedia": "Allows Arbitrary Loads for Media",
-				"NSAllowsArbitraryLoadsInWebContent": "Allows Arbitrary Loads in Web Content",
-				"NSAllowsLocalNetworking": "Allows Local Networking",
-				"NSExceptionDomains": "Exception Domains",
-				
-				"NSIncludesSubdomains": "Includes Subdomains",
-				"NSRequiresCertificateTransparency": "Requires Certificate Transparency",
-				
-				"NSExceptionAllowsInsecureHTTPLoads": "Allows Insecure HTTP Loads",
-				"NSExceptionMinimumTLSVersion": "Minimum TLS Version",
-				"NSExceptionRequiresForwardSecrecy": "Requires Forward Secrecy",
-				
-				"NSThirdPartyExceptionAllowsInsecureHTTPLoads": "Allows Insecure HTTP Loads",
-				"NSThirdPartyExceptionMinimumTLSVersion": "Minimum TLS Version",
-				"NSThirdPartyExceptionRequiresForwardSecrecy": "Requires Forward Secrecy",
-			]
-			
-			return "<div class=\"list\">\(recursiveDict(value, withReplacements: localizedKeys))</div>"
+			return "<div class=\"list\">\(recursiveTransportSecurity(value))</div>"
 		}
 		
 		let sdkName = appPlist["DTSDKName"] as? String ?? "0"
