@@ -26,7 +26,13 @@ extension PreviewGenerator {
 		var entitlements = readEntitlements(meta, appPlist?["CFBundleExecutable"] as? String)
 		entitlements.applyFallbackIfNeeded(provisionPlist?["Entitlements"] as? PlistDict)
 		
+		if entitlements.html == nil && !entitlements.hasError {
+			self.apply(["EntitlementsHidden" : CLASS_HIDDEN])
+			return
+		}
+		
 		self.apply([
+			"EntitlementsHidden" : CLASS_VISIBLE,
 			"EntitlementsWarningHidden": entitlements.hasError ? CLASS_VISIBLE : CLASS_HIDDEN,
 			"EntitlementsDict": entitlements.html ?? "No Entitlements",
 		])
