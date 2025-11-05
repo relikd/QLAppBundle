@@ -22,8 +22,8 @@ extension PreviewGenerator {
 	}
 	
 	/// Process compiled binary and provision plist to extract `Entitlements`
-	mutating func procEntitlements(_ meta: MetaInfo, _ appPlist: PlistDict, _ provisionPlist: PlistDict?) {
-		var entitlements = readEntitlements(meta, appPlist["CFBundleExecutable"] as? String)
+	mutating func procEntitlements(_ meta: MetaInfo, _ appPlist: PlistDict?, _ provisionPlist: PlistDict?) {
+		var entitlements = readEntitlements(meta, appPlist?["CFBundleExecutable"] as? String)
 		entitlements.applyFallbackIfNeeded(provisionPlist?["Entitlements"] as? PlistDict)
 		
 		self.apply([

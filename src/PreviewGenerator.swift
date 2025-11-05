@@ -8,9 +8,7 @@ struct PreviewGenerator {
 	
 	init(_ meta: MetaInfo) {
 		self.meta = meta
-		guard let plistApp = meta.readPlistApp() else {
-			return
-		}
+		let plistApp = meta.readPlistApp()
 		let plistItunes = meta.readPlistItunes()
 		let plistProvision = meta.readPlistProvision()
 		
