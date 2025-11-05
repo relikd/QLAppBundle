@@ -1,6 +1,7 @@
 import Foundation
 
 let CLASS_HIDDEN = "hiddenDiv"
+let CLASS_VISIBLE = ""
 
 struct PreviewGenerator {
 	var data: [String: String] = [:] // used for TAG replacements

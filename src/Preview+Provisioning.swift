@@ -124,7 +124,7 @@ extension PreviewGenerator {
 		let certs = getCertificateList(provisionPlist)
 		
 		self.apply([
-			"ProvisionHidden": "",
+			"ProvisionHidden": CLASS_VISIBLE,
 			"ProvisionProfileName": provisionPlist["Name"] as? String ?? "",
 			"ProvisionProfileId": provisionPlist["UUID"] as? String ?? "",
 			"ProvisionTeamName": provisionPlist["TeamName"] as? String ?? "<em>Team name not available</em>",

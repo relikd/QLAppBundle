@@ -91,7 +91,7 @@ extension PreviewGenerator {
 			"AppBuildVer": appPlist["CFBundleVersion"] as? String ?? "",
 			"AppId": appPlist["CFBundleIdentifier"] as? String ?? "",
 			
-			"AppExtensionTypeHidden": extensionType != nil ? "" : CLASS_HIDDEN,
+			"AppExtensionTypeHidden": extensionType != nil ? CLASS_VISIBLE : CLASS_HIDDEN,
 			"AppExtensionType": extensionType ?? "",
 			
 			"AppDeviceFamily": deviceFamilyList(appPlist, isOSX: isOSX),

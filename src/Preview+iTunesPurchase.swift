@@ -56,7 +56,7 @@ extension PreviewGenerator {
 			name = appleId
 		}
 		self.apply([
-			"iTunesHidden": "",
+			"iTunesHidden": CLASS_VISIBLE,
 			"iTunesId": (itunesPlist["itemId"] as? Int)?.description ?? "",
 			"iTunesName": itunesPlist["itemName"] as? String ?? "",
 			"iTunesGenres": formattedGenres(itunesPlist),

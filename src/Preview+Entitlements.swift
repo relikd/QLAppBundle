@@ -27,7 +27,7 @@ extension PreviewGenerator {
 		entitlements.applyFallbackIfNeeded(provisionPlist?["Entitlements"] as? PlistDict)
 		
 		self.apply([
-			"EntitlementsWarningHidden": entitlements.hasError ? "" : CLASS_HIDDEN,
+			"EntitlementsWarningHidden": entitlements.hasError ? CLASS_VISIBLE : CLASS_HIDDEN,
 			"EntitlementsDict": entitlements.html ?? "No Entitlements",
 		])
 	}
