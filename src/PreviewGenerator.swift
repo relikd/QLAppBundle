@@ -10,13 +10,13 @@ struct PreviewGenerator {
 	init(_ meta: MetaInfo) {
 		self.meta = meta
 		let plistApp = meta.readPlistApp()
-		let plistItunes = meta.readPlistItunes()
 		let plistProvision = meta.readPlistProvision()
 		
 		data["QuickLookTitle"] = stringForFileType(meta)
 		
 		procAppInfo(plistApp, isOSX: meta.isOSX)
-		procItunesMeta(plistItunes)
+		procArchiveInfo(meta.readPlistXCArchive())
+		procItunesMeta(meta.readPlistItunes())
 		procTransportSecurity(plistApp)
 		procEntitlements(meta, plistApp, plistProvision)
 		procProvision(plistProvision, isOSX: meta.isOSX)
