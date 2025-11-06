@@ -24,7 +24,8 @@ class PreviewViewController: NSViewController, QLPreviewingController {
 	
 	func preparePreviewOfFile(at url: URL) async throws {
 		let meta = MetaInfo(url)
-		let html = PreviewGenerator(meta).generate(
+		// throws an exception if appPlist not found. Thus allowing another QuickLook plugin to try
+		let html = try PreviewGenerator(meta).generate(
 			template: try bundleFile(filename: "template", ext: "html"),
 			css: try bundleFile(filename: "style", ext: "css"),
 		)

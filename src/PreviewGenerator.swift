@@ -7,9 +7,11 @@ struct PreviewGenerator {
 	var data: [String: String] = [:] // used for TAG replacements
 	let meta: MetaInfo
 	
-	init(_ meta: MetaInfo) {
+	init(_ meta: MetaInfo) throws {
 		self.meta = meta
-		let plistApp = meta.readPlistApp()
+		guard let plistApp = meta.readPlistApp() else {
+			throw RuntimeError("Info.plist not found")
+		}
 		let plistProvision = meta.readPlistProvision()
 		
 		data["QuickLookTitle"] = stringForFileType(meta)
