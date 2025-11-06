@@ -1,6 +1,6 @@
 import Foundation
 
-let CLASS_HIDDEN = "hiddenDiv"
+let CLASS_HIDDEN = "hidden"
 let CLASS_VISIBLE = ""
 
 struct PreviewGenerator {
