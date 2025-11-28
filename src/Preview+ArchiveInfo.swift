@@ -7,7 +7,7 @@ extension MetaInfo {
 		case .Archive:
 			// not `readPayloadFile` because plist is in root dir
 			return try? Data(contentsOf: self.url.appendingPathComponent("Info.plist", isDirectory: false)).asPlistOrNil()
-		case .IPA, .Extension:
+		case .IPA, .Extension, .APK:
 			return nil
 		}
 	}

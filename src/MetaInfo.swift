@@ -11,6 +11,7 @@ enum FileType {
 	case IPA
 	case Archive
 	case Extension
+	case APK
 }
 
 struct MetaInfo {
@@ -25,7 +26,7 @@ struct MetaInfo {
 	/// Use file url and UTI type to generate an info object to pass around.
 	init(_ url: URL) {
 		self.url = url
-		self.UTI = try! url.resourceValues(forKeys:  [.typeIdentifierKey]).typeIdentifier ?? "Unknown"
+		self.UTI = try! url.resourceValues(forKeys: [.typeIdentifierKey]).typeIdentifier ?? "Unknown"
 		
 		var isOSX = false
 		var effective: URL? = nil
@@ -46,6 +47,10 @@ struct MetaInfo {
 			}
 		case "com.apple.application-and-system-extension":
 			self.type = FileType.Extension
+		case "com.google.android.apk", "dyn.ah62d4rv4ge80c6dp", "public.archive.apk":
+			self.type = FileType.APK
+			zipFile = ZipFile(self.url.path)
+//		case "com.google.android.apkm", "dyn.ah62d4rv4ge80c6dpry":
 		default:
 			os_log(.error, log: log, "Unsupported file type: %{public}@", self.UTI)
 			fatalError()
@@ -58,7 +63,7 @@ struct MetaInfo {
 	/// Evaluate path with `osxSubdir` and `filename`
 	func effectiveUrl(_ osxSubdir: String?, _ filename: String) -> URL {
 		switch self.type {
-		case .IPA:
+		case .IPA, .APK:
 			return effectiveUrl
 		case .Archive, .Extension:
 			if isOSX, let osxSubdir {
@@ -75,16 +80,20 @@ struct MetaInfo {
 		switch self.type {
 		case .IPA:
 			return zipFile!.unzipFile("Payload/*.app/".appending(filename))
+		case .APK:
+			return zipFile!.unzipFile(filename)
 		case .Archive, .Extension:
 			return try? Data(contentsOf: self.effectiveUrl(osxSubdir, filename))
 		}
 	}
 	
 	/// Read app default `Info.plist`. (used for both, Preview and Thumbnail)
-	func readPlistApp() -> PlistDict? {
+	func readPlistApp(iconOnly: Bool = false) -> PlistDict? {
 		switch self.type {
 		case .IPA, .Archive, .Extension:
 			return self.readPayloadFile("Info.plist", osxSubdir: nil)?.asPlistOrNil()
+		case .APK:
+			return iconOnly ? self.readApkIconOnly() : self.readApkManifest()
 		}
 	}
 }

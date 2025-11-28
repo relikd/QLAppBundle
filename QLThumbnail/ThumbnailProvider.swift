@@ -22,7 +22,7 @@ class ThumbnailProvider: QLThumbnailProvider {
 	
 	override func provideThumbnail(for request: QLFileThumbnailRequest, _ handler: @escaping (QLThumbnailReply?, Error?) -> Void) {
 		let meta = MetaInfo(request.fileURL)
-		guard let appPlist = meta.readPlistApp() else {
+		guard let appPlist = meta.readPlistApp(iconOnly: true) else {
 			return
 		}
 		let img = AppIcon(meta).extractImage(from: appPlist).withRoundCorners()

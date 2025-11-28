@@ -16,6 +16,14 @@ struct AppIcon {
 	/// Try multiple methods to extract image.
 	/// This method will always return an image even if none is found, in which case it returns the default image.
 	func extractImage(from appPlist: PlistDict?) -> NSImage {
+		if meta.type == .APK {
+			if let iconPath = appPlist?["appIcon"] as? String,
+			   let data = meta.zipFile!.unzipFile(iconPath),
+			   let img = NSImage(data: data) {
+				return img
+			}
+			return defaultIcon()
+		}
 		// no need to unwrap the plist, and most .ipa should include the Artwork anyway
 		if meta.type == .IPA {
 			if let data = meta.zipFile!.unzipFile("iTunesArtwork") {
@@ -115,6 +123,9 @@ extension AppIcon {
 					break
 				}
 			}
+			
+		case .APK:
+			return nil // handled in `extractImage()`
 			
 		case .Archive, .Extension:
 			for iconPath in iconList {

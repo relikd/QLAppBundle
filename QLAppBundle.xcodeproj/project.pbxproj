@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5405CF5E2EA1199B00613856 /* MetaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405CF5D2EA1199B00613856 /* MetaInfo.swift */; };
 		5405CF652EA1376B00613856 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405CF642EA1376B00613856 /* Zip.swift */; };
+		540B77D92ED79BBD009E030C /* MetaInfo+Apk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B77D82ED79BB2009E030C /* MetaInfo+Apk.swift */; };
+		540B77DA2ED79C6B009E030C /* MetaInfo+Apk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B77D82ED79BB2009E030C /* MetaInfo+Apk.swift */; };
+		540B77DC2ED79CC1009E030C /* AndroidXML in Frameworks */ = {isa = PBXBuildFile; productRef = 540B77DB2ED79CC1009E030C /* AndroidXML */; };
+		540B77DE2ED79CC8009E030C /* AndroidXML in Frameworks */ = {isa = PBXBuildFile; productRef = 540B77DD2ED79CC8009E030C /* AndroidXML */; };
 		5412DECE2EBC168600F9040D /* Preview+ArchiveInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5412DECD2EBC168600F9040D /* Preview+ArchiveInfo.swift */; };
 		5412DED02EBC283000F9040D /* RuntimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5412DECF2EBC283000F9040D /* RuntimeError.swift */; };
 		543FE5742EB3BB5E0059F98B /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 543FE5732EB3BB5E0059F98B /* AppIcon.icns */; };
@@ -126,6 +130,7 @@
 /* Begin PBXFileReference section */
 		5405CF5D2EA1199B00613856 /* MetaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaInfo.swift; sourceTree = "<group>"; };
 		5405CF642EA1376B00613856 /* Zip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zip.swift; sourceTree = "<group>"; };
+		540B77D82ED79BB2009E030C /* MetaInfo+Apk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MetaInfo+Apk.swift"; sourceTree = "<group>"; };
 		5412DECD2EBC168600F9040D /* Preview+ArchiveInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+ArchiveInfo.swift"; sourceTree = "<group>"; };
 		5412DECF2EBC283000F9040D /* RuntimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeError.swift; sourceTree = "<group>"; };
 		54352E8A2EB6A79A0082F61D /* AssetCarReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AssetCarReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				540B77DC2ED79CC1009E030C /* AndroidXML in Frameworks */,
 				54B6FFF02EB6AA0F007397C0 /* AssetCarReader.framework in Frameworks */,
 				54D3A6FE2EA465B4001EF4F6 /* CoreGraphics.framework in Frameworks */,
 				54442C232E378BAF008A870E /* Quartz.framework in Frameworks */,
@@ -202,6 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				540B77DE2ED79CC8009E030C /* AndroidXML in Frameworks */,
 				54B6FFF52EB6AA14007397C0 /* AssetCarReader.framework in Frameworks */,
 				54581FD12EB29A0B0043A0B3 /* QuickLookThumbnailing.framework in Frameworks */,
 				54581FD22EB29A0B0043A0B3 /* Quartz.framework in Frameworks */,
@@ -215,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				5405CF5D2EA1199B00613856 /* MetaInfo.swift */,
+				540B77D82ED79BB2009E030C /* MetaInfo+Apk.swift */,
 				5412DECF2EBC283000F9040D /* RuntimeError.swift */,
 				54D3A6EB2EA31B52001EF4F6 /* AppCategories.swift */,
 				54D3A6ED2EA39CC6001EF4F6 /* AppIcon.swift */,
@@ -406,6 +414,7 @@
 			);
 			name = "QL Preview";
 			packageProductDependencies = (
+				540B77DB2ED79CC1009E030C /* AndroidXML */,
 			);
 			productName = QLPreview;
 			productReference = 54442C202E378BAF008A870E /* QLAppBundle Preview Extension.appex */;
@@ -427,6 +436,7 @@
 			);
 			name = "QL Thumbnail";
 			packageProductDependencies = (
+				540B77DD2ED79CC8009E030C /* AndroidXML */,
 			);
 			productName = QLThumbnail;
 			productReference = 54581FCF2EB29A0B0043A0B3 /* QLAppBundle Thumbnail Extension.appex */;
@@ -462,6 +472,9 @@
 			);
 			mainGroup = 54442BEB2E378B71008A870E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				54D891112ED7313100BF23C4 /* XCRemoteSwiftPackageReference "AndroidXML" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 54442BF52E378B71008A870E /* Products */;
 			projectDirPath = "";
@@ -549,6 +562,7 @@
 				547F52ED2EB2C822002B6D5F /* Preview+AppInfo.swift in Sources */,
 				549E3BA12EBAE7D300ADFF56 /* URL+File.swift in Sources */,
 				547F52F42EB2CA05002B6D5F /* Preview+Entitlements.swift in Sources */,
+				540B77D92ED79BBD009E030C /* MetaInfo+Apk.swift in Sources */,
 				5405CF5E2EA1199B00613856 /* MetaInfo.swift in Sources */,
 				547F52F92EB2CBAB002B6D5F /* Date+Format.swift in Sources */,
 				54D3A6EC2EA31B52001EF4F6 /* AppCategories.swift in Sources */,
@@ -567,6 +581,7 @@
 				54AE5BFF2EB3DB1000B4CFC7 /* ThumbnailProvider.swift in Sources */,
 				549E3BA22EBAECD400ADFF56 /* URL+File.swift in Sources */,
 				547899752EB38F3D00F96B80 /* AppIcon.swift in Sources */,
+				540B77DA2ED79C6B009E030C /* MetaInfo+Apk.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,6 +836,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -847,6 +863,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -1014,6 +1031,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		54D891112ED7313100BF23C4 /* XCRemoteSwiftPackageReference "AndroidXML" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/relikd/AndroidXML";
+			requirement = {
+				kind = exactVersion;
+				version = 1.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		540B77DB2ED79CC1009E030C /* AndroidXML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54D891112ED7313100BF23C4 /* XCRemoteSwiftPackageReference "AndroidXML" */;
+			productName = AndroidXML;
+		};
+		540B77DD2ED79CC8009E030C /* AndroidXML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54D891112ED7313100BF23C4 /* XCRemoteSwiftPackageReference "AndroidXML" */;
+			productName = AndroidXML;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 54442BEC2E378B71008A870E /* Project object */;
 }

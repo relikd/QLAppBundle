@@ -18,6 +18,9 @@ extension PreviewGenerator {
 			return Entitlements(forBinary: tmpPath + "/" + bundleExecutable)
 		case .Archive, .Extension:
 			return Entitlements(forBinary: meta.effectiveUrl("MacOS", bundleExecutable).path)
+		case .APK:
+			// not applicable for Android
+			return Entitlements.withoutBinary()
 		}
 	}
 	

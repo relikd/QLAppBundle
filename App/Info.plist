@@ -27,6 +27,25 @@
 				</array>
 			</dict>
 		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.google.android.apk</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.mime-type</key>
+				<array>
+					<string>application/vnd.android.package-archive</string>
+				</array>
+				<key>public.filename-extension</key>
+				<array>
+					<string>apk</string>
+				</array>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

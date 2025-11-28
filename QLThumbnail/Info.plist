@@ -13,6 +13,9 @@
 				<string>com.apple.xcode.archive</string>
 				<string>com.opa334.trollstore.tipa</string>
 				<string>dyn.ah62d4rv4ge81k4puqe</string>
+				<string>com.google.android.apk</string>
+				<string>dyn.ah62d4rv4ge80c6dp</string>
+				<string>public.archive.apk</string>
 			</array>
 			<key>QLThumbnailMinimumDimension</key>
 			<integer>16</integer>

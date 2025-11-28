@@ -7,7 +7,7 @@ extension MetaInfo {
 		case .IPA:
 			// not `readPayloadFile` because plist is in root dir
 			return self.zipFile!.unzipFile("iTunesMetadata.plist")?.asPlistOrNil()
-		case .Archive, .Extension:
+		case .Archive, .Extension, .APK:
 			return nil
 		}
 	}

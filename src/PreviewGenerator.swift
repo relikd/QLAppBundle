@@ -15,24 +15,38 @@ struct PreviewGenerator {
 		"EntitlementsHidden": CLASS_HIDDEN,
 		"EntitlementsWarningHidden": CLASS_HIDDEN,
 		"ProvisionHidden": CLASS_HIDDEN,
+		"ApkFeaturesRequiredHidden": CLASS_HIDDEN,
+		"ApkFeaturesOptionalHidden": CLASS_HIDDEN,
+		"ApkPermissionsHidden": CLASS_HIDDEN,
 	]
 	let meta: MetaInfo
 	
 	init(_ meta: MetaInfo) throws {
 		self.meta = meta
 		guard let plistApp = meta.readPlistApp() else {
-			throw RuntimeError("Info.plist not found")
+			let isAndroid = meta.type == .APK
+			throw RuntimeError(isAndroid ? "AndroidManifest.xml not found" : "Info.plist not found")
 		}
-		let plistProvision = meta.readPlistProvision()
 		
 		data["QuickLookTitle"] = stringForFileType(meta)
 		
-		procAppInfo(plistApp, isOSX: meta.isOSX)
-		procArchiveInfo(meta.readPlistXCArchive())
-		procItunesMeta(meta.readPlistItunes())
-		procTransportSecurity(plistApp)
-		procEntitlements(meta, plistApp, plistProvision)
-		procProvision(plistProvision, isOSX: meta.isOSX)
+		switch meta.type {
+		case .IPA, .Archive, .Extension:
+			procAppInfoApple(plistApp, isOSX: meta.isOSX)
+			if meta.type == .IPA {
+				procItunesMeta(meta.readPlistItunes())
+			} else if meta.type == .Archive {
+				procArchiveInfo(meta.readPlistXCArchive())
+			}
+			procTransportSecurity(plistApp)
+			
+			let plistProvision = meta.readPlistProvision()
+			procEntitlements(meta, plistApp, plistProvision)
+			procProvision(plistProvision, isOSX: meta.isOSX)
+			
+		case .APK:
+			procAppInfoAndroid(plistApp)
+		}
 		procFileInfo(meta.url)
 		procFooterInfo()
 		// App Icon (last, because the image uses a lot of memory)
@@ -46,7 +60,7 @@ struct PreviewGenerator {
 	/// Title of the preview window
 	private func stringForFileType(_ meta: MetaInfo) -> String {
 		switch meta.type {
-		case .IPA:       return "App info"
+		case .IPA, .APK: return "App info"
 		case .Archive:   return "Archive info"
 		case .Extension: return "App extension info"
 		}
