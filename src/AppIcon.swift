@@ -22,6 +22,7 @@ struct AppIcon {
 				os_log(.debug, log: log, "[icon] using iTunesArtwork.")
 				return NSImage(data: data)!
 			}
+			// else, fallthrough
 		}
 		
 		// Extract image name from app plist
@@ -49,6 +50,11 @@ struct AppIcon {
 		}
 		
 		// Fallback to default icon
+		return defaultIcon()
+	}
+	
+	/// Return the bundled default icon `"defaultIcon.png"`
+	private func defaultIcon() -> NSImage {
 		let iconURL = Bundle.main.url(forResource: "defaultIcon", withExtension: "png")!
 		return NSImage(contentsOf: iconURL)!
 	}
@@ -98,13 +104,9 @@ extension AppIcon {
 		var matches: [String] = []
 		switch meta.type {
 		case .IPA:
-			guard let zipFile = meta.zipFile else {
-				// in case unzip in memory is not available, fallback to pattern matching with dynamic suffix
-				return "Payload/*.app/\(iconList.first!)*"
-			}
 			for iconPath in iconList {
 				let zipPath = "Payload/*.app/\(iconPath)*"
-				for zip in zipFile.filesMatching(zipPath) {
+				for zip in meta.zipFile!.filesMatching(zipPath) {
 					if zip.sizeUncompressed > 0 {
 						matches.append(zip.filepath)
 					}
