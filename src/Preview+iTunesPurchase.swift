@@ -35,7 +35,6 @@ extension PreviewGenerator {
 	/// Process info stored in `iTunesMetadata.plist`
 	mutating func procItunesMeta(_ itunesPlist: PlistDict?) {
 		guard let itunesPlist else {
-			self.apply(["iTunesHidden": CLASS_HIDDEN])
 			return
 		}
 		

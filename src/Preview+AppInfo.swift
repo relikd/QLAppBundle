@@ -23,11 +23,7 @@ extension PreviewGenerator {
 	}
 	
 	/// Process info stored in `Info.plist`
-	mutating func procAppInfo(_ appPlist: PlistDict?, isOSX: Bool) {
-		guard let appPlist else {
-			self.apply(["AppInfoHidden": CLASS_HIDDEN])
-			return
-		}
+	mutating func procAppInfoApple(_ appPlist: PlistDict, isOSX: Bool) {
 		let minVersion = appPlist[isOSX ? "LSMinimumSystemVersion" : "MinimumOSVersion"] as? String ?? ""
 		
 		let extensionType = (appPlist["NSExtension"] as? PlistDict)?["NSExtensionPointIdentifier"] as? String

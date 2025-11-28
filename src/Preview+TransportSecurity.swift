@@ -45,7 +45,6 @@ extension PreviewGenerator {
 	/// Process ATS info in `Info.plist`
 	mutating func procTransportSecurity(_ appPlist: PlistDict?) {
 		guard let value = appPlist?["NSAppTransportSecurity"] as? PlistDict else {
-			self.apply(["TransportSecurityHidden": CLASS_HIDDEN])
 			return
 		}
 		

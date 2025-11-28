@@ -4,7 +4,18 @@ let CLASS_HIDDEN = "hidden"
 let CLASS_VISIBLE = ""
 
 struct PreviewGenerator {
-	var data: [String: String] = [:] // used for TAG replacements
+	/// Used for TAG replacements
+	var data: [String: String] = [
+		// default: hide everything
+		"AppInfoHidden": CLASS_HIDDEN,
+		"AppExtensionTypeHidden": CLASS_HIDDEN,
+		"ArchiveHidden": CLASS_HIDDEN,
+		"iTunesHidden": CLASS_HIDDEN,
+		"TransportSecurityHidden": CLASS_HIDDEN,
+		"EntitlementsHidden": CLASS_HIDDEN,
+		"EntitlementsWarningHidden": CLASS_HIDDEN,
+		"ProvisionHidden": CLASS_HIDDEN,
+	]
 	let meta: MetaInfo
 	
 	init(_ meta: MetaInfo) throws {

@@ -27,7 +27,6 @@ extension PreviewGenerator {
 		entitlements.applyFallbackIfNeeded(provisionPlist?["Entitlements"] as? PlistDict)
 		
 		if entitlements.html == nil && !entitlements.hasError {
-			self.apply(["EntitlementsHidden" : CLASS_HIDDEN])
 			return
 		}
 		

@@ -114,7 +114,6 @@ extension PreviewGenerator {
 	/// Process info stored in `embedded.mobileprovision`
 	mutating func procProvision(_ provisionPlist: PlistDict?, isOSX: Bool) {
 		guard let provisionPlist else {
-			self.apply(["ProvisionHidden": CLASS_HIDDEN])
 			return
 		}
 		

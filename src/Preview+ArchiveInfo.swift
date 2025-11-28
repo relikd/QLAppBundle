@@ -17,7 +17,6 @@ extension PreviewGenerator {
 	/// Process info of `.xcarchive` stored in root `Info.plist`
 	mutating func procArchiveInfo(_ archivePlist: PlistDict?) {
 		guard let archivePlist, let comment = archivePlist["Comment"] as? String else {
-			self.apply(["ArchiveHidden": CLASS_HIDDEN])
 			return
 		}
 		
