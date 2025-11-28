@@ -6,9 +6,10 @@
 QLAppBundle
 ===========
 
-A QuickLook plugin for app bundles (`.ipa`, `.tipa`, `.appex`, `.xcarchive`).
+A QuickLook plugin for app bundles (`.ipa`, `.tipa`, `.appex`, `.xcarchive`, `.apk`).
 
-![screenshot](screenshot.png)
+![QuickLook for IPA file](screenshot.png)
+![QuickLook for APK file](screenshot2.png)
 
 
 ## Why?
@@ -27,7 +28,7 @@ Also, I've removed support for provisioning profiles (`.mobileprovision`, `.prov
 
 ## ToDo
 
-- [ ] support for `.apk` files
+- [x] support for `.apk` files
 
 
 
