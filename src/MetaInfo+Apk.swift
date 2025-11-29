@@ -202,20 +202,18 @@ private extension Tbl_Parser {
 		return nil
 	}
 	
-	/// If `ref.entry != 0`, lookup resource with matching id
+	/// Lookup resource with matching id. Choose the icon with the highest density.
 	func getIconDirect(_ ref: TblTableRef) -> String? {
-		guard ref.entry != 0, let res = try? self.getResource(ref) else {
+		guard let res = try? self.getResource(ref) else {
 			return nil
 		}
 		var best: ResValue? = nil
 		var bestScore: UInt16 = 0
 		for e in res.entries {
-			let density = e.config.screenType.density
-			if density == .any || density == .None {
-				continue
-			}
-			if let val = e.entry.value {
-				if density.rawValue > bestScore {
+			switch e.config.screenType.density {
+			case .Default, .any, .None: continue
+			case let density:
+				if density.rawValue > bestScore, let val = e.entry.value {
 					bestScore = density.rawValue
 					best = val
 				}
@@ -224,7 +222,8 @@ private extension Tbl_Parser {
 		return best?.resolve(self.stringPool)
 	}
 	
-	/// if `ref.entry == 0`, iterate over all entries and search for attribute name `ic_launcher`
+	/// Iterate over all entries and choose best-rated icon file.
+	/// Rating prefers files which have an attribute name `"app_icon"` or `"ic_launcher"`.
 	func getIconIndirect(_ ref: TblTableRef) -> String? {
 		// sadly we cannot just `getResource()` because that can point to an app banner
 		guard let pkg = try? self.getPackage(ref.package),
@@ -232,21 +231,27 @@ private extension Tbl_Parser {
 			  let (_, types) = try? pkg.getType(ref.type) else {
 			return nil
 		}
+		// density is 120-640
+		let rates: [String: UInt16] = [
+			"app_icon": 1000,
+			"ic_launcher": 800,
+			"ic_launcher_foreground": 200,
+		]
 		var best: ResValue? = nil
 		var bestScore: UInt16 = 0
 		for typ in types {
-			let density = typ.config.screenType.density
-			if density == .any || density == .None {
-				continue
-			}
-			try? typ.iterValues { _, entry in
-				let attrName = pool.getStringCached(entry.key)
-				guard attrName == "ic_launcher", let val = entry.value else {
-					return
-				}
-				if density.rawValue > bestScore {
-					bestScore = density.rawValue
-					best = val
+			switch typ.config.screenType.density {
+			case .any, .None: continue
+			case let density:
+				try? typ.iterValues {
+					if let val = $1.value {
+						let attrName = pool.getStringCached($1.key)
+						let score = density.rawValue + (rates[attrName] ?? 0)
+						if score > bestScore {
+							bestScore = score
+							best = val
+						}
+					}
 				}
 			}
 		}
