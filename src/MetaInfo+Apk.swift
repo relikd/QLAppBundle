@@ -25,10 +25,24 @@ struct ApkManifest {
 // MARK: - Full Manifest
 
 extension MetaInfo {
+	/// `(true, <nested-apk>)` -- if extension is `.apkm`.
+	/// `(false, zipFile!)` -- if extension is `.apk`.
+	private func effectiveApk() -> (Bool, ZipFile) {
+		// .apkm may contain multiple .apk files. (plus "icon.png" and "info.json" files)
+		if self.url.pathExtension.lowercased() == "apkm" {
+			if let pth = try? zipFile!.unzipFileToTempDir("base.apk") {
+				return (true, ZipFile(pth))
+			}
+		}
+		// .apk (and derivatives) have their contents structured directly in zip
+		return (false, zipFile!)
+	}
+	
 	/// Extract `AndroidManifest.xml` and parse its content
 	func readApkManifest() -> ApkManifest? {
 		assert(type == .APK)
-		guard let data = self.readPayloadFile("AndroidManifest.xml", osxSubdir: nil) else {
+		let (isApkm, nestedZip) = effectiveApk()
+		guard let data = nestedZip.unzipFile("AndroidManifest.xml") else {
 			return nil
 		}
 		let storage = ApkXmlManifestParser()
@@ -60,8 +74,13 @@ extension MetaInfo {
 		}
 		
 		var rv = storage.result
+		// if apkm can load png, prefer that over xml-parsing
+		if isApkm, let iconData = zipFile!.unzipFile("icon.png") {
+			rv.appIcon = nil
+			rv.appIconData = iconData
+		}
 		os_log(.debug, log: log, "[apk] resolving %{public}@", String(describing: rv))
-		rv.resolve(zipFile!)
+		rv.resolve(nestedZip)
 		os_log(.debug, log: log, "[apk] resolved name: \"%{public}@\" icon: %{public}@", rv.appName ?? "", rv.appIcon ?? "-")
 		return rv
 	}
@@ -124,7 +143,13 @@ extension MetaInfo {
 	func readApkIconOnly() -> ApkManifest? {
 		assert(type == .APK)
 		var rv = ApkManifest()
-		guard let data = self.readPayloadFile("AndroidManifest.xml", osxSubdir: nil) else {
+		let (isApkm, nestedZip) = effectiveApk()
+		if isApkm, let iconData = zipFile!.unzipFile("icon.png") {
+			rv.appIcon = "icon.png"
+			rv.appIconData = iconData
+			return rv
+		}
+		guard let data = nestedZip.unzipFile("AndroidManifest.xml") else {
 			return nil
 		}
 		if let xml = try? AndroidXML.init(data: data) {
@@ -138,7 +163,7 @@ extension MetaInfo {
 			// fallback to xml-string parser
 			rv.appIcon = ApkXmlIconParser().run(data)
 		}
-		rv.resolve(zipFile!)
+		rv.resolve(nestedZip)
 		return rv
 	}
 }
@@ -166,6 +191,7 @@ private class ApkXmlIconParser: NSObject, XMLParserDelegate {
 // MARK: - Resolve resource
 
 private extension ApkManifest {
+	/// Reuse `ZipFile` from previous call because that may be an already unpacked `base.apk`
 	mutating func resolve(_ zip: ZipFile) {
 		guard let data = zip.unzipFile("resources.arsc"),
 			  let xml = try? AndroidXML.init(data: data), xml.type == .Table else {

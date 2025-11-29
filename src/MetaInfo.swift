@@ -33,7 +33,7 @@ struct MetaInfo {
 		var zipFile: ZipFile? = nil
 		
 		switch self.UTI {
-		case "com.apple.itunes.ipa", "com.opa334.trollstore.tipa", "dyn.ah62d4rv4ge81k4puqe":
+		case "com.apple.itunes.ipa", "com.opa334.trollstore.tipa", "dyn.ah62d4rv4ge81k4puqe" /* tipa */:
 			self.type = FileType.IPA
 			zipFile = ZipFile(self.url.path)
 		case "com.apple.xcode.archive":
@@ -47,10 +47,9 @@ struct MetaInfo {
 			}
 		case "com.apple.application-and-system-extension":
 			self.type = FileType.Extension
-		case "com.google.android.apk", "dyn.ah62d4rv4ge80c6dp", "public.archive.apk":
+		case "com.google.android.apk", "dyn.ah62d4rv4ge80c6dp" /* apk */, "public.archive.apk", "dyn.ah62d4rv4ge80c6dpry" /* apkm */:
 			self.type = FileType.APK
 			zipFile = ZipFile(self.url.path)
-//		case "com.google.android.apkm", "dyn.ah62d4rv4ge80c6dpry":
 		default:
 			os_log(.error, log: log, "Unsupported file type: %{public}@", self.UTI)
 			fatalError()
@@ -81,7 +80,7 @@ struct MetaInfo {
 		case .IPA:
 			return zipFile!.unzipFile("Payload/*.app/".appending(filename))
 		case .APK:
-			return zipFile!.unzipFile(filename)
+			return nil // not applicable for .apk
 		case .Archive, .Extension:
 			return try? Data(contentsOf: self.effectiveUrl(osxSubdir, filename))
 		}
