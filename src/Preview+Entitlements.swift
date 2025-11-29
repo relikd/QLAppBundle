@@ -3,25 +3,22 @@ import Foundation
 extension PreviewGenerator {
 	/// Search for app binary and run `codesign` on it.
 	private func readEntitlements(_ meta: MetaInfo, _ bundleExecutable: String?) -> Entitlements {
-		guard let bundleExecutable else {
-			return Entitlements.withoutBinary()
-		}
-		
-		switch meta.type {
-		case .IPA:
-			let tmpPath = NSTemporaryDirectory() + "/" + UUID().uuidString
-			try! FileManager.default.createDirectory(atPath: tmpPath, withIntermediateDirectories: true)
-			defer {
-				try? FileManager.default.removeItem(atPath: tmpPath)
+		if let exe = bundleExecutable {
+			switch meta.type {
+			case .IPA:
+				if let tmpPath = try? meta.zipFile!.unzipFileToTempDir("Payload/*.app/\(exe)") {
+					defer {
+						try? FileManager.default.removeItem(atPath: tmpPath)
+					}
+					return Entitlements(forBinary: tmpPath + "/" + exe)
+				}
+			case .Archive, .Extension:
+				return Entitlements(forBinary: meta.effectiveUrl("MacOS", exe).path)
+			case .APK:
+				break // not applicable for Android
 			}
-			try! meta.zipFile!.unzipFile("Payload/*.app/\(bundleExecutable)", toDir: tmpPath)
-			return Entitlements(forBinary: tmpPath + "/" + bundleExecutable)
-		case .Archive, .Extension:
-			return Entitlements(forBinary: meta.effectiveUrl("MacOS", bundleExecutable).path)
-		case .APK:
-			// not applicable for Android
-			return Entitlements.withoutBinary()
 		}
+		return Entitlements.withoutBinary()
 	}
 	
 	/// Process compiled binary and provision plist to extract `Entitlements`

@@ -354,12 +354,23 @@ struct ZipFile {
 	/// Unzip file to filesystem.
 	/// @param filePath File path inside zip file.
 	/// @param targetDir Directory in which to unzip the file.
-	func unzipFile(_ filePath: String, toDir targetDir: String) throws {
-		if let data = self.unzipFile(filePath) {
-			let filename = filePath.components(separatedBy: "/").last!
-			let outputPath = targetDir.appending("/" + filename)
-			os_log(.debug, log: log, "[unzip] write to %{public}@", outputPath)
-			try data.write(to: URL(fileURLWithPath: outputPath), options: .atomic)
+	@discardableResult
+	func unzipFile(_ filePath: String, toDir targetDir: String) throws -> String? {
+		guard let data = self.unzipFile(filePath) else {
+			return nil
 		}
+		let filename = filePath.components(separatedBy: "/").last!
+		let outputPath = targetDir.appending("/" + filename)
+		os_log(.debug, log: log, "[unzip] write to %{public}@", outputPath)
+		try data.write(to: URL(fileURLWithPath: outputPath), options: .atomic)
+		return outputPath
+	}
+	
+	/// Extract selected `filePath` inside zip to a new temporary directory and return path to that file.
+	/// @return Path to extracted data. Returns `nil` or throws exception if data could not be extracted.
+	func unzipFileToTempDir(_ filePath: String) throws -> String? {
+		let tmpPath = NSTemporaryDirectory() + "/" + UUID().uuidString
+		try! FileManager.default.createDirectory(atPath: tmpPath, withIntermediateDirectories: true)
+		return try unzipFile(filePath, toDir: tmpPath)
 	}
 }
