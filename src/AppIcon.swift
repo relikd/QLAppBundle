@@ -13,17 +13,27 @@ struct AppIcon {
 		self.meta = meta
 	}
 	
+	/// Convenience getter to extract app icon regardless of bundle-type.
+	func extractImageForThumbnail() -> NSImage {
+		switch meta.type {
+		case .IPA, .Archive, .Extension:
+			extractImage(from: meta.readPlistApp())
+		case .APK:
+			extractImage(from: meta.readApkIconOnly())
+		}
+	}
+	
+	/// Extract image from Android app bundle.
+	func extractImage(from manifest: ApkManifest?) -> NSImage {
+		if let data = manifest?.appIconData, let img = NSImage(data: data) {
+			return img
+		}
+		return defaultIcon()
+	}
+	
 	/// Try multiple methods to extract image.
 	/// This method will always return an image even if none is found, in which case it returns the default image.
 	func extractImage(from appPlist: PlistDict?) -> NSImage {
-		if meta.type == .APK {
-			if let iconPath = appPlist?["appIcon"] as? String,
-			   let data = meta.zipFile!.unzipFile(iconPath),
-			   let img = NSImage(data: data) {
-				return img
-			}
-			return defaultIcon()
-		}
 		// no need to unwrap the plist, and most .ipa should include the Artwork anyway
 		if meta.type == .IPA {
 			if let data = meta.zipFile!.unzipFile("iTunesArtwork") {

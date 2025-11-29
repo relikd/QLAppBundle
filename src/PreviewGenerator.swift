@@ -23,15 +23,12 @@ struct PreviewGenerator {
 	
 	init(_ meta: MetaInfo) throws {
 		self.meta = meta
-		guard let plistApp = meta.readPlistApp() else {
-			let isAndroid = meta.type == .APK
-			throw RuntimeError(isAndroid ? "AndroidManifest.xml not found" : "Info.plist not found")
-		}
-		
-		data["QuickLookTitle"] = stringForFileType(meta)
 		
 		switch meta.type {
 		case .IPA, .Archive, .Extension:
+			guard let plistApp = meta.readPlistApp() else {
+				throw RuntimeError("Info.plist not found")
+			}
 			procAppInfoApple(plistApp, isOSX: meta.isOSX)
 			if meta.type == .IPA {
 				procItunesMeta(meta.readPlistItunes())
@@ -43,14 +40,21 @@ struct PreviewGenerator {
 			let plistProvision = meta.readPlistProvision()
 			procEntitlements(meta, plistApp, plistProvision)
 			procProvision(plistProvision, isOSX: meta.isOSX)
+			// App Icon (last, because the image uses a lot of memory)
+			data["AppIcon"] = AppIcon(meta).extractImage(from: plistApp).withRoundCorners().asBase64()
 			
 		case .APK:
-			procAppInfoAndroid(plistApp)
+			guard let manifest = meta.readApkManifest() else {
+				throw RuntimeError("AndroidManifest.xml not found")
+			}
+			procAppInfoAndroid(manifest)
+			// App Icon (last, because the image uses a lot of memory)
+			data["AppIcon"] = AppIcon(meta).extractImage(from: manifest).withRoundCorners().asBase64()
 		}
+		
+		data["QuickLookTitle"] = stringForFileType(meta)
 		procFileInfo(meta.url)
 		procFooterInfo()
-		// App Icon (last, because the image uses a lot of memory)
-		data["AppIcon"] = AppIcon(meta).extractImage(from: plistApp).withRoundCorners().asBase64()
 	}
 	
 	mutating func apply(_ values: [String: String]) {

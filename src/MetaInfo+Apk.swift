@@ -4,12 +4,30 @@ import os // OSLog
 
 private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "MetaInfo+Apk")
 
+/// Representation of `AndroidManifest.xml`
+struct ApkManifest {
+	var packageId: String? = nil
+	var appName: String? = nil
+	var appIcon: String? = nil
+	/// Computed property
+	var appIconData: Data? = nil
+	var versionName: String? = nil
+	var versionCode: String? = nil
+	var sdkVerMin: String? = nil
+	var sdkVerTarget: String? = nil
+	
+	var featuresRequired: [String] = []
+	var featuresOptional: [String] = []
+	var permissions: [String] = []
+}
+
 
 // MARK: - Full Manifest
 
 extension MetaInfo {
 	/// Extract `AndroidManifest.xml` and parse its content
-	func readApkManifest() -> PlistDict? {
+	func readApkManifest() -> ApkManifest? {
+		assert(type == .APK)
 		guard let data = self.readPayloadFile("AndroidManifest.xml", osxSubdir: nil) else {
 			return nil
 		}
@@ -42,14 +60,9 @@ extension MetaInfo {
 		}
 		
 		var rv = storage.result
-		guard let _ = rv["packageId"] else {
-			return nil
-		}
-		os_log(.debug, log: log, "[apk] resolving resources name: %{public}@ icon: %{public}@", String(describing: rv["appName"]), String(describing: rv["appIcon"]))
-		let resolved = self.resolveResources([(ResourceType.Name, rv["appName"] as? String), (ResourceType.Icon, rv["appIcon"] as? String)])
-		os_log(.debug, log: log, "[apk] resolved %{public}@", String(describing: resolved))
-		rv["appName"] = resolved[0]
-		rv["appIcon"] = resolved[1]
+		os_log(.debug, log: log, "[apk] resolving %{public}@", String(describing: rv))
+		rv.resolve(zipFile!)
+		os_log(.debug, log: log, "[apk] resolved name: \"%{public}@\" icon: %{public}@", rv.appName ?? "", rv.appIcon ?? "-")
 		return rv
 	}
 }
@@ -57,48 +70,41 @@ extension MetaInfo {
 /// Wrapper to use same code for binary-xml and string-xml parsing
 private class ApkXmlManifestParser: NSObject, XMLParserDelegate {
 	private var _scope: [String] = []
-	private var _rv: [String: String] = [:]
-	private var _perm: [String] = []
-	private var _featOpt: [String] = []
-	private var _featReq: [String] = []
-	var result: PlistDict {
-		(_rv as PlistDict).merging([
-			"permissions": _perm,
-			"featuresOptional": _featOpt,
-			"featuresRequired": _featReq,
-		]) { $1 }
-	}
+	var result = ApkManifest()
 	
 	func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attrs: [String : String] = [:]) {
 		// keep in sync with ALLOWED_TAGS above
 		switch elementName {
 		case "manifest":
 			if _scope == [] {
-				_rv["packageId"] = attrs["package"] // "org.bundle.id"
-				_rv["versionName"] = attrs["android:versionName"] // "7.62.3"
-				_rv["versionCode"] = attrs["android:versionCode"] // "160700"
+				result.packageId = attrs["package"] // "org.bundle.id"
+				result.versionName = attrs["android:versionName"] // "7.62.3"
+				result.versionCode = attrs["android:versionCode"] // "160700"
 				// attrs["platformBuildVersionCode"] // "35"
 				// attrs["platformBuildVersionName"] // "15"
 			}
 		case "application":
 			if _scope == ["manifest"] {
-				_rv["appName"] = attrs["android:label"] // @resource-ref
-				_rv["appIcon"] = attrs["android:icon"] // @resource-ref
+				result.appName = attrs["android:label"] // @resource-ref
+				result.appIcon = attrs["android:icon"] // @resource-ref
 			}
 		case "uses-permission", "uses-permission-sdk-23":
 			// no "permission" because that will produce duplicates with "uses-permission"
 			if _scope == ["manifest"], let name = attrs["android:name"] {
-				_perm.append(name)
+				result.permissions.append(name)
 			}
 		case "uses-feature":
 			if _scope == ["manifest"], let name = attrs["android:name"] {
-				let optional = attrs["android:required"] == "false"
-				optional ? _featOpt.append(name) : _featReq.append(name)
+				if attrs["android:required"] == "false" {
+					result.featuresOptional.append(name)
+				} else {
+					result.featuresRequired.append(name)
+				}
 			}
 		case "uses-sdk":
 			if _scope == ["manifest"] {
-				_rv["sdkVerMin"] = attrs["android:minSdkVersion"] ?? "1" // "21"
-				_rv["sdkVerTarget"] = attrs["android:targetSdkVersion"] // "35"
+				result.sdkVerMin = attrs["android:minSdkVersion"] ?? "1" // "21"
+				result.sdkVerTarget = attrs["android:targetSdkVersion"] // "35"
 			}
 		default: break // ignore
 		}
@@ -115,26 +121,25 @@ private class ApkXmlManifestParser: NSObject, XMLParserDelegate {
 
 extension MetaInfo {
 	/// Same as `readApkManifest()`  but only extract `appIcon`.
-	func readApkIconOnly() -> PlistDict? {
+	func readApkIconOnly() -> ApkManifest? {
+		assert(type == .APK)
+		var rv = ApkManifest()
 		guard let data = self.readPayloadFile("AndroidManifest.xml", osxSubdir: nil) else {
 			return nil
 		}
-		var icon: String? = nil
 		if let xml = try? AndroidXML.init(data: data) {
 			let parser = xml.parseXml()
 			try? parser.iterElements({ startTag, attributes in
 				if startTag == "application" {
-					icon = try? attributes.asDictStr()["android:icon"]
+					rv.appIcon = try? attributes.get("android:icon")?.resolve(parser.stringPool)
 				}
 			}) {_ in}
 		} else {
 			// fallback to xml-string parser
-			icon = ApkXmlIconParser().run(data)
+			rv.appIcon = ApkXmlIconParser().run(data)
 		}
-		if let icon = self.resolveResources([(.Icon, icon)])[0] {
-			return ["appIcon": icon]
-		}
-		return nil
+		rv.resolve(zipFile!)
+		return rv
 	}
 }
 
@@ -160,25 +165,21 @@ private class ApkXmlIconParser: NSObject, XMLParserDelegate {
 
 // MARK: - Resolve resource
 
-private extension MetaInfo {
-	// currently there are only two types of resources, "android:icon" and "android:label"
-	enum ResourceType {
-		case Name
-		case Icon
-	}
-	func resolveResources(_ ids: [(ResourceType, String?)]) -> [String?] {
-		guard let data = self.readPayloadFile("resources.arsc", osxSubdir: nil),
+private extension ApkManifest {
+	mutating func resolve(_ zip: ZipFile) {
+		guard let data = zip.unzipFile("resources.arsc"),
 			  let xml = try? AndroidXML.init(data: data), xml.type == .Table else {
-			return ids.map { _ in nil }
+			return
 		}
+		
 		let parser = xml.parseTable()
-		return ids.map { typ, val in
-			guard let val, let ref = try? TblTableRef(val) else {
-				return nil
-			}
-			switch typ {
-			case .Name: return parser.getName(ref)
-			case .Icon: return parser.getIconDirect(ref) ?? parser.getIconIndirect(ref)
+		if let val = appName, let ref = try? TblTableRef(val) {
+			appName = parser.getName(ref)
+		}
+		if let val = appIcon, let ref = try? TblTableRef(val) {
+			if let iconPath = parser.getIconDirect(ref) ?? parser.getIconIndirect(ref) {
+				appIcon = iconPath
+				appIconData = zip.unzipFile(iconPath)
 			}
 		}
 	}

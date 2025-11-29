@@ -44,10 +44,10 @@ extension PreviewGenerator {
 	}
 	
 	/// Process info stored in `Info.plist`
-	mutating func procAppInfoAndroid(_ appPlist: PlistDict) {
-		let featuresRequired = appPlist["featuresRequired"] as! [String]
-		let featuresOptional = appPlist["featuresOptional"] as! [String]
-		let permissions = appPlist["permissions"] as! [String]
+	mutating func procAppInfoAndroid(_ manifest: ApkManifest) {
+		let featReq = manifest.featuresRequired
+		let featOpt = manifest.featuresOptional
+		let perms = manifest.permissions
 		
 		func asList(_ list: [String]) -> String {
 			"<pre>\(list.joined(separator: "\n"))</pre>"
@@ -58,21 +58,21 @@ extension PreviewGenerator {
 		}
 		self.apply([
 			"AppInfoHidden": CLASS_VISIBLE,
-			"AppName": appPlist["appName"] as? String ?? "",
-			"AppVersion": appPlist["versionName"] as? String ?? "",
-			"AppBuildVer": appPlist["versionCode"] as? String ?? "",
-			"AppId": appPlist["packageId"] as? String ?? "",
+			"AppName": manifest.appName ?? "",
+			"AppVersion": manifest.versionName ?? "",
+			"AppBuildVer": manifest.versionCode ?? "",
+			"AppId": manifest.packageId ?? "",
 			
-			"ApkFeaturesRequiredHidden": featuresRequired.isEmpty ? CLASS_HIDDEN : CLASS_VISIBLE,
-			"ApkFeaturesRequiredList": asList(featuresRequired),
-			"ApkFeaturesOptionalHidden": featuresOptional.isEmpty ? CLASS_HIDDEN : CLASS_VISIBLE,
-			"ApkFeaturesOptionalList": asList(featuresOptional),
-			"ApkPermissionsHidden": permissions.isEmpty ? CLASS_HIDDEN : CLASS_VISIBLE,
-			"ApkPermissionsList": asList(permissions),
+			"ApkFeaturesRequiredHidden": featReq.isEmpty ? CLASS_HIDDEN : CLASS_VISIBLE,
+			"ApkFeaturesRequiredList": asList(featReq),
+			"ApkFeaturesOptionalHidden": featOpt.isEmpty ? CLASS_HIDDEN : CLASS_VISIBLE,
+			"ApkFeaturesOptionalList": asList(featOpt),
+			"ApkPermissionsHidden": perms.isEmpty ? CLASS_HIDDEN : CLASS_VISIBLE,
+			"ApkPermissionsList": asList(perms),
 			
 			"AppDeviceFamily": "Android",
-			"AppSDK": resolveSDK(appPlist["sdkVerTarget"] as? String),
-			"AppMinOS": resolveSDK(appPlist["sdkVerMin"] as? String),
+			"AppSDK": resolveSDK(manifest.sdkVerTarget),
+			"AppMinOS": resolveSDK(manifest.sdkVerMin),
 		])
 	}
 }

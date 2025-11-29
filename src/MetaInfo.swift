@@ -88,12 +88,12 @@ struct MetaInfo {
 	}
 	
 	/// Read app default `Info.plist`. (used for both, Preview and Thumbnail)
-	func readPlistApp(iconOnly: Bool = false) -> PlistDict? {
+	func readPlistApp() -> PlistDict? {
 		switch self.type {
 		case .IPA, .Archive, .Extension:
 			return self.readPayloadFile("Info.plist", osxSubdir: nil)?.asPlistOrNil()
 		case .APK:
-			return iconOnly ? self.readApkIconOnly() : self.readApkManifest()
+			return nil // not applicable for Android
 		}
 	}
 }

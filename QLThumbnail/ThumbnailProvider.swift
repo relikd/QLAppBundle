@@ -16,16 +16,9 @@ extension QLThumbnailReply {
 }
 
 class ThumbnailProvider: QLThumbnailProvider {
-	
-	// TODO: sadly, this does not seem to work for .xcarchive and .appex
-	// Probably overwritten by Apple somehow
-	
 	override func provideThumbnail(for request: QLFileThumbnailRequest, _ handler: @escaping (QLThumbnailReply?, Error?) -> Void) {
 		let meta = MetaInfo(request.fileURL)
-		guard let appPlist = meta.readPlistApp(iconOnly: true) else {
-			return
-		}
-		let img = AppIcon(meta).extractImage(from: appPlist).withRoundCorners()
+		let img = AppIcon(meta).extractImageForThumbnail().withRoundCorners()
 		
 		// First way: Draw the thumbnail into the current context, set up with UIKit's coordinate system.
 		let reply = QLThumbnailReply(contextSize: request.maximumSize, currentContextDrawing: { () -> Bool in
