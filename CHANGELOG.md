@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project does adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [1.4.0] – 2025-11-29
+Added:
+- Support for `.apk` files
+- Support for `.apkm` files
+
+
 ## [1.3.0] – 2025-11-06
 Added:
 - Show macOS apps in `.xcarchive`
@@ -37,6 +43,7 @@ Added:
 Initial release
 
 
+[1.4.0]: https://github.com/relikd/QLAppBundle/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/relikd/QLAppBundle/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/relikd/QLAppBundle/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/relikd/QLAppBundle/compare/v1.0.0...v1.1.0
