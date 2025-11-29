@@ -1038,7 +1038,7 @@
 			repositoryURL = "https://github.com/relikd/AndroidXML";
 			requirement = {
 				kind = exactVersion;
-				version = 1.4.0;
+				version = 0.9.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
