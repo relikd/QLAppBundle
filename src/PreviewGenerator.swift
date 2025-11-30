@@ -73,7 +73,7 @@ struct PreviewGenerator {
 	/// prepare html, replace values
 	func generate(template html: String, css: String) -> String {
 		let templateValues = data.merging(["CSS": css]) { (_, new) in new }
-		return html.regexReplace("__([^ _]{1,40}?)__") { templateValues[$0] }
+		return html.regexReplace("\\{\\{([^ }]{1,40}?)\\}\\}") { templateValues[$0] }
 	}
 }
 
@@ -94,6 +94,7 @@ extension String {
 			if let value = fn(key) {
 				rv.append(value)
 			} else {
+				// do not append anything -> removes all template keys from template
 				// os_log(.debug, log: log, "unknown template key: %{public}@", key)
 			}
 		})

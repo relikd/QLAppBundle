@@ -2,100 +2,100 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<style>__CSS__</style>
+	<style>{{CSS}}</style>
 </head>
 <body>
-	<h1>__QuickLookTitle__</h1>
+	<h1>{{QuickLookTitle}}</h1>
 	
-	<div class="app __AppInfoHidden__">
-		<div class="floatLeft icon"><img alt="App icon" src="data:image/png;base64,__AppIcon__"/></div>
+	<div class="app {{AppInfoHidden}}">
+		<div class="floatLeft icon"><img alt="App icon" src="data:image/png;base64,{{AppIcon}}"/></div>
 		<div class="floatLeft info">
-			Name: <strong>__AppName__</strong><br />
-			Version: __AppVersion__ (__AppBuildVer__)<br />
-			BundleId: __AppId__<br />
-			<div class="__AppExtensionTypeHidden__">
-				Extension type: __AppExtensionType__<br />
+			Name: <strong>{{AppName}}</strong><br />
+			Version: {{AppVersion}} ({{AppBuildVer}})<br />
+			BundleId: {{AppId}}<br />
+			<div class="{{AppExtensionTypeHidden}}">
+				Extension type: {{AppExtensionType}}<br />
 			</div>
-			DeviceFamily: __AppDeviceFamily__<br />
-			SDK: __AppSDK__<br />
-			Minimum OS Version: __AppMinOS__<br />
+			DeviceFamily: {{AppDeviceFamily}}<br />
+			SDK: {{AppSDK}}<br />
+			Minimum OS Version: {{AppMinOS}}<br />
 		</div>
 		<br class="clear" />
 	</div>
 	
-	<div class="not-__AppInfoHidden__">
+	<div class="not-{{AppInfoHidden}}">
 		Could not find any Info.plist
 	</div>
 	
-	<div class="__ArchiveHidden__">
+	<div class="{{ArchiveHidden}}">
 		<h2>Archive Notes</h2>
-		<pre>__ArchiveComment__</pre>
+		<pre>{{ArchiveComment}}</pre>
 	</div>
 	
-	<div class="__iTunesHidden__">
+	<div class="{{iTunesHidden}}">
 		<h2>iTunes Metadata</h2>
-		iTunesId: __iTunesId__<br />
-		Title: __iTunesName__<br />
-		Genres: __iTunesGenres__<br />
-		Released: __iTunesReleaseDate__<br />
+		iTunesId: {{iTunesId}}<br />
+		Title: {{iTunesName}}<br />
+		Genres: {{iTunesGenres}}<br />
+		Released: {{iTunesReleaseDate}}<br />
 		<br />
-		AppleId: __iTunesAppleId__<br />
-		Purchased: __iTunesPurchaseDate__<br />
-		Price: __iTunesPrice__<br />
+		AppleId: {{iTunesAppleId}}<br />
+		Purchased: {{iTunesPurchaseDate}}<br />
+		Price: {{iTunesPrice}}<br />
 	</div>
 	
-	<div class="__TransportSecurityHidden__">
+	<div class="{{TransportSecurityHidden}}">
 		<h2>App Transport Security</h2>
-		__TransportSecurityDict__
+		{{TransportSecurityDict}}
 	</div>
 	
-	<div class="__EntitlementsHidden__">
+	<div class="{{EntitlementsHidden}}">
 		<h2>Entitlements</h2>
-		<div class="warning __EntitlementsWarningHidden__">
+		<div class="warning {{EntitlementsWarningHidden}}">
 			<strong>Entitlements extraction failed.</strong>
 		</div>
-		__EntitlementsDict__
+		{{EntitlementsDict}}
 	</div>
 	
-	<div class="__ProvisionHidden__">
+	<div class="{{ProvisionHidden}}">
 		<h2>Provisioning</h2>
-		Profile name: <strong>__ProvisionProfileName__</strong><br />
-		Profile UUID: __ProvisionProfileId__<br />
-		Profile Type: __ProvisionProfilePlatform__ __ProvisionProfileType__<br />
-		Team: __ProvisionTeamName__ (__ProvisionTeamIds__)<br />
-		Creation date: __ProvisionCreateDate__<br />
-		Expiration Date: <strong><span class="__ProvisionExpireStatus__">__ProvisionExpireDate__</span></strong><br />
+		Profile name: <strong>{{ProvisionProfileName}}</strong><br />
+		Profile UUID: {{ProvisionProfileId}}<br />
+		Profile Type: {{ProvisionProfilePlatform}} {{ProvisionProfileType}}<br />
+		Team: {{ProvisionTeamName}} ({{ProvisionTeamIds}})<br />
+		Creation date: {{ProvisionCreateDate}}<br />
+		Expiration Date: <strong><span class="{{ProvisionExpireStatus}}">{{ProvisionExpireDate}}</span></strong><br />
 		
 		<h2>Developer Certificates</h2>
-		__ProvisionDevelopCertificates__
+		{{ProvisionDevelopCertificates}}
 		
-		<h2>Devices (__ProvisionDeviceCount__)</h2>
-		__ProvisionDeviceIds__
+		<h2>Devices ({{ProvisionDeviceCount}})</h2>
+		{{ProvisionDeviceIds}}
 	</div>
 	
-	<div class="__ApkFeaturesRequiredHidden__">
+	<div class="{{ApkFeaturesRequiredHidden}}">
 		<h2>Features (required)</h2>
-		__ApkFeaturesRequiredList__
+		{{ApkFeaturesRequiredList}}
 	</div>
 	
-	<div class="__ApkFeaturesOptionalHidden__">
+	<div class="{{ApkFeaturesOptionalHidden}}">
 		<h2>Features (optional)</h2>
-		__ApkFeaturesOptionalList__
+		{{ApkFeaturesOptionalList}}
 	</div>
 	
-	<div class="__ApkPermissionsHidden__">
+	<div class="{{ApkPermissionsHidden}}">
 		<h2>Permissions</h2>
-		__ApkPermissionsList__
+		{{ApkPermissionsList}}
 	</div>
 	
 	<div>
 		<h2>File info</h2>
-		__FileName__<br />
-		__FileSize__, Modified __FileModified__<br />
+		{{FileName}}<br />
+		{{FileSize}}, Modified {{FileModified}}<br />
 	</div>
 	
 	<div class="footer">
-		<p>__SrcAppName__ v__SrcVersion__ (__SrcBuildVer__) (Github: <a href="__SrcLinkUrl__">__SrcLinkName__</a>)</p>
+		<p>{{SrcAppName}} v{{SrcVersion}} ({{SrcBuildVer}}) (Github: <a href="{{SrcLinkUrl}}">{{SrcLinkName}}</a>)</p>
 	</div>
 </body>
 </html>
