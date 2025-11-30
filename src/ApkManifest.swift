@@ -2,9 +2,10 @@ import Foundation
 import AndroidXML
 import os // OSLog
 
-private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "MetaInfo+Apk")
+private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "ApkManifest")
 
-/// Representation of `AndroidManifest.xml`
+/// Representation of `AndroidManifest.xml`.
+/// See: <https://developer.android.com/guide/topics/manifest/manifest-element>
 struct ApkManifest {
 	var packageId: String? = nil
 	var appName: String? = nil
