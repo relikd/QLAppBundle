@@ -26,22 +26,22 @@ struct PreviewGenerator {
 		
 		switch meta.type {
 		case .IPA, .Archive, .Extension:
-			guard let plistApp = meta.readPlistApp() else {
+			guard let plistApp = meta.readPlist_Info() else {
 				throw RuntimeError("Info.plist not found")
 			}
-			procAppInfoApple(plistApp, isOSX: meta.isOSX)
+			procAppInfoApple(plistApp)
 			if meta.type == .IPA {
-				procItunesMeta(meta.readPlistItunes())
+				procItunesMeta(meta.readPlist_iTunesMetadata())
 			} else if meta.type == .Archive {
 				procArchiveInfo(meta.readPlistXCArchive())
 			}
 			procTransportSecurity(plistApp)
 			
-			let plistProvision = meta.readPlistProvision()
+			let plistProvision = meta.readPlist_MobileProvision()
 			procEntitlements(meta, plistApp, plistProvision)
-			procProvision(plistProvision, isOSX: meta.isOSX)
+			procProvision(plistProvision)
 			// App Icon (last, because the image uses a lot of memory)
-			data["AppIcon"] = AppIcon(meta).extractImage(from: plistApp).withRoundCorners().asBase64()
+			data["AppIcon"] = AppIcon(meta).extractImage(from: plistApp.icons).withRoundCorners().asBase64()
 			
 		case .APK:
 			guard let manifest = meta.readApkManifest() else {

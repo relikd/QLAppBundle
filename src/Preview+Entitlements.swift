@@ -22,9 +22,9 @@ extension PreviewGenerator {
 	}
 	
 	/// Process compiled binary and provision plist to extract `Entitlements`
-	mutating func procEntitlements(_ meta: MetaInfo, _ appPlist: PlistDict?, _ provisionPlist: PlistDict?) {
-		var entitlements = readEntitlements(meta, appPlist?["CFBundleExecutable"] as? String)
-		entitlements.applyFallbackIfNeeded(provisionPlist?["Entitlements"] as? PlistDict)
+	mutating func procEntitlements(_ meta: MetaInfo, _ appPlist: Plist_Info?, _ provisionPlist: Plist_MobileProvision?) {
+		var entitlements = readEntitlements(meta, appPlist?.exePath)
+		entitlements.applyFallbackIfNeeded(provisionPlist?.entitlements)
 		
 		if entitlements.html == nil && !entitlements.hasError {
 			return

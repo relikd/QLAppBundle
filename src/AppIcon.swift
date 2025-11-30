@@ -17,7 +17,7 @@ struct AppIcon {
 	func extractImageForThumbnail() -> NSImage {
 		switch meta.type {
 		case .IPA, .Archive, .Extension:
-			extractImage(from: meta.readPlistApp())
+			extractImage(from: meta.readPlist_Icon()?.filenames)
 		case .APK:
 			extractImage(from: meta.readApkIconOnly())
 		}
@@ -33,7 +33,7 @@ struct AppIcon {
 	
 	/// Try multiple methods to extract image.
 	/// This method will always return an image even if none is found, in which case it returns the default image.
-	func extractImage(from appPlist: PlistDict?) -> NSImage {
+	func extractImage(from plistIcons: [String]?) -> NSImage {
 		// no need to unwrap the plist, and most .ipa should include the Artwork anyway
 		if meta.type == .IPA {
 			if let data = meta.zipFile!.unzipFile("iTunesArtwork") {
@@ -44,7 +44,7 @@ struct AppIcon {
 		}
 		
 		// Extract image name from app plist
-		var plistImgNames = (appPlist == nil) ? [] : iconNamesFromPlist(appPlist!)
+		var plistImgNames = plistIcons ?? []
 		os_log(.debug, log: log, "[icon] icon names in plist: %{public}@", plistImgNames)
 		
 		// If no previous filename works (or empty), try default icon names
@@ -90,33 +90,6 @@ struct AppIcon {
 // MARK: - Plist
 
 extension AppIcon {
-	/// Parse app plist to find the bundle icon filename.
-	/// @param appPlist If `nil`, will load plist on the fly (used for thumbnail)
-	/// @return Filenames which do not necessarily exist on filesystem. This may include `@2x` and/or no file extension.
-	private func iconNamesFromPlist(_ appPlist: PlistDict) -> [String] {
-		// Check for CFBundleIcons (since 5.0)
-		if let icons = unpackNameListFromPlistDict(appPlist["CFBundleIcons"]), !icons.isEmpty {
-			return icons
-		}
-		// iPad-only apps
-		if let icons = unpackNameListFromPlistDict(appPlist["CFBundleIcons~ipad"]), !icons.isEmpty {
-			return icons
-		}
-		// Check for CFBundleIconFiles (since 3.2)
-		if let icons = appPlist["CFBundleIconFiles"] as? [String], !icons.isEmpty {
-			return icons
-		}
-		// key found on iTunesU app
-		if let icons = appPlist["Icon files"] as? [String], !icons.isEmpty {
-			return icons
-		}
-		// Check for CFBundleIconFile (legacy, before 3.2)
-		if let icon = appPlist["CFBundleIconFile"] as? String { // may be nil
-			return [icon]
-		}
-		return []
-	}
-	
 	/// Given a filename, search Bundle or Filesystem for files that match. Select the filename with the highest resolution.
 	private func expandImageName(_ iconList: [String]) -> String? {
 		var matches: [String] = []
@@ -160,21 +133,6 @@ extension AppIcon {
 			}
 		}
 		return matches.isEmpty ? nil : sortedByResolution(matches).first
-	}
-	
-	/// Deep select icons from plist key `CFBundleIcons` and `CFBundleIcons~ipad`
-	private func unpackNameListFromPlistDict(_ bundleDict: Any?) -> [String]? {
-		if let bundleDict = bundleDict as? PlistDict {
-			if let primaryDict = bundleDict["CFBundlePrimaryIcon"] as? PlistDict {
-				if let icons = primaryDict["CFBundleIconFiles"] as? [String] {
-					return icons
-				}
-				if let name = primaryDict["CFBundleIconName"] as? String { // key found on a .tipa file
-					return [name]
-				}
-			}
-		}
-		return nil
 	}
 
 	/// @return lower index means higher resolution.

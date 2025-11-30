@@ -43,8 +43,8 @@ private func recursiveTransportSecurity(_ dictionary: PlistDict, _ level: Int = 
 
 extension PreviewGenerator {
 	/// Process ATS info in `Info.plist`
-	mutating func procTransportSecurity(_ appPlist: PlistDict?) {
-		guard let value = appPlist?["NSAppTransportSecurity"] as? PlistDict else {
+	mutating func procTransportSecurity(_ appPlist: Plist_Info?) {
+		guard let value = appPlist?.transportSecurity else {
 			return
 		}
 		

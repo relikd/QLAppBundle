@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		5405CF5E2EA1199B00613856 /* MetaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405CF5D2EA1199B00613856 /* MetaInfo.swift */; };
 		5405CF652EA1376B00613856 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405CF642EA1376B00613856 /* Zip.swift */; };
-		540B77D92ED79BBD009E030C /* MetaInfo+Apk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B77D82ED79BB2009E030C /* MetaInfo+Apk.swift */; };
-		540B77DA2ED79C6B009E030C /* MetaInfo+Apk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B77D82ED79BB2009E030C /* MetaInfo+Apk.swift */; };
+		540B77D92ED79BBD009E030C /* ApkManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B77D82ED79BB2009E030C /* ApkManifest.swift */; };
+		540B77DA2ED79C6B009E030C /* ApkManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B77D82ED79BB2009E030C /* ApkManifest.swift */; };
 		540B77DC2ED79CC1009E030C /* AndroidXML in Frameworks */ = {isa = PBXBuildFile; productRef = 540B77DB2ED79CC1009E030C /* AndroidXML */; };
 		540B77DE2ED79CC8009E030C /* AndroidXML in Frameworks */ = {isa = PBXBuildFile; productRef = 540B77DD2ED79CC8009E030C /* AndroidXML */; };
 		5412DECE2EBC168600F9040D /* Preview+ArchiveInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5412DECD2EBC168600F9040D /* Preview+ArchiveInfo.swift */; };
@@ -41,6 +41,12 @@
 		547F52F42EB2CA05002B6D5F /* Preview+Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52F32EB2CA05002B6D5F /* Preview+Entitlements.swift */; };
 		547F52F72EB2CAC7002B6D5F /* Preview+Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52F62EB2CAC7002B6D5F /* Preview+Footer.swift */; };
 		547F52F92EB2CBAB002B6D5F /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F52F82EB2CBAB002B6D5F /* Date+Format.swift */; };
+		54993B882EDB9AA1008B656D /* Plist+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54993B872EDB9A9B008B656D /* Plist+Info.swift */; };
+		54993B8A2EDBA596008B656D /* Plist+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54993B892EDBA596008B656D /* Plist+Icon.swift */; };
+		54993B8B2EDBA75A008B656D /* Plist+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54993B892EDBA596008B656D /* Plist+Icon.swift */; };
+		54993B932EDBB41D008B656D /* Plist+iTunesMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54993B922EDBB419008B656D /* Plist+iTunesMetadata.swift */; };
+		54993B952EDBC819008B656D /* Plist+MobileProvision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54993B942EDBC813008B656D /* Plist+MobileProvision.swift */; };
+		54993B972EDC7C65008B656D /* Provisioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54993B962EDC7C61008B656D /* Provisioning.swift */; };
 		549E3B9F2EBA9D2500ADFF56 /* QLAppBundle Preview Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54442C202E378BAF008A870E /* QLAppBundle Preview Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		549E3BA12EBAE7D300ADFF56 /* URL+File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549E3BA02EBAE7D300ADFF56 /* URL+File.swift */; };
 		549E3BA22EBAECD400ADFF56 /* URL+File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549E3BA02EBAE7D300ADFF56 /* URL+File.swift */; };
@@ -130,7 +136,7 @@
 /* Begin PBXFileReference section */
 		5405CF5D2EA1199B00613856 /* MetaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaInfo.swift; sourceTree = "<group>"; };
 		5405CF642EA1376B00613856 /* Zip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zip.swift; sourceTree = "<group>"; };
-		540B77D82ED79BB2009E030C /* MetaInfo+Apk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MetaInfo+Apk.swift"; sourceTree = "<group>"; };
+		540B77D82ED79BB2009E030C /* ApkManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApkManifest.swift; sourceTree = "<group>"; };
 		5412DECD2EBC168600F9040D /* Preview+ArchiveInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+ArchiveInfo.swift"; sourceTree = "<group>"; };
 		5412DECF2EBC283000F9040D /* RuntimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeError.swift; sourceTree = "<group>"; };
 		54352E8A2EB6A79A0082F61D /* AssetCarReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AssetCarReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +166,11 @@
 		547F52F82EB2CBAB002B6D5F /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
 		547F52FB2EB37F10002B6D5F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		547F52FC2EB37F3A002B6D5F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		54993B872EDB9A9B008B656D /* Plist+Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plist+Info.swift"; sourceTree = "<group>"; };
+		54993B892EDBA596008B656D /* Plist+Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plist+Icon.swift"; sourceTree = "<group>"; };
+		54993B922EDBB419008B656D /* Plist+iTunesMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plist+iTunesMetadata.swift"; sourceTree = "<group>"; };
+		54993B942EDBC813008B656D /* Plist+MobileProvision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plist+MobileProvision.swift"; sourceTree = "<group>"; };
+		54993B962EDC7C61008B656D /* Provisioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provisioning.swift; sourceTree = "<group>"; };
 		549E3B9E2EBA8FDA00ADFF56 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		549E3BA02EBAE7D300ADFF56 /* URL+File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+File.swift"; sourceTree = "<group>"; };
 		549E3BA32EBC021500ADFF56 /* Preview+TransportSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+TransportSecurity.swift"; sourceTree = "<group>"; };
@@ -222,10 +233,15 @@
 			isa = PBXGroup;
 			children = (
 				5405CF5D2EA1199B00613856 /* MetaInfo.swift */,
-				540B77D82ED79BB2009E030C /* MetaInfo+Apk.swift */,
 				5412DECF2EBC283000F9040D /* RuntimeError.swift */,
-				54D3A6EB2EA31B52001EF4F6 /* AppCategories.swift */,
 				54D3A6ED2EA39CC6001EF4F6 /* AppIcon.swift */,
+				54993B892EDBA596008B656D /* Plist+Icon.swift */,
+				54993B872EDB9A9B008B656D /* Plist+Info.swift */,
+				54993B922EDBB419008B656D /* Plist+iTunesMetadata.swift */,
+				54993B942EDBC813008B656D /* Plist+MobileProvision.swift */,
+				54993B962EDC7C61008B656D /* Provisioning.swift */,
+				540B77D82ED79BB2009E030C /* ApkManifest.swift */,
+				54D3A6EB2EA31B52001EF4F6 /* AppCategories.swift */,
 				5469E11C2EA5930C00D46CE7 /* Entitlements.swift */,
 				547F52DC2EB2C15D002B6D5F /* ExpirationStatus.swift */,
 				547F52E62EB2C41C002B6D5F /* PreviewGenerator.swift */,
@@ -552,20 +568,25 @@
 				54D3A6F02EA3F49F001EF4F6 /* NSBezierPath+RoundedRect.swift in Sources */,
 				547F52E42EB2C3D8002B6D5F /* Preview+iTunesPurchase.swift in Sources */,
 				547F52F72EB2CAC7002B6D5F /* Preview+Footer.swift in Sources */,
+				54993B8A2EDBA596008B656D /* Plist+Icon.swift in Sources */,
+				54993B972EDC7C65008B656D /* Provisioning.swift in Sources */,
 				5469E11D2EA5930C00D46CE7 /* Entitlements.swift in Sources */,
 				54442C792E378BE0008A870E /* PreviewViewController.swift in Sources */,
 				547F52EF2EB2C8E8002B6D5F /* Preview+Provisioning.swift in Sources */,
 				547F52DE2EB2C15D002B6D5F /* ExpirationStatus.swift in Sources */,
 				54D3A6EE2EA39CC6001EF4F6 /* AppIcon.swift in Sources */,
+				54993B952EDBC819008B656D /* Plist+MobileProvision.swift in Sources */,
 				547F52E82EB2C41C002B6D5F /* PreviewGenerator.swift in Sources */,
+				54993B882EDB9AA1008B656D /* Plist+Info.swift in Sources */,
 				547F52EB2EB2C672002B6D5F /* Preview+FileInfo.swift in Sources */,
 				547F52ED2EB2C822002B6D5F /* Preview+AppInfo.swift in Sources */,
 				549E3BA12EBAE7D300ADFF56 /* URL+File.swift in Sources */,
 				547F52F42EB2CA05002B6D5F /* Preview+Entitlements.swift in Sources */,
-				540B77D92ED79BBD009E030C /* MetaInfo+Apk.swift in Sources */,
+				540B77D92ED79BBD009E030C /* ApkManifest.swift in Sources */,
 				5405CF5E2EA1199B00613856 /* MetaInfo.swift in Sources */,
 				547F52F92EB2CBAB002B6D5F /* Date+Format.swift in Sources */,
 				54D3A6EC2EA31B52001EF4F6 /* AppCategories.swift in Sources */,
+				54993B932EDBB41D008B656D /* Plist+iTunesMetadata.swift in Sources */,
 				5405CF652EA1376B00613856 /* Zip.swift in Sources */,
 				5412DED02EBC283000F9040D /* RuntimeError.swift in Sources */,
 			);
@@ -581,7 +602,8 @@
 				54AE5BFF2EB3DB1000B4CFC7 /* ThumbnailProvider.swift in Sources */,
 				549E3BA22EBAECD400ADFF56 /* URL+File.swift in Sources */,
 				547899752EB38F3D00F96B80 /* AppIcon.swift in Sources */,
-				540B77DA2ED79C6B009E030C /* MetaInfo+Apk.swift in Sources */,
+				540B77DA2ED79C6B009E030C /* ApkManifest.swift in Sources */,
+				54993B8B2EDBA75A008B656D /* Plist+Icon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

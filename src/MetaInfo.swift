@@ -85,16 +85,6 @@ struct MetaInfo {
 			return try? Data(contentsOf: self.effectiveUrl(osxSubdir, filename))
 		}
 	}
-	
-	/// Read app default `Info.plist`. (used for both, Preview and Thumbnail)
-	func readPlistApp() -> PlistDict? {
-		switch self.type {
-		case .IPA, .Archive, .Extension:
-			return self.readPayloadFile("Info.plist", osxSubdir: nil)?.asPlistOrNil()
-		case .APK:
-			return nil // not applicable for Android
-		}
-	}
 }
 
 
