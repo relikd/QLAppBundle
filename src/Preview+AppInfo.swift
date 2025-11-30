@@ -20,7 +20,7 @@ extension PreviewGenerator {
 	}
 	
 	/// Process info stored in `AndroidManifest.xml`
-	mutating func procAppInfoAndroid(_ manifest: ApkManifest) {
+	mutating func procAppInfoAndroid(_ manifest: Apk_Manifest) {
 		let featReq = manifest.featuresRequired
 		let featOpt = manifest.featuresOptional
 		let perms = manifest.permissions

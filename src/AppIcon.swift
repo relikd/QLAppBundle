@@ -19,13 +19,13 @@ struct AppIcon {
 		case .IPA, .Archive, .Extension:
 			extractImage(from: meta.readPlist_Icon()?.filenames)
 		case .APK:
-			extractImage(from: meta.readApkIconOnly())
+			extractImage(from: meta.readApk_Icon())
 		}
 	}
 	
 	/// Extract image from Android app bundle.
-	func extractImage(from manifest: ApkManifest?) -> NSImage {
-		if let data = manifest?.appIconData, let img = NSImage(data: data) {
+	func extractImage(from apkIcon: Apk_Icon?) -> NSImage {
+		if let data = apkIcon?.data, let img = NSImage(data: data) {
 			return img
 		}
 		return defaultIcon()

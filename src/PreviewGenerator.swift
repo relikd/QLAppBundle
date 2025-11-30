@@ -44,12 +44,12 @@ struct PreviewGenerator {
 			data["AppIcon"] = AppIcon(meta).extractImage(from: plistApp.icons).withRoundCorners().asBase64()
 			
 		case .APK:
-			guard let manifest = meta.readApkManifest() else {
+			guard let manifest = meta.readApk_Manifest() else {
 				throw RuntimeError("AndroidManifest.xml not found")
 			}
 			procAppInfoAndroid(manifest)
 			// App Icon (last, because the image uses a lot of memory)
-			data["AppIcon"] = AppIcon(meta).extractImage(from: manifest).withRoundCorners().asBase64()
+			data["AppIcon"] = AppIcon(meta).extractImage(from: manifest.icon).withRoundCorners().asBase64()
 		}
 		
 		data["QuickLookTitle"] = stringForFileType(meta)
