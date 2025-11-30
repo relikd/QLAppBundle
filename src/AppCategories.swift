@@ -1,5 +1,3 @@
-import Foundation
-
 /*
  #!/usr/bin/env python3
  # download: https://itunes.apple.com/WebObjects/MZStoreServices.woa/ws/genres

@@ -13,8 +13,8 @@ struct ApkManifest {
 	var appIconData: Data? = nil
 	var versionName: String? = nil
 	var versionCode: String? = nil
-	var sdkVerMin: String? = nil
-	var sdkVerTarget: String? = nil
+	var sdkVerMin: Int? = nil
+	var sdkVerTarget: Int? = nil
 	
 	var featuresRequired: [String] = []
 	var featuresOptional: [String] = []
@@ -122,8 +122,8 @@ private class ApkXmlManifestParser: NSObject, XMLParserDelegate {
 			}
 		case "uses-sdk":
 			if _scope == ["manifest"] {
-				result.sdkVerMin = attrs["android:minSdkVersion"] ?? "1" // "21"
-				result.sdkVerTarget = attrs["android:targetSdkVersion"] // "35"
+				result.sdkVerMin = Int(attrs["android:minSdkVersion"] ?? "1") // "21"
+				result.sdkVerTarget = Int(attrs["android:targetSdkVersion"] ?? "-1") // "35"
 			}
 		default: break // ignore
 		}
