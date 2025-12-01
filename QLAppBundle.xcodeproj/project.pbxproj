@@ -239,21 +239,20 @@
 		541051562E37AFC10083670B /* src */ = {
 			isa = PBXGroup;
 			children = (
-				5405CF5D2EA1199B00613856 /* MetaInfo.swift */,
+				543899122EDD0F38007C02FC /* Common */,
+				543899112EDD0EE2007C02FC /* Data - Android */,
+				543899102EDD0ED1007C02FC /* Data - Apple */,
+				5438990F2EDD0EA1007C02FC /* Preview */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		5438990F2EDD0EA1007C02FC /* Preview */ = {
+			isa = PBXGroup;
+			children = (
 				5412DECF2EBC283000F9040D /* RuntimeError.swift */,
-				54D3A6ED2EA39CC6001EF4F6 /* AppIcon.swift */,
-				54993B892EDBA596008B656D /* Plist+Icon.swift */,
-				54993B872EDB9A9B008B656D /* Plist+Info.swift */,
-				54993B922EDBB419008B656D /* Plist+iTunesMetadata.swift */,
-				54993B942EDBC813008B656D /* Plist+MobileProvision.swift */,
-				54993B962EDC7C61008B656D /* Provisioning.swift */,
-				5469E11C2EA5930C00D46CE7 /* Entitlements.swift */,
-				54D3A6EB2EA31B52001EF4F6 /* AppCategories.swift */,
-				54CCF59D2EDC9A6800D766F9 /* AndroidSdkMap.swift */,
-				543899072EDCA223007C02FC /* Apk.swift */,
-				5438990A2EDCA27F007C02FC /* Apk+Icon.swift */,
-				540B77D82ED79BB2009E030C /* Apk+Manifest.swift */,
 				547F52DC2EB2C15D002B6D5F /* ExpirationStatus.swift */,
+				547F52F82EB2CBAB002B6D5F /* Date+Format.swift */,
 				547F52E62EB2C41C002B6D5F /* PreviewGenerator.swift */,
 				547F52EC2EB2C822002B6D5F /* Preview+AppInfo.swift */,
 				5412DECD2EBC168600F9040D /* Preview+ArchiveInfo.swift */,
@@ -263,12 +262,45 @@
 				547F52EE2EB2C8E8002B6D5F /* Preview+Provisioning.swift */,
 				547F52E92EB2C672002B6D5F /* Preview+FileInfo.swift */,
 				547F52F62EB2CAC7002B6D5F /* Preview+Footer.swift */,
-				5405CF642EA1376B00613856 /* Zip.swift */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
+		543899102EDD0ED1007C02FC /* Data - Apple */ = {
+			isa = PBXGroup;
+			children = (
+				54D3A6EB2EA31B52001EF4F6 /* AppCategories.swift */,
+				54993B892EDBA596008B656D /* Plist+Icon.swift */,
+				54993B872EDB9A9B008B656D /* Plist+Info.swift */,
+				54993B922EDBB419008B656D /* Plist+iTunesMetadata.swift */,
+				54993B942EDBC813008B656D /* Plist+MobileProvision.swift */,
+				54993B962EDC7C61008B656D /* Provisioning.swift */,
+				5469E11C2EA5930C00D46CE7 /* Entitlements.swift */,
+			);
+			path = "Data - Apple";
+			sourceTree = "<group>";
+		};
+		543899112EDD0EE2007C02FC /* Data - Android */ = {
+			isa = PBXGroup;
+			children = (
+				54CCF59D2EDC9A6800D766F9 /* AndroidSdkMap.swift */,
+				543899072EDCA223007C02FC /* Apk.swift */,
+				5438990A2EDCA27F007C02FC /* Apk+Icon.swift */,
+				540B77D82ED79BB2009E030C /* Apk+Manifest.swift */,
+			);
+			path = "Data - Android";
+			sourceTree = "<group>";
+		};
+		543899122EDD0F38007C02FC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5405CF5D2EA1199B00613856 /* MetaInfo.swift */,
+				54D3A6ED2EA39CC6001EF4F6 /* AppIcon.swift */,
 				549E3BA02EBAE7D300ADFF56 /* URL+File.swift */,
 				54D3A6EF2EA3F49F001EF4F6 /* NSBezierPath+RoundedRect.swift */,
-				547F52F82EB2CBAB002B6D5F /* Date+Format.swift */,
+				5405CF642EA1376B00613856 /* Zip.swift */,
 			);
-			path = src;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		54442BEB2E378B71008A870E = {
