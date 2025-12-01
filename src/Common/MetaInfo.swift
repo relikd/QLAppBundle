@@ -47,6 +47,10 @@ struct MetaInfo {
 			}
 		case "com.apple.application-and-system-extension":
 			self.type = FileType.Extension
+			if let bundleDir = recursiveSearchInfoPlist(url) {
+				isOSX = bundleDir.appendingPathComponent("MacOS").exists() && bundleDir.lastPathComponent == "Contents"
+				effective = bundleDir
+			}
 		case "com.google.android.apk", "dyn.ah62d4rv4ge80c6dp" /* apk */, "public.archive.apk", "dyn.ah62d4rv4ge80c6dpry" /* apkm */:
 			self.type = FileType.APK
 			zipFile = ZipFile(self.url.path)
