@@ -9,7 +9,6 @@
 			<key>QLSupportedContentTypes</key>
 			<array>
 				<string>com.apple.itunes.ipa</string>
-				<string>com.apple.application-and-system-extension</string>
 				<string>com.apple.xcode.archive</string>
 				<string>com.opa334.trollstore.tipa</string>
 				<string>dyn.ah62d4rv4ge81k4puqe</string>
