@@ -37,10 +37,11 @@ Also, I've removed support for provisioning profiles (`.mobileprovision`, `.prov
 ### Customize HTML / CSS
 
 1. Right click on the app and select "Show Package Contents"
-2. Copy `Contents/Resources/template.html` (or `style.css`)
-3. Open `~/Library/Containers/de.relikd.QLAppBundle.Preview/Data/Documents/`
-4. Paste the previous file and modify it to your liking
-5. `QLAppBundle` will use the new file from now on
+2. Go to `PlugIns` and repeat "Show Package Contents" on the Preview extension.
+3. Copy `Contents/Resources/template.html` (or `style.css`)
+4. Open `~/Library/Containers/de.relikd.QLAppBundle.Preview/Data/Documents/`
+5. Paste the previous file and modify it to your liking
+6. `QLAppBundle` will use the new file from now on
 
 
 
